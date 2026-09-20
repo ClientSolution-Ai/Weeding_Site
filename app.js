@@ -123,6 +123,7 @@ function initRoyalDoorsExperience() {
   const doorsContainer = document.getElementById("doors-container");
   const openDoorsBtn = document.getElementById("open-doors-btn");
   const royalSeal = document.getElementById("royal-door-seal");
+  const replayDoorsBtn = document.getElementById("replay-doors-btn");
 
   if (!doorsScreen) return;
 
@@ -138,12 +139,32 @@ function initRoyalDoorsExperience() {
     // After door swing animation, unveil the single-screen website
     setTimeout(() => {
       doorsScreen.classList.add("opened");
-    }, 1400);
+    }, 1750);
   }
 
-  if (doorsContainer) doorsContainer.addEventListener("click", handleOpenDoors);
-  if (openDoorsBtn) openDoorsBtn.addEventListener("click", handleOpenDoors);
+  function handleReplayDoors() {
+    doorsScreen.classList.remove("opened");
+    // Reset opening state with a slight delay
+    setTimeout(() => {
+      doorsScreen.classList.remove("opening");
+    }, 50);
+  }
+
+  doorsScreen.addEventListener("click", handleOpenDoors);
+  if (doorsContainer) {
+    doorsContainer.addEventListener("click", handleOpenDoors);
+    doorsContainer.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        handleOpenDoors();
+      }
+    });
+  }
   if (royalSeal) royalSeal.addEventListener("click", handleOpenDoors);
+  if (replayDoorsBtn) replayDoorsBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    handleReplayDoors();
+  });
 }
 
 /* ==========================================================================
@@ -218,15 +239,32 @@ let isMusicPlaying = false;
 let synthTimer = null;
 let bgAudioElement = null;
 
-function initAudioSystem() {
+function updateMusicButtonUI(isPlaying) {
   const musicBtn = document.getElementById("floating-music-btn");
   const musicText = document.getElementById("music-pill-text");
+  const musicIcon = document.getElementById("music-play-pause-icon");
+  const musicConfig = (typeof WEDDING_CONFIG !== "undefined" && WEDDING_CONFIG.music) ? WEDDING_CONFIG.music : {};
+
+  if (isPlaying) {
+    if (musicBtn) musicBtn.classList.add("playing");
+    if (musicIcon) {
+      musicIcon.className = "fa-solid fa-pause";
+    }
+    if (musicText) musicText.textContent = musicConfig.playingTitle || "Pause Audio";
+  } else {
+    if (musicBtn) musicBtn.classList.remove("playing");
+    if (musicIcon) {
+      musicIcon.className = "fa-solid fa-play";
+    }
+    if (musicText) musicText.textContent = musicConfig.title || "Play Audio";
+  }
+}
+
+function initAudioSystem() {
+  const musicBtn = document.getElementById("floating-music-btn");
   if (!musicBtn) return;
 
-  const musicConfig = (typeof WEDDING_CONFIG !== "undefined" && WEDDING_CONFIG.music) ? WEDDING_CONFIG.music : {};
-  if (musicText) {
-    musicText.textContent = musicConfig.title || "Play Music";
-  }
+  updateMusicButtonUI(false);
 
   musicBtn.addEventListener("click", () => {
     if (isMusicPlaying) {
@@ -238,8 +276,6 @@ function initAudioSystem() {
 }
 
 function startBackgroundMusic() {
-  const musicBtn = document.getElementById("floating-music-btn");
-  const musicText = document.getElementById("music-pill-text");
   if (isMusicPlaying) return;
 
   const musicConfig = (typeof WEDDING_CONFIG !== "undefined" && WEDDING_CONFIG.music) ? WEDDING_CONFIG.music : {};
@@ -250,7 +286,7 @@ function startBackgroundMusic() {
       if (!bgAudioElement) {
         bgAudioElement = new Audio(musicConfig.audioUrl.trim());
         bgAudioElement.loop = musicConfig.loop !== false;
-        bgAudioElement.volume = musicConfig.volume !== undefined ? musicConfig.volume : 0.7;
+        bgAudioElement.volume = musicConfig.volume !== undefined ? musicConfig.volume : 0.8;
         bgAudioElement.addEventListener("ended", () => {
           if (!bgAudioElement.loop) {
             pauseBackgroundMusic();
@@ -263,8 +299,7 @@ function startBackgroundMusic() {
         playPromise
           .then(() => {
             isMusicPlaying = true;
-            if (musicBtn) musicBtn.classList.add("playing");
-            if (musicText) musicText.textContent = musicConfig.playingTitle || "Pause Music";
+            updateMusicButtonUI(true);
           })
           .catch((err) => {
             console.warn("Custom audio playback failed, falling back to Shehnai synth:", err);
@@ -272,8 +307,7 @@ function startBackgroundMusic() {
           });
       } else {
         isMusicPlaying = true;
-        if (musicBtn) musicBtn.classList.add("playing");
-        if (musicText) musicText.textContent = musicConfig.playingTitle || "Pause Music";
+        updateMusicButtonUI(true);
       }
       return;
     } catch (e) {
@@ -286,10 +320,6 @@ function startBackgroundMusic() {
 }
 
 function playSynthesizedShehnai() {
-  const musicBtn = document.getElementById("floating-music-btn");
-  const musicText = document.getElementById("music-pill-text");
-  const musicConfig = (typeof WEDDING_CONFIG !== "undefined" && WEDDING_CONFIG.music) ? WEDDING_CONFIG.music : {};
-
   try {
     if (!audioCtx) {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -301,10 +331,7 @@ function playSynthesizedShehnai() {
     }
 
     isMusicPlaying = true;
-    if (musicBtn) {
-      musicBtn.classList.add("playing");
-      if (musicText) musicText.textContent = musicConfig.playingTitle || "Pause Shehnai";
-    }
+    updateMusicButtonUI(true);
 
     playRaagYamanLoop();
   } catch (err) {
@@ -313,10 +340,6 @@ function playSynthesizedShehnai() {
 }
 
 function pauseBackgroundMusic() {
-  const musicBtn = document.getElementById("floating-music-btn");
-  const musicText = document.getElementById("music-pill-text");
-  const musicConfig = (typeof WEDDING_CONFIG !== "undefined" && WEDDING_CONFIG.music) ? WEDDING_CONFIG.music : {};
-
   isMusicPlaying = false;
   if (bgAudioElement) {
     try {
@@ -324,10 +347,7 @@ function pauseBackgroundMusic() {
     } catch (e) {}
   }
   if (synthTimer) clearTimeout(synthTimer);
-  if (musicBtn) {
-    musicBtn.classList.remove("playing");
-    if (musicText) musicText.textContent = musicConfig.title || "Play Music";
-  }
+  updateMusicButtonUI(false);
 }
 
 function playRoyalChime() {

@@ -36,92 +36,158 @@
   <!-- ========================================================================
        GRAND ROYAL PALACE DOORS (ENTRANCE EXPERIENCE)
        ======================================================================== -->
+  <!-- ========================================================================
+       GRAND ROYAL PALACE DOORS (ENTRANCE SCREEN - MATCHING REFERENCE UI)
+       ======================================================================== -->
   <div id="royal-doors-screen" class="royal-doors-screen">
-    <div class="palace-arch-frame">
-      <div class="doors-header-banner">
-        <p class="doors-shloka">॥ ॐ श्री गणेशाय नमः ॥</p>
-        <h2 class="doors-invitation-title">The Royal Wedding Invitation</h2>
-        <p class="doors-couple-names">Krishna &amp; Muskan</p>
+    
+    <!-- Deep Palace Architectural Vignette & Ambience -->
+    <div class="palace-bg-vignette"></div>
+
+    <!-- Side Pillar 1: Left Hanging Lamp, Garlands, Kalash & Banana Leaves -->
+    <div class="palace-decor-side decor-left" aria-hidden="true">
+      <div class="hanging-brass-lamp lamp-left">
+        <div class="lamp-chain"></div>
+        <div class="lamp-body">
+          <div class="lamp-flame"></div>
+        </div>
       </div>
+      <div class="floral-garland-drape garland-left"></div>
+      <div class="side-plant-kalash kalash-left">
+        <div class="banana-leaves"></div>
+        <div class="kalash-flowers"></div>
+        <div class="brass-kalash-pot"></div>
+      </div>
+      <div class="floor-diya-glow diya-left">
+        <div class="diya-flame-light"></div>
+      </div>
+    </div>
 
-      <!-- 3D Double Doors -->
-      <div id="doors-container" class="doors-container" title="Click to Open the Royal Doors">
-        <!-- Archway Toran / Top Crest -->
-        <div class="doors-arch-crest">
-          <div class="crest-ganesh-icon">ॐ</div>
-          <div class="crest-gold-pattern"></div>
+    <!-- Side Pillar 2: Right Hanging Lamp, Garlands, Kalash & Banana Leaves -->
+    <div class="palace-decor-side decor-right" aria-hidden="true">
+      <div class="hanging-brass-lamp lamp-right">
+        <div class="lamp-chain"></div>
+        <div class="lamp-body">
+          <div class="lamp-flame"></div>
+        </div>
+      </div>
+      <div class="floral-garland-drape garland-right"></div>
+      <div class="side-plant-kalash kalash-right">
+        <div class="banana-leaves"></div>
+        <div class="kalash-flowers"></div>
+        <div class="brass-kalash-pot"></div>
+      </div>
+      <div class="floor-diya-glow diya-right">
+        <div class="diya-flame-light"></div>
+      </div>
+    </div>
+
+    <!-- Central Palace Portal Container (Mobile-First 100vh / Full Viewport Fit) -->
+    <div class="royal-palace-stage">
+      
+      <!-- Palace Top Archway Header -->
+      <header class="royal-palace-header">
+        <div class="palace-om-crest">
+          <div class="crest-mandala-ring">
+            <span class="crest-om-icon">ॐ</span>
+          </div>
         </div>
 
-        <!-- Left Door Wing -->
-        <div class="door-wing door-left">
-          <div class="door-wood-texture">
-            <div class="door-inner-border">
-              <div class="door-ornate-panel top-panel">
-                <div class="door-mandala-motif"></div>
-              </div>
-              <div class="door-ornate-panel mid-panel">
-                <div class="door-handle-ring left-ring">
-                  <div class="brass-lion-mount"></div>
-                  <div class="brass-ring"></div>
+        <p class="palace-ganesh-shloka">॥ ॐ श्री गणेशाय नमः ॥</p>
+        
+        <div class="palace-header-divider">
+          <span class="h-line"></span>
+          <span class="h-heart">♡</span>
+          <span class="h-line"></span>
+        </div>
+
+        <h2 class="palace-invitation-subtitle">THE ROYAL WEDDING INVITATION</h2>
+        
+        <h1 class="palace-couple-names">
+          <span class="name-part">KRISHNA</span>
+          <span class="name-amp">&amp;</span>
+          <span class="name-part">MUSKAN</span>
+        </h1>
+        
+        <p class="palace-journey-tagline">TWO SOULS, ONE BEAUTIFUL JOURNEY</p>
+      </header>
+
+      <!-- 3D Double Royal Palace Doors -->
+      <div id="doors-container" class="royal-doors-viewport" role="button" tabindex="0" title="Tap or Click to Open Royal Palace Doors">
+        
+        <div class="palace-arch-moulding"></div>
+
+        <!-- Left Palace Door Wing -->
+        <div class="palace-door-leaf leaf-left">
+          <div class="door-panel-wood">
+            <div class="door-inner-carved-frame">
+              <!-- Top Arched Lotus Inlay -->
+              <div class="carved-section section-lotus">
+                <div class="lotus-arch-border">
+                  <div class="gold-lotus-motif"></div>
                 </div>
               </div>
-              <div class="door-ornate-panel bottom-panel">
-                <div class="door-mandala-motif"></div>
+              
+              <!-- Bottom Elephant Inlay (Gajraj facing inward/right) -->
+              <div class="carved-section section-elephant">
+                <div class="gold-elephant-motif elephant-right"></div>
               </div>
             </div>
-            <!-- Studded Brass Studs -->
-            <div class="stud stud-1"></div>
-            <div class="stud stud-2"></div>
-            <div class="stud stud-3"></div>
-            <div class="stud stud-4"></div>
+
+            <!-- Outer Column of Golden Studs/Rivets -->
+            <div class="door-studs-rail studs-rail-left">
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+            </div>
           </div>
         </div>
 
-        <!-- Right Door Wing -->
-        <div class="door-wing door-right">
-          <div class="door-wood-texture">
-            <div class="door-inner-border">
-              <div class="door-ornate-panel top-panel">
-                <div class="door-mandala-motif"></div>
-              </div>
-              <div class="door-ornate-panel mid-panel">
-                <div class="door-handle-ring right-ring">
-                  <div class="brass-lion-mount"></div>
-                  <div class="brass-ring"></div>
+        <!-- Right Palace Door Wing -->
+        <div class="palace-door-leaf leaf-right">
+          <div class="door-panel-wood">
+            <div class="door-inner-carved-frame">
+              <!-- Top Arched Lotus Inlay -->
+              <div class="carved-section section-lotus">
+                <div class="lotus-arch-border">
+                  <div class="gold-lotus-motif"></div>
                 </div>
               </div>
-              <div class="door-ornate-panel bottom-panel">
-                <div class="door-mandala-motif"></div>
+              
+              <!-- Bottom Elephant Inlay (Gajraj facing inward/left) -->
+              <div class="carved-section section-elephant">
+                <div class="gold-elephant-motif elephant-left"></div>
               </div>
             </div>
-            <!-- Studded Brass Studs -->
-            <div class="stud stud-1"></div>
-            <div class="stud stud-2"></div>
-            <div class="stud stud-3"></div>
-            <div class="stud stud-4"></div>
+
+            <!-- Outer Column of Golden Studs/Rivets -->
+            <div class="door-studs-rail studs-rail-right">
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+              <span class="door-stud"></span>
+            </div>
           </div>
         </div>
 
-        <!-- Center Royal Seal Monogram -->
-        <div id="royal-door-seal" class="royal-door-seal">
-          <div class="seal-glow-pulse"></div>
-          <div class="seal-inner-disc">
-            <span class="seal-om">卐</span>
-            <span class="seal-monogram">K &amp; M</span>
-            <span class="seal-sub">Shubh Vivah</span>
-          </div>
-        </div>
+        <!-- Central Divine Golden Light Seam -->
+        <div class="door-sanctum-light-beam"></div>
 
-        <!-- Grand Golden Light Burst Beam When Opening -->
+        <!-- Divine Flash Particle Aura when Opening -->
         <div class="door-light-burst"></div>
       </div>
 
-      <!-- Instruction Click Prompt -->
-      <div class="doors-open-prompt">
-        <button id="open-doors-btn" class="btn-open-doors">
-          <i class="fa-solid fa-door-open"></i> Tap or Click to Open Royal Palace Doors
-        </button>
-      </div>
+      <!-- Bottom Corner Ornate Mandalas -->
+      <div class="bottom-mandala-corner corner-bl"></div>
+      <div class="bottom-mandala-corner corner-br"></div>
+
     </div>
   </div>
 
@@ -131,29 +197,28 @@
        ======================================================================== -->
   <div id="main-scroll-app" class="main-scroll-app">
     
-    <!-- Floating Audio Control (Subtle corner pill) -->
-    <div class="floating-music-bar">
-      <button id="floating-music-btn" class="music-pill-btn" title="Toggle Shehnai / Music">
+    <!-- Top Right Floating Action: Play / Pause Audio & Palace Doors -->
+    <div class="floating-music-bar" id="floating-music-bar">
+      <button id="floating-music-btn" class="music-pill-btn" title="Play or Pause Wedding Audio" aria-label="Play or Pause Wedding Audio">
+        <i id="music-play-pause-icon" class="fa-solid fa-play"></i>
         <div class="audio-waves" aria-hidden="true">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
         </div>
-        <span id="music-pill-text">Play Jai Jai Ram</span>
+        <span id="music-pill-text">Play Audio</span>
+      </button>
+      <button id="replay-doors-btn" class="replay-pill-btn" title="View Royal Palace Doors Again">
+        <i class="fa-solid fa-door-closed"></i>
+        <span>Doors</span>
       </button>
     </div>
 
-    <!-- Outer Royal Card Container with Smooth Internal Scroll -->
+    <!-- Master Royal Scroll Viewport (Seamless Palace Background & Organized Text) -->
     <div class="royal-scroll-card">
-      
-      <!-- Ornate Gold Corner Filigrees -->
-      <div class="card-corner corner-top-left"></div>
-      <div class="card-corner corner-top-right"></div>
-      <div class="card-corner corner-bottom-left"></div>
-      <div class="card-corner corner-bottom-right"></div>
 
       <!-- ====================================================================
-           SECTION 1: VEDIC INVOCATION & GRAND ROYAL COUPLE HERO
+           SECTION 1: VEDIC INVOCATION & ROYAL WEDDING INVITATION (PURE TEXTUAL HIERARCHY)
            ==================================================================== -->
       <section class="scroll-section section-hero reveal-init in-view">
         <div class="hero-top-badge">
@@ -162,44 +227,52 @@
           <span class="hero-om">ॐ</span>
         </div>
 
-        <p class="hero-invitation-line">Together with their families, cordially invite you to celebrate the auspicious wedding of</p>
-
-        <!-- Couple Avatars Row -->
-        <div class="couple-avatars-row">
-          <div class="avatar-unit">
-            <div class="avatar-gold-frame">
-              <img src="assets/images/groom_portrait.jpg" alt="Krishna Kumar - The Groom">
-            </div>
-            <h2 class="avatar-title">Krishna Kumar</h2>
-            <span class="avatar-subtitle">The Groom</span>
-          </div>
-
-          <div class="avatar-center-knot">
-            <div class="knot-badge-box">
-              <span class="knot-swastik">卐</span>
-              <span class="knot-and">&amp;</span>
-              <span class="knot-hash">#KrishnaKiMuskan</span>
-            </div>
-          </div>
-
-          <div class="avatar-unit">
-            <div class="avatar-gold-frame">
-              <img src="assets/images/bride_portrait.jpg" alt="Kumari Muskan - The Bride">
-            </div>
-            <h2 class="avatar-title">Kumari Muskan</h2>
-            <span class="avatar-subtitle">The Bride</span>
-          </div>
+        <div class="hero-shloka-quote">
+          <p class="sanskrit-blessing">मंगलम् भगवान विष्णुः मंगलम् गरुडध्वजः ।<br>मंगलम् पुण्डरीकाक्षो मङ्गलाय तनो हरिः ॥</p>
         </div>
 
-        <!-- Grand Names & Tagline -->
-        <h1 class="grand-couple-names">Krishna <span class="script-amp">&amp;</span> Muskan</h1>
+        <div class="hero-family-invite">
+          <p class="family-host-line">Together with their families,</p>
+          <p class="family-parents-names">Smt. Sunita &amp; Shri Rajendra Singhania<br><span class="parents-sep">&amp;</span><br>Smt. Annu Prasad &amp; Shri Uday Shankar Prasad</p>
+          <p class="family-honor-line">cordially request the honour of your presence to celebrate the auspicious wedding of</p>
+        </div>
+
+        <!-- Royal Couple Text Columns (Organized & Regal) -->
+        <div class="textual-couple-container">
+          
+          <!-- Groom's Column -->
+          <div class="couple-text-card">
+            <span class="royal-role-badge">The Groom</span>
+            <h2 class="couple-royal-name">Krishna Kumar</h2>
+            <p class="couple-family-info">Son of Smt. Sunita &amp; Shri Rajendra Singhania</p>
+            <p class="couple-grand-info">Grandson of Late Smt. Kamala &amp; Late Shri Govind Singhania</p>
+          </div>
+
+          <!-- Auspicious Central Knot / Knot Badge -->
+          <div class="textual-knot-divider">
+            <div class="knot-swastik-glow">卐</div>
+            <span class="knot-weds-text">WEDS</span>
+            <div class="knot-hash-pill">#KrishnaKiMuskan</div>
+          </div>
+
+          <!-- Bride's Column -->
+          <div class="couple-text-card">
+            <span class="royal-role-badge">The Bride</span>
+            <h2 class="couple-royal-name">Kumari Muskan</h2>
+            <p class="couple-family-info">Daughter of Smt. Annu Prasad &amp; Shri Uday Shankar Prasad</p>
+            <p class="couple-grand-info">Granddaughter of Late Kamini Devi &amp; Late Sheo Nandan Prasad</p>
+          </div>
+
+        </div>
+
+        <!-- Auspicious Tagline -->
         <p class="hero-tagline">“Two Souls, One Royal Journey of Eternal Love”</p>
 
         <!-- Auspicious Date & Venue Badge -->
         <div class="hero-event-ribbon">
           <div class="ribbon-box"><i class="fa-regular fa-calendar-check"></i> Wednesday, 25th November 2026</div>
           <div class="ribbon-sep">•</div>
-          <div class="ribbon-box"><i class="fa-regular fa-clock"></i> 07:00 PM Onwards (Godhuli Bela)</div>
+          <div class="ribbon-box"><i class="fa-regular fa-clock"></i> 07:00 PM Onwards (Godhuli Bela | Shubh Vivah)</div>
           <div class="ribbon-sep">•</div>
           <div class="ribbon-box"><i class="fa-solid fa-location-dot"></i> Sangli Resort, Dhanbad</div>
         </div>
