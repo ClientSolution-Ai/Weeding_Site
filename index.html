@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krishna &amp; Muskan | Royal Wedding Invitation</title>
+
+  <!-- SEO & Social Sharing Meta Tags -->
+  <meta name="description"
+    content="You are cordially invited to celebrate the royal wedding of Krishna Kumar & Kumari Muskan. Shubh Vivah 25th November 2026 at Sangli Resort, Dhanbad.">
+  <meta property="og:title" content="Krishna & Muskan | Royal Wedding Invitation">
+  <meta property="og:description"
+    content="Celebrate the union of Krishna & Muskan. Shubh Vivah 25th November 2026.">
+  <meta property="og:image" content="assets/images/couple_hero.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪔</text></svg>">
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="scrollable-single-screen">
+
+  <!-- Floating Falling Rose Petals & Golden Sparkles Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Background Decorative Rotating Mandalas -->
+  <div class="bg-mandala bg-mandala-left"></div>
+  <div class="bg-mandala bg-mandala-right"></div>
+
+  <!-- ========================================================================
+       GRAND ROYAL PALACE DOORS (ENTRANCE EXPERIENCE)
+       ======================================================================== -->
+  <div id="royal-doors-screen" class="royal-doors-screen">
+    <div class="palace-arch-frame">
+      <div class="doors-header-banner">
+        <p class="doors-shloka">॥ ॐ श्री गणेशाय नमः ॥</p>
+        <h2 class="doors-invitation-title">The Royal Wedding Invitation</h2>
+        <p class="doors-couple-names">Krishna &amp; Muskan</p>
+      </div>
+
+      <!-- 3D Double Doors -->
+      <div id="doors-container" class="doors-container" title="Click to Open the Royal Doors">
+        <!-- Archway Toran / Top Crest -->
+        <div class="doors-arch-crest">
+          <div class="crest-ganesh-icon">ॐ</div>
+          <div class="crest-gold-pattern"></div>
+        </div>
+
+        <!-- Left Door Wing -->
+        <div class="door-wing door-left">
+          <div class="door-wood-texture">
+            <div class="door-inner-border">
+              <div class="door-ornate-panel top-panel">
+                <div class="door-mandala-motif"></div>
+              </div>
+              <div class="door-ornate-panel mid-panel">
+                <div class="door-handle-ring left-ring">
+                  <div class="brass-lion-mount"></div>
+                  <div class="brass-ring"></div>
+                </div>
+              </div>
+              <div class="door-ornate-panel bottom-panel">
+                <div class="door-mandala-motif"></div>
+              </div>
+            </div>
+            <!-- Studded Brass Studs -->
+            <div class="stud stud-1"></div>
+            <div class="stud stud-2"></div>
+            <div class="stud stud-3"></div>
+            <div class="stud stud-4"></div>
+          </div>
+        </div>
+
+        <!-- Right Door Wing -->
+        <div class="door-wing door-right">
+          <div class="door-wood-texture">
+            <div class="door-inner-border">
+              <div class="door-ornate-panel top-panel">
+                <div class="door-mandala-motif"></div>
+              </div>
+              <div class="door-ornate-panel mid-panel">
+                <div class="door-handle-ring right-ring">
+                  <div class="brass-lion-mount"></div>
+                  <div class="brass-ring"></div>
+                </div>
+              </div>
+              <div class="door-ornate-panel bottom-panel">
+                <div class="door-mandala-motif"></div>
+              </div>
+            </div>
+            <!-- Studded Brass Studs -->
+            <div class="stud stud-1"></div>
+            <div class="stud stud-2"></div>
+            <div class="stud stud-3"></div>
+            <div class="stud stud-4"></div>
+          </div>
+        </div>
+
+        <!-- Center Royal Seal Monogram -->
+        <div id="royal-door-seal" class="royal-door-seal">
+          <div class="seal-glow-pulse"></div>
+          <div class="seal-inner-disc">
+            <span class="seal-om">卐</span>
+            <span class="seal-monogram">K &amp; M</span>
+            <span class="seal-sub">Shubh Vivah</span>
+          </div>
+        </div>
+
+        <!-- Grand Golden Light Burst Beam When Opening -->
+        <div class="door-light-burst"></div>
+      </div>
+
+      <!-- Instruction Click Prompt -->
+      <div class="doors-open-prompt">
+        <button id="open-doors-btn" class="btn-open-doors">
+          <i class="fa-solid fa-door-open"></i> Tap or Click to Open Royal Palace Doors
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================================
+       MAIN SCROLLABLE SINGLE SCREEN ROYAL WEBSITE (NO BUTTONS / PURE SCROLL)
+       ======================================================================== -->
+  <div id="main-scroll-app" class="main-scroll-app">
+    
+    <!-- Floating Audio Control (Subtle corner pill) -->
+    <div class="floating-music-bar">
+      <button id="floating-music-btn" class="music-pill-btn" title="Toggle Shehnai / Music">
+        <div class="audio-waves" aria-hidden="true">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <span id="music-pill-text">Play Jai Jai Ram</span>
+      </button>
+    </div>
+
+    <!-- Outer Royal Card Container with Smooth Internal Scroll -->
+    <div class="royal-scroll-card">
+      
+      <!-- Ornate Gold Corner Filigrees -->
+      <div class="card-corner corner-top-left"></div>
+      <div class="card-corner corner-top-right"></div>
+      <div class="card-corner corner-bottom-left"></div>
+      <div class="card-corner corner-bottom-right"></div>
+
+      <!-- ====================================================================
+           SECTION 1: VEDIC INVOCATION & GRAND ROYAL COUPLE HERO
+           ==================================================================== -->
+      <section class="scroll-section section-hero reveal-init in-view">
+        <div class="hero-top-badge">
+          <span class="hero-om">ॐ</span>
+          <span class="hero-shloka">॥ श्री गणेशाय नमः ॥</span>
+          <span class="hero-om">ॐ</span>
+        </div>
+
+        <p class="hero-invitation-line">Together with their families, cordially invite you to celebrate the auspicious wedding of</p>
+
+        <!-- Couple Avatars Row -->
+        <div class="couple-avatars-row">
+          <div class="avatar-unit">
+            <div class="avatar-gold-frame">
+              <img src="assets/images/groom_portrait.jpg" alt="Krishna Kumar - The Groom">
+            </div>
+            <h2 class="avatar-title">Krishna Kumar</h2>
+            <span class="avatar-subtitle">The Groom</span>
+          </div>
+
+          <div class="avatar-center-knot">
+            <div class="knot-badge-box">
+              <span class="knot-swastik">卐</span>
+              <span class="knot-and">&amp;</span>
+              <span class="knot-hash">#KrishnaKiMuskan</span>
+            </div>
+          </div>
+
+          <div class="avatar-unit">
+            <div class="avatar-gold-frame">
+              <img src="assets/images/bride_portrait.jpg" alt="Kumari Muskan - The Bride">
+            </div>
+            <h2 class="avatar-title">Kumari Muskan</h2>
+            <span class="avatar-subtitle">The Bride</span>
+          </div>
+        </div>
+
+        <!-- Grand Names & Tagline -->
+        <h1 class="grand-couple-names">Krishna <span class="script-amp">&amp;</span> Muskan</h1>
+        <p class="hero-tagline">“Two Souls, One Royal Journey of Eternal Love”</p>
+
+        <!-- Auspicious Date & Venue Badge -->
+        <div class="hero-event-ribbon">
+          <div class="ribbon-box"><i class="fa-regular fa-calendar-check"></i> Wednesday, 25th November 2026</div>
+          <div class="ribbon-sep">•</div>
+          <div class="ribbon-box"><i class="fa-regular fa-clock"></i> 07:00 PM Onwards (Godhuli Bela)</div>
+          <div class="ribbon-sep">•</div>
+          <div class="ribbon-box"><i class="fa-solid fa-location-dot"></i> Sangli Resort, Dhanbad</div>
+        </div>
+
+        <!-- Auspicious Muhurat Countdown -->
+        <div class="hero-countdown-box">
+          <div class="countdown-title-bar">
+            <i class="fa-solid fa-hourglass-half"></i> Auspicious Muhurat Countdown
+          </div>
+          <div class="countdown-digits-row">
+            <div class="digit-box">
+              <span id="count-days" class="num">00</span>
+              <span class="lbl">Days</span>
+            </div>
+            <div class="digit-sep">:</div>
+            <div class="digit-box">
+              <span id="count-hours" class="num">00</span>
+              <span class="lbl">Hours</span>
+            </div>
+            <div class="digit-sep">:</div>
+            <div class="digit-box">
+              <span id="count-mins" class="num">00</span>
+              <span class="lbl">Minutes</span>
+            </div>
+            <div class="digit-sep">:</div>
+            <div class="digit-box">
+              <span id="count-secs" class="num">00</span>
+              <span class="lbl">Seconds</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Down Cue -->
+        <div class="scroll-down-hint">
+          <span>Scroll down to explore celebrations</span>
+          <i class="fa-solid fa-chevron-down bounce-icon"></i>
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           SECTION 2: SACRED CEREMONIES & ITINERARY (ALL IN SCROLL)
+           ==================================================================== -->
+      <section class="scroll-section section-ceremonies reveal-init">
+        <div class="section-gold-divider">
+          <span class="divider-line"></span>
+          <span class="divider-shloka">॥ मांगलिक कार्यक्रम ॥</span>
+          <span class="divider-line"></span>
+        </div>
+        <h2 class="section-title">Sacred Ceremonies &amp; Itinerary</h2>
+        <p class="section-subtitle">Join us in the traditional festivities of love, music, and eternal rituals</p>
+
+        <div class="ceremonies-grid-flow">
+          <!-- Ceremony 1: Haldi -->
+          <div class="ceremony-card ceremony-haldi">
+            <div class="card-glow-aura"></div>
+            <div class="card-accent-bar"></div>
+            <div class="ceremony-card-header">
+              <div class="ceremony-icon-box haldi-icon">
+                <i class="fa-solid fa-sun"></i>
+              </div>
+              <div>
+                <h3 class="ceremony-name">Haldi Ceremony</h3>
+                <p class="ceremony-tagline">Ubtan, Laughter &amp; Golden Glow</p>
+              </div>
+            </div>
+            <div class="ceremony-meta-table">
+              <div><i class="fa-regular fa-calendar"></i> Tuesday, 24th Nov 2026</div>
+              <div><i class="fa-regular fa-clock"></i> 10:00 AM - 01:00 PM</div>
+              <div><i class="fa-solid fa-location-dot"></i> Sangli Resort Lawns</div>
+              <div><i class="fa-solid fa-shirt"></i> Festive Yellow &amp; Pastels</div>
+            </div>
+            <p class="ceremony-desc">An auspicious morning bathed in fragrant golden turmeric pastes, marigold showers, and joyful family celebration.</p>
+          </div>
+
+          <!-- Ceremony 2: Mehendi -->
+          <div class="ceremony-card ceremony-mehendi">
+            <div class="card-glow-aura"></div>
+            <div class="card-accent-bar"></div>
+            <div class="ceremony-card-header">
+              <div class="ceremony-icon-box mehendi-icon">
+                <i class="fa-solid fa-spa"></i>
+              </div>
+              <div>
+                <h3 class="ceremony-name">Mehendi &amp; High Tea</h3>
+                <p class="ceremony-tagline">Intricate Henna &amp; Folk Melodies</p>
+              </div>
+            </div>
+            <div class="ceremony-meta-table">
+              <div><i class="fa-regular fa-calendar"></i> Tuesday, 24th Nov 2026</div>
+              <div><i class="fa-regular fa-clock"></i> 04:00 PM - 07:30 PM</div>
+              <div><i class="fa-solid fa-location-dot"></i> Sangli Resort Courtyard</div>
+              <div><i class="fa-solid fa-shirt"></i> Emerald Green &amp; Floral</div>
+            </div>
+            <p class="ceremony-desc">Adorning hands with exquisite fragrant henna motifs, live folk melodies, bangles stall, and lavish delicacies.</p>
+          </div>
+
+          <!-- Ceremony 3: Sangeet -->
+          <div class="ceremony-card ceremony-sangeet">
+            <div class="card-glow-aura"></div>
+            <div class="card-accent-bar"></div>
+            <div class="ceremony-card-header">
+              <div class="ceremony-icon-box sangeet-icon">
+                <i class="fa-solid fa-music"></i>
+              </div>
+              <div>
+                <h3 class="ceremony-name">Royal Sangeet Night</h3>
+                <p class="ceremony-tagline">A Symphony of Beats &amp; Celebrations</p>
+              </div>
+            </div>
+            <div class="ceremony-meta-table">
+              <div><i class="fa-regular fa-calendar"></i> Tuesday, 24th Nov 2026</div>
+              <div><i class="fa-regular fa-clock"></i> 08:00 PM Onwards</div>
+              <div><i class="fa-solid fa-location-dot"></i> Grand Ballroom, Sangli Resort</div>
+              <div><i class="fa-solid fa-shirt"></i> Glamorous Indowestern / Sparkly</div>
+            </div>
+            <p class="ceremony-desc">An electrifying musical extravaganza featuring breathtaking family dance performances, DJ beats, and royal feast.</p>
+          </div>
+
+          <!-- Ceremony 4: Baraat & Pheras -->
+          <div class="ceremony-card ceremony-pheras grand-card">
+            <div class="card-glow-aura"></div>
+            <div class="card-accent-bar"></div>
+            <div class="ceremony-card-header">
+              <div class="ceremony-icon-box pheras-icon">
+                <i class="fa-solid fa-ring"></i>
+              </div>
+              <div>
+                <h3 class="ceremony-name">Baraat, Varmala &amp; Sacred Pheras</h3>
+                <p class="ceremony-tagline">The Sacred Vivah Muhurat</p>
+              </div>
+            </div>
+            <div class="ceremony-meta-table">
+              <div><i class="fa-regular fa-calendar"></i> Wednesday, 25th Nov 2026</div>
+              <div><i class="fa-regular fa-clock"></i> Baraat 06:00 PM | Pheras 07:15 PM</div>
+              <div><i class="fa-solid fa-location-dot"></i> Sangli Resort Mandap, Dhanbad</div>
+              <div><i class="fa-solid fa-shirt"></i> Royal Traditional (Ivory, Crimson &amp; Gold)</div>
+            </div>
+            <p class="ceremony-desc">The grand Baraat procession, royal garland exchange, and the sacred 7 vows around the holy Agni under celestial Vedic chants.</p>
+          </div>
+
+          <!-- Ceremony 5: Reception -->
+          <div class="ceremony-card ceremony-reception">
+            <div class="card-glow-aura"></div>
+            <div class="card-accent-bar"></div>
+            <div class="ceremony-card-header">
+              <div class="ceremony-icon-box reception-icon">
+                <i class="fa-solid fa-utensils"></i>
+              </div>
+              <div>
+                <h3 class="ceremony-name">Grand Reception &amp; Gala Feast</h3>
+                <p class="ceremony-tagline">An Evening of Royal Hospitality</p>
+              </div>
+            </div>
+            <div class="ceremony-meta-table">
+              <div><i class="fa-regular fa-calendar"></i> Thursday, 26th Nov 2026</div>
+              <div><i class="fa-regular fa-clock"></i> 07:30 PM Onwards</div>
+              <div><i class="fa-solid fa-location-dot"></i> Sangli Resort Banquet, Dhanbad</div>
+              <div><i class="fa-solid fa-shirt"></i> Regal Formals / Elegance</div>
+            </div>
+            <p class="ceremony-desc">Welcoming the newlyweds with a grand celebratory banquet, live melodies, and heartwarming toasts.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           SECTION 2.5: THE SACRED SEVEN VOWS (SAAT PHERAS / सप्तपदी)
+           ==================================================================== -->
+      <section class="scroll-section section-pheravows reveal-init">
+        <div class="section-gold-divider">
+          <span class="divider-line"></span>
+          <span class="divider-shloka">॥ पवित्र सप्तपदी प्रतिज्ञा ॥</span>
+          <span class="divider-line"></span>
+        </div>
+        <h2 class="section-title">The Sacred Seven Vows (Saat Pheras)</h2>
+        <p class="section-subtitle">Seven sacred promises made around the holy Agni for seven lifetimes of togetherness</p>
+
+        <div class="vows-grid-display">
+          <div class="vow-card">
+            <div class="vow-number-badge">1</div>
+            <div class="vow-icon"><i class="fa-solid fa-seedling"></i></div>
+            <h4 class="vow-sanskrit">ॐ एकमिषे विष्णुस्त्वान्वेतु</h4>
+            <h5 class="vow-title">Nourishment &amp; Wellbeing</h5>
+            <p class="vow-text">To provide sustenance, health, and a pure, joyful environment for our home and family.</p>
+          </div>
+
+          <div class="vow-card">
+            <div class="vow-number-badge">2</div>
+            <div class="vow-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <h4 class="vow-sanskrit">द्वे ऊर्जे विष्णुस्त्वान्वेतु</h4>
+            <h5 class="vow-title">Mental &amp; Physical Strength</h5>
+            <p class="vow-text">To stand as each other’s greatest pillar of courage, resilience, and unconditional protection.</p>
+          </div>
+
+          <div class="vow-card">
+            <div class="vow-number-badge">3</div>
+            <div class="vow-icon"><i class="fa-solid fa-gem"></i></div>
+            <h4 class="vow-sanskrit">त्रीणि रायस्पोषाय</h4>
+            <h5 class="vow-title">Prosperity &amp; Righteousness</h5>
+            <p class="vow-text">To earn wealth through righteous virtue, share prosperity, and uphold spiritual wisdom.</p>
+          </div>
+
+          <div class="vow-card">
+            <div class="vow-number-badge">4</div>
+            <div class="vow-icon"><i class="fa-solid fa-heart"></i></div>
+            <h4 class="vow-sanskrit">चत्वारि मायोभवाय</h4>
+            <h5 class="vow-title">Happiness &amp; Harmony</h5>
+            <p class="vow-text">To fill our household with laughter, mutual respect, sacred traditions, and profound inner peace.</p>
+          </div>
+
+          <div class="vow-card">
+            <div class="vow-number-badge">5</div>
+            <div class="vow-icon"><i class="fa-solid fa-dove"></i></div>
+            <h4 class="vow-sanskrit">पञ्च पशुभ्यो</h4>
+            <h5 class="vow-title">Compassion &amp; Progeny</h5>
+            <p class="vow-text">To bless our future generations with noble virtues, wisdom, kindness, and eternal love.</p>
+          </div>
+
+          <div class="vow-card">
+            <div class="vow-number-badge">6</div>
+            <div class="vow-icon"><i class="fa-solid fa-sun"></i></div>
+            <h4 class="vow-sanskrit">षड् ऋतुकल्पाय</h4>
+            <h5 class="vow-title">Everlasting Seasons of Joy</h5>
+            <p class="vow-text">To walk through all seasons of life with unwavering companionship, grace, and devotion.</p>
+          </div>
+
+          <div class="vow-card vow-card-grand">
+            <div class="vow-number-badge">7</div>
+            <div class="vow-icon"><i class="fa-solid fa-infinity"></i></div>
+            <h4 class="vow-sanskrit">सखे सप्तपदा भव</h4>
+            <h5 class="vow-title">Eternal Friendship &amp; Soul Union</h5>
+            <p class="vow-text">Now we are true companions for all eternity. May our two souls remain inseparable across lifetimes.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           SECTION 3: VENUE, LOCATION & HOSPITALITY GUIDE
+           ==================================================================== -->
+      <section class="scroll-section section-venue reveal-init">
+        <div class="section-gold-divider">
+          <span class="divider-line"></span>
+          <span class="divider-shloka">॥ शुभ विवाह स्थल ॥</span>
+          <span class="divider-line"></span>
+        </div>
+        <h2 class="section-title">Venue &amp; Guest Hospitality Desk</h2>
+        <p class="section-subtitle">Sangli Resort, Dhanbad — Directions, travel coordination &amp; assistance</p>
+
+        <div class="venue-showcase-grid">
+          <!-- Left: Venue Details -->
+          <div class="venue-card-details">
+            <div class="resort-headline">
+              <div class="resort-icon-wrap"><i class="fa-solid fa-hotel"></i></div>
+              <div>
+                <h3 class="resort-name">Sangli Resort</h3>
+                <p class="resort-addr"><i class="fa-solid fa-location-dot"></i> Near JIO Petrol Pump, Dhanbad, Jharkhand - 826001</p>
+              </div>
+            </div>
+
+            <div class="travel-hints-list">
+              <div class="travel-hint-row">
+                <i class="fa-solid fa-train"></i>
+                <div>
+                  <strong>Dhanbad Railway Station (DHN)</strong>
+                  <p>~6 km / 15-20 mins drive from venue. Dedicated guest transit coordination available.</p>
+                </div>
+              </div>
+
+              <div class="travel-hint-row">
+                <i class="fa-solid fa-plane"></i>
+                <div>
+                  <strong>Nearby Airports</strong>
+                  <p>Kazi Nazrul Islam Airport, Durgapur (~90 km) | Birsa Munda Airport, Ranchi (~145 km).</p>
+                </div>
+              </div>
+
+              <div class="travel-hint-row">
+                <i class="fa-solid fa-headset"></i>
+                <div>
+                  <strong>24/7 Guest Hospitality Helpline</strong>
+                  <p>Shri Rajesh Singhania: <strong>+91 98765 43210</strong><br>Shri Aditya Prasad: <strong>+91 98123 45678</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Visual Route Card -->
+          <div class="venue-visual-map">
+            <div class="map-head">
+              <div class="map-label"><i class="fa-solid fa-route"></i> Sangli Resort Mandap Location</div>
+              <span class="map-gps">23.7957° N, 86.4304° E</span>
+            </div>
+
+            <div class="map-stage-display">
+              <div class="map-grid-pattern"></div>
+              <div class="map-crossroad-h"></div>
+              <div class="map-crossroad-v"></div>
+              <div class="map-center-pin">
+                <div class="pin-halo"></div>
+                <div class="pin-radar-ring"></div>
+                <i class="fa-solid fa-location-dot pin-ico"></i>
+                <div class="pin-popup">Sangli Resort • Mandap</div>
+              </div>
+              <div class="map-point point-1"><i class="fa-solid fa-gas-pump"></i> Near JIO Petrol Pump</div>
+              <div class="map-point point-2"><i class="fa-solid fa-train"></i> Dhanbad Station (15 min)</div>
+            </div>
+
+            <div class="map-foot-tip">
+              <p><i class="fa-solid fa-circle-info"></i> <strong>Valet Parking:</strong> Follow the grand wedding arches at the entrance gate for seamless valet &amp; guest welcoming.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           SECTION 4: RSVP & COMMUNITY BLESSINGS WALL (IN SCROLL)
+           ==================================================================== -->
+      <section class="scroll-section section-rsvp reveal-init">
+        <div class="section-gold-divider">
+          <span class="divider-line"></span>
+          <span class="divider-shloka">॥ उपस्थिति सादर प्रार्थनीय ॥</span>
+          <span class="divider-line"></span>
+        </div>
+        <h2 class="section-title">RSVP &amp; Blessings Guestbook</h2>
+        <p class="section-subtitle">Confirm your auspicious presence and shower the couple with heartfelt blessings</p>
+
+        <div class="rsvp-wall-grid">
+          
+          <!-- Left: RSVP Form -->
+          <div class="rsvp-form-card">
+            <h3 class="card-inner-title"><i class="fa-solid fa-envelope-open-text"></i> Confirm Your Attendance</h3>
+            
+            <form id="rsvp-form" class="scroll-rsvp-form">
+              <div class="field-wrap">
+                <label for="guest-name">Your Full Name *</label>
+                <input type="text" id="guest-name" class="field-control" placeholder="e.g. Ramesh Singhania &amp; Family" required>
+              </div>
+
+              <div class="fields-row">
+                <div class="field-wrap">
+                  <label for="guest-phone">Phone / WhatsApp</label>
+                  <input type="tel" id="guest-phone" class="field-control" placeholder="+91 98765 43210">
+                </div>
+                <div class="field-wrap">
+                  <label for="guest-count">Number of Guests</label>
+                  <select id="guest-count" class="field-control">
+                    <option value="1">1 Person</option>
+                    <option value="2" selected>2 Persons</option>
+                    <option value="3">3 Persons</option>
+                    <option value="4">4 Persons</option>
+                    <option value="5+">5+ Family Members</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field-wrap">
+                <label>Attendance Status</label>
+                <div class="attending-options">
+                  <label class="option-pill active">
+                    <input type="radio" name="attending" value="Yes" checked>
+                    <i class="fa-solid fa-circle-check"></i> Joyfully Attending
+                  </label>
+                  <label class="option-pill">
+                    <input type="radio" name="attending" value="No">
+                    <i class="fa-solid fa-circle-xmark"></i> Regretfully Unable
+                  </label>
+                </div>
+              </div>
+
+              <div class="field-wrap">
+                <label for="guest-message">Warm Blessing &amp; Wishes for the Couple</label>
+                <textarea id="guest-message" class="field-control" rows="2" placeholder="Write your heartfelt blessings and warm wishes for Krishna &amp; Muskan..."></textarea>
+              </div>
+
+              <button type="submit" class="submit-rsvp-btn">
+                <i class="fa-solid fa-paper-plane"></i> Submit RSVP &amp; Post Blessing
+              </button>
+
+              <div id="rsvp-status-alert" class="rsvp-alert-msg"></div>
+            </form>
+          </div>
+
+          <!-- Right: Live Blessings Wall -->
+          <div class="wishes-wall-card">
+            <div class="wall-header-row">
+              <h3 class="card-inner-title"><i class="fa-solid fa-heart beating-heart" style="color: #F9E496;"></i> Blessings Wall</h3>
+              <span class="wall-count-pill"><span id="wishes-count">4</span> Blessings</span>
+            </div>
+
+            <!-- Quick Emoji Blessing Bar -->
+            <div class="quick-emoji-bar">
+              <span class="emoji-bar-label">Send instant blessing:</span>
+              <div class="emoji-btn-group">
+                <button type="button" class="quick-blessing-btn" data-emoji="❤️" title="Love & Joy">❤️ Love</button>
+                <button type="button" class="quick-blessing-btn" data-emoji="🪔" title="Divine Light">🪔 Grace</button>
+                <button type="button" class="quick-blessing-btn" data-emoji="🌸" title="Marigold Blessings">🌸 Blessings</button>
+                <button type="button" class="quick-blessing-btn" data-emoji="✨" title="Celestial Radiance">✨ Joy</button>
+                <button type="button" class="quick-blessing-btn" data-emoji="🙏" title="Warm Namaste">🙏 Namaste</button>
+              </div>
+            </div>
+
+            <div id="wishes-scroll-box" class="wishes-stream-box">
+              <!-- Rendered dynamically by JavaScript -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           SECTION 4.5: ROYAL CELEBRATION HIGHLIGHTS & HOSPITALITY
+           ==================================================================== -->
+      <section class="scroll-section section-highlights reveal-init">
+        <div class="section-gold-divider">
+          <span class="divider-line"></span>
+          <span class="divider-shloka">॥ उत्सव की विशेषताएं ॥</span>
+          <span class="divider-line"></span>
+        </div>
+        <h2 class="section-title">Celebration Highlights &amp; Hospitality</h2>
+        <p class="section-subtitle">Exquisite royal experiences curated with love to make every moment unforgettable</p>
+
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-music"></i></div>
+            <h4 class="highlight-title">Live Shehnai &amp; Sitar</h4>
+            <p class="highlight-desc">Immerse yourself in soul-stirring live classical ragas and auspicious temple shehnai melodies performed by master musicians.</p>
+          </div>
+
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-utensils"></i></div>
+            <h4 class="highlight-title">Royal Awadhi &amp; Rajasthani Feast</h4>
+            <p class="highlight-desc">A lavish multi-course imperial vegetarian banquet with artisanal Indian sweets, live chaat counters, and traditional mocktail lounges.</p>
+          </div>
+
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-hand-holding-heart"></i></div>
+            <h4 class="highlight-title">Artisan Henna &amp; Bangles Bazaar</h4>
+            <p class="highlight-desc">Complimentary organic henna artists, handcrafted glass bangles studio, and fragrant Rajasthani ittar (perfume) counter for all guests.</p>
+          </div>
+
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="fa-solid fa-camera"></i></div>
+            <h4 class="highlight-title">360° Photo Booth &amp; Souvenirs</h4>
+            <p class="highlight-desc">Step into our grand royal photo studio with traditional turbans, dupattas, and instant keepsake framed prints.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           SECTION 5: OUR LOVE STORY (ROYAL VERTICAL TIMELINE ROADMAP)
+           ==================================================================== -->
+      <section class="scroll-section section-love-story reveal-init">
+        <div class="section-gold-divider">
+          <span class="divider-line"></span>
+          <span class="divider-shloka">॥ प्रेम कथा ॥</span>
+          <span class="divider-line"></span>
+        </div>
+        <h2 class="section-title love-story-main-title">OUR LOVE STORY</h2>
+        <p class="love-story-script-subtitle">How Destiny Brought Two Souls Together</p>
+        <div class="story-divider-motif">
+          <span class="motif-line"></span>
+          <span class="motif-gem"></span>
+          <span class="motif-line"></span>
+        </div>
+
+        <!-- Vertical Alternating Timeline Container -->
+        <div class="royal-vertical-timeline">
+          <div class="timeline-center-spine"></div>
+
+          <!-- Timeline Item 1: Left -->
+          <div class="timeline-item item-left">
+            <div class="timeline-node"></div>
+            <div class="timeline-story-card">
+              <span class="story-badge-pill">NOVEMBER 2022</span>
+              <h3 class="story-card-title">THE SERENDIPITOUS ENCOUNTER</h3>
+              <div class="story-card-location">
+                <i class="fa-solid fa-location-dot"></i> Jaipur Literature &amp; Arts Pavilion
+              </div>
+              <p class="story-card-desc">Across an ornate courtyard surrounded by havelis, a chance conversation over artisan Chai ignited an instant intellectual and soulful connection.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2: Right -->
+          <div class="timeline-item item-right">
+            <div class="timeline-node"></div>
+            <div class="timeline-story-card">
+              <span class="story-badge-pill">AUGUST 2023</span>
+              <h3 class="story-card-title">FIRST UNFORGETTABLE DATE</h3>
+              <div class="story-card-location">
+                <i class="fa-solid fa-location-dot"></i> Amber Fort Hilltop Cafe
+              </div>
+              <p class="story-card-desc">Under starry Rajasthan skies overlooking lit palace ramparts, hours vanished like seconds as they discovered shared dreams, classical music, and eternal ideals.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3: Left -->
+          <div class="timeline-item item-left">
+            <div class="timeline-node"></div>
+            <div class="timeline-story-card">
+              <span class="story-badge-pill">OCTOBER 2024</span>
+              <h3 class="story-card-title">THE ROYAL SUNSET PROPOSAL</h3>
+              <div class="story-card-location">
+                <i class="fa-solid fa-location-dot"></i> Lake Pichola Private Shikara, Udaipur
+              </div>
+              <p class="story-card-desc">As the sun set into shades of molten gold and amber over the lake waters, Krishna went down on one knee with an heirloom ring and asked the forever question.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 4: Right -->
+          <div class="timeline-item item-right">
+            <div class="timeline-node"></div>
+            <div class="timeline-story-card">
+              <span class="story-badge-pill">FEBRUARY 2025</span>
+              <h3 class="story-card-title">ROKA &amp; FAMILY BLESSINGS</h3>
+              <div class="story-card-location">
+                <i class="fa-solid fa-location-dot"></i> Heritage Haveli, New Delhi
+              </div>
+              <p class="story-card-desc">Two venerable families united in laughter and sweets, sealing the auspicious bond of marriage with Vedic shlokas, warmth, and golden blessings.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 5: Left -->
+          <div class="timeline-item item-left">
+            <div class="timeline-node"></div>
+            <div class="timeline-story-card">
+              <span class="story-badge-pill">DECEMBER 2026</span>
+              <h3 class="story-card-title">FOREVER BEGINS NOW</h3>
+              <div class="story-card-location">
+                <i class="fa-solid fa-location-dot"></i> Jagmandir Island Palace, Udaipur
+              </div>
+              <p class="story-card-desc">Taking the sacred 7 pheras around the holy fire, stepping hand-in-hand into a lifetime of cherished memories, shared journeys, and endless love.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECTION 5.5: FAMILY BLESSINGS & HERITAGE (MATCHING SCREENSHOTS)
+           ==================================================================== -->
+      <section class="scroll-section section-family-blessings reveal-init">
+        <div class="section-gold-divider">
+          <span class="divider-line"></span>
+          <span class="divider-shloka">॥ पारिवारिक शुभाशीर्वाद ॥</span>
+          <span class="divider-line"></span>
+        </div>
+        <h2 class="section-title family-blessings-main-title">FAMILY BLESSINGS</h2>
+        <p class="family-blessings-script-subtitle">With the Love &amp; Blessings of Our Families</p>
+        <div class="family-divider-motif">
+          <span class="motif-line"></span>
+          <span class="motif-namaste"><i class="fa-solid fa-hands-praying"></i></span>
+          <span class="motif-line"></span>
+        </div>
+
+        <!-- Grand Family Invitation Quote Card -->
+        <div class="family-invitation-quote-banner">
+          <p class="family-quote-text">“We cordially invite you and your family to grace the auspicious wedding ceremonies of our beloved children and bestow your heartfelt blessings upon the young couple as they start their sacred new journey together.”</p>
+        </div>
+
+        <!-- Family Blessings Grid (Two Columns) -->
+        <div class="family-blessings-grid">
+          <!-- Groom Family Card: The Bid Family -->
+          <div class="family-pillar-card groom-family-card">
+            <div class="card-shimmer-sweep"></div>
+            <h3 class="family-pillar-title">THE BID FAMILY</h3>
+            <span class="family-pillar-role">GROOM'S FAMILY</span>
+
+            <div class="pious-blessings-pill-box">
+              <span class="pious-lbl">With the pious blessings of</span>
+              <p class="pious-names">Late Smt. Kamala &amp; Late Shri Govind Singhania</p>
+            </div>
+
+            <div class="family-member-group">
+              <span class="member-role-tag">PARENTS</span>
+              <p class="member-names-val">Smt. Sunita &amp; Shri Rajendra Singhania</p>
+            </div>
+
+            <div class="family-member-group">
+              <span class="member-role-tag">SIBLINGS</span>
+              <p class="member-names-val">Rohan &amp; Meera Singhania (Brother &amp; Sister-in-law)</p>
+            </div>
+
+            <div class="family-member-group">
+              <span class="member-role-tag">WARM WELCOMES FROM</span>
+              <p class="member-names-val">All near and dear members of the Singhania &amp; Verma families</p>
+            </div>
+          </div>
+
+          <!-- Bride Family Card: The Prasad Family -->
+          <div class="family-pillar-card bride-family-card">
+            <div class="card-shimmer-sweep"></div>
+            <h3 class="family-pillar-title">THE PRASAD FAMILY</h3>
+            <span class="family-pillar-role">BRIDE'S FAMILY</span>
+
+            <div class="pious-blessings-pill-box">
+              <span class="pious-lbl">With the pious blessings of</span>
+              <p class="pious-names">Late Kamini Devi &amp; Late Sheo Nandan Prasad</p>
+            </div>
+
+            <div class="family-member-group">
+              <span class="member-role-tag">PARENTS</span>
+              <p class="member-names-val">Smt. Annu Prasad &amp; Shri Uday Shankar Prasad</p>
+            </div>
+
+            <div class="family-member-group">
+              <span class="member-role-tag">SIBLINGS</span>
+              <p class="member-names-val">Aditya Prasad (Brother)</p>
+            </div>
+
+            <div class="family-member-group">
+              <span class="member-role-tag">WARM WELCOMES FROM</span>
+              <p class="member-names-val">All near and dear members of the Prasad &amp; Bid families</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           SECTION 5.6: PHOTO GALLERY
+           ==================================================================== -->
+      <section class="scroll-section section-gallery reveal-init">
+        <div class="section-gold-divider">
+          <span class="divider-line"></span>
+          <span class="divider-shloka">॥ चित्रवीथिका ॥</span>
+          <span class="divider-line"></span>
+        </div>
+        <h2 class="section-title">Captured Moments &amp; Memories</h2>
+        <p class="section-subtitle">Cherished glimpses from the pre-wedding and royal festivities</p>
+
+        <!-- Photo Gallery (All 6 photos in clean grid with in-screen zoom) -->
+        <div class="gallery-section-box">
+          <div class="gallery-photo-grid">
+            <div class="gallery-item" data-img="assets/images/couple_hero.jpg" data-cap="Krishna &amp; Muskan • Royal Portrait">
+              <img src="assets/images/couple_hero.jpg" alt="Krishna &amp; Muskan" loading="lazy">
+              <div class="item-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                <span>Royal Portrait</span>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-img="assets/images/gallery_prewedding.jpg" data-cap="Golden Hour Palace Stroll">
+              <img src="assets/images/gallery_prewedding.jpg" alt="Palace Stroll" loading="lazy">
+              <div class="item-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                <span>Palace Stroll</span>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-img="assets/images/bride_portrait.jpg" data-cap="Muskan in Royal Bridal Finery">
+              <img src="assets/images/bride_portrait.jpg" alt="Bride Portrait" loading="lazy">
+              <div class="item-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                <span>Bridal Finery</span>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-img="assets/images/groom_portrait.jpg" data-cap="Krishna in Imperial Sherwani">
+              <img src="assets/images/groom_portrait.jpg" alt="Groom Portrait" loading="lazy">
+              <div class="item-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                <span>Imperial Sherwani</span>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-img="assets/images/gallery_mehendi.jpg" data-cap="Mehendi Beats &amp; Marigold Glow">
+              <img src="assets/images/gallery_mehendi.jpg" alt="Mehendi" loading="lazy">
+              <div class="item-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                <span>Mehendi Glow</span>
+              </div>
+            </div>
+
+            <div class="gallery-item" data-img="assets/images/gallery_mandap.jpg" data-cap="The Enchanting Floral Mandap">
+              <img src="assets/images/gallery_mandap.jpg" alt="Mandap" loading="lazy">
+              <div class="item-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus"></i>
+                <span>Floral Mandap</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           SECTION 5.5: GUEST GUIDELINES & FAQS
+           ==================================================================== -->
+      <section class="scroll-section section-faqs reveal-init">
+        <div class="section-gold-divider">
+          <span class="divider-line"></span>
+          <span class="divider-shloka">॥ अतिथि सत्कार एवं मार्गदर्शिका ॥</span>
+          <span class="divider-line"></span>
+        </div>
+        <h2 class="section-title">Guest Guidelines &amp; FAQs</h2>
+        <p class="section-subtitle">Helpful information to ensure your comfort throughout the royal celebrations</p>
+
+        <div class="faqs-grid">
+          <div class="faq-card">
+            <div class="faq-icon"><i class="fa-solid fa-vest-patches"></i></div>
+            <h4 class="faq-q">Dress Code &amp; Attire Suggestions</h4>
+            <p class="faq-a">We recommend traditional festive wear: Sunshine Yellows for Haldi, Emerald Greens/Floral for Mehendi, Glamorous Indowestern for Sangeet, and Royal Crimson/Gold/Ivory for the Vivah.</p>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-icon"><i class="fa-solid fa-hashtag"></i></div>
+            <h4 class="faq-q">Social Media &amp; Photos</h4>
+            <p class="faq-a">Please tag your lovely photos and reels with our official wedding hashtag <strong>#KrishnaKiMuskan</strong> so we can cherish your memories forever!</p>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-icon"><i class="fa-solid fa-cloud-sun"></i></div>
+            <h4 class="faq-q">Dhanbad Weather in November</h4>
+            <p class="faq-a">November evenings in Dhanbad are pleasantly cool (18°C to 22°C). Light shawls, stoles, or blazers are suggested for open lawn ceremonies.</p>
+          </div>
+
+          <div class="faq-card">
+            <div class="faq-icon"><i class="fa-solid fa-gift"></i></div>
+            <h4 class="faq-q">Blessings &amp; Gifts</h4>
+            <p class="faq-a">Your warm presence, prayers, and heartfelt blessings are the greatest gift to us and our families. <em>(Blessings only, no boxed gifts please)</em>.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           SECTION 6: SACRED VEDIC BLESSINGS & ROYAL FOOTER
+           ==================================================================== -->
+      <footer class="scroll-footer reveal-init">
+        <div class="footer-shloka-banner">॥ सदा सौभाग्यवती भव ॥</div>
+        <h2 class="footer-couple-title">KRISHNA &amp; MUSKAN</h2>
+        <div class="footer-hashtag">#KrishnaKiMuskan</div>
+        <p class="footer-love-note">Made with immense love for our special wedding day.</p>
+        <p class="footer-copyright">© 2026 The Prasad &amp; Bid Wedding. All Rights Reserved.</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- IN-SCREEN LIGHTBOX ZOOM (For Photo Gallery Preview) -->
+  <div id="inscreen-lightbox" class="inscreen-lightbox">
+    <div class="lightbox-overlay-bg"></div>
+    <div class="lightbox-card">
+      <button id="close-lightbox-btn" class="lightbox-close">&times;</button>
+      <img id="lightbox-img-view" src="" alt="Wedding Photo Preview">
+      <p id="lightbox-caption-text" class="lightbox-cap"></p>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION POPUP -->
+  <div id="toast-notification" class="toast-notification" role="status" aria-live="polite">
+    <i class="fa-solid fa-circle-check toast-icon"></i>
+    <span id="toast-message">RSVP posted successfully!</span>
+  </div>
+
+  <!-- Application Logic -->
+  <script src="wedding-config.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
