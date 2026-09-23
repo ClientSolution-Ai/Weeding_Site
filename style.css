@@ -458,55 +458,99 @@ div::-webkit-scrollbar {
 }
 
 /* ==========================================================================
-   3D DOUBLE PALACE DOORS VIEWPORT & AUTHENTIC ARCHITECTURE
+   3D DOUBLE PALACE DOORS VIEWPORT & AUTHENTIC ROYAL ARCHITECTURE
    ========================================================================== */
 .royal-doors-viewport.royal-grand-doors {
   position: relative;
   width: 100%;
-  max-width: clamp(330px, 94vw, 470px);
-  flex: 1;
-  height: auto;
-  min-height: 0;
+  max-width: clamp(310px, 90vw, 420px);
+  aspect-ratio: 1 / 1.76;
+  max-height: 68vh;
   display: flex;
   perspective: 1600px;
   cursor: pointer;
-  border-radius: 18px 18px 6px 6px;
-  margin: clamp(4px, 1vh, 10px) 0 0;
-  filter: drop-shadow(0 25px 60px rgba(0, 0, 0, 0.98));
+  border-radius: 18px;
+  margin: clamp(4px, 1vh, 8px) 0 0;
+  filter: drop-shadow(0 20px 50px rgba(0, 0, 0, 0.98));
   touch-action: manipulation;
+  box-sizing: border-box;
 }
 
-/* Outer Arch Moulding & Crown */
-.palace-arch-moulding {
+/* Grand Palace Outer Rounded Frame with Gold Studs (Perimeter Frame) */
+.palace-portal-outer-frame {
   position: absolute;
-  inset: -8px -8px 0 -8px;
-  border: 4px solid var(--gold-400);
-  border-bottom: none;
-  border-radius: 24px 24px 0 0;
+  inset: -4px;
+  border: 2px solid #D4AF37;
+  border-radius: 20px;
   pointer-events: none;
-  box-shadow:
-    0 0 20px rgba(212, 175, 55, 0.4),
-    inset 0 0 14px rgba(212, 175, 55, 0.3),
-    inset 0 4px 20px rgba(0, 0, 0, 0.9);
-  background: linear-gradient(180deg, rgba(212, 175, 55, 0.15) 0%, transparent 40%);
-  z-index: 8;
+  z-index: 25;
+  box-shadow: 
+    0 0 16px rgba(212, 175, 55, 0.4), 
+    inset 0 0 12px rgba(212, 175, 55, 0.25);
 }
 
-.palace-arch-top-crown {
+.portal-stud {
   position: absolute;
-  top: -22px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70px;
-  height: 24px;
-  background: var(--gold-gradient);
-  border-radius: 50% 50% 0 0;
-  box-shadow: 0 0 16px rgba(212, 175, 55, 0.6);
-  border: 1.5px solid #FFF6D6;
-  z-index: 9;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #FFFFFF 0%, #FFD700 45%, #B88E28 75%, #4D3405 100%);
+  box-shadow: 0 0 8px rgba(255, 230, 150, 0.95), 0 2px 4px rgba(0, 0, 0, 0.9);
+  border: 0.8px solid #FFF6D6;
+  z-index: 26;
 }
 
-/* Left & Right Door Leaves (Silky Smooth 3D Swing Transition) */
+/* Corner Studs */
+.portal-stud.stud-tl { top: 6px; left: 6px; }
+.portal-stud.stud-tr { top: 6px; right: 6px; }
+.portal-stud.stud-bl { bottom: 6px; left: 6px; }
+.portal-stud.stud-br { bottom: 6px; right: 6px; }
+
+/* Left Side Studs */
+.portal-stud.stud-l1 { top: 20%; left: 4px; transform: translateY(-50%); }
+.portal-stud.stud-l2 { top: 35%; left: 4px; transform: translateY(-50%); }
+.portal-stud.stud-l3 { top: 50%; left: 4px; transform: translateY(-50%); }
+.portal-stud.stud-l4 { top: 65%; left: 4px; transform: translateY(-50%); }
+.portal-stud.stud-l5 { top: 80%; left: 4px; transform: translateY(-50%); }
+
+/* Right Side Studs */
+.portal-stud.stud-r1 { top: 20%; right: 4px; transform: translateY(-50%); }
+.portal-stud.stud-r2 { top: 35%; right: 4px; transform: translateY(-50%); }
+.portal-stud.stud-r3 { top: 50%; right: 4px; transform: translateY(-50%); }
+.portal-stud.stud-r4 { top: 65%; right: 4px; transform: translateY(-50%); }
+.portal-stud.stud-r5 { top: 80%; right: 4px; transform: translateY(-50%); }
+
+/* Center Glowing Vertical Seam (Radiant Golden Light Shining from Within) */
+.doors-center-glow-beam {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3.5px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF4B8 20%, #FFD700 50%, #FFAA00 80%, #FFFFFF 100%);
+  box-shadow: 
+    0 0 12px #FFD700, 
+    0 0 25px #FFAA00, 
+    0 0 45px rgba(255, 215, 0, 0.95);
+  z-index: 20;
+  pointer-events: none;
+  border-radius: 2px;
+  animation: centerBeamPulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes centerBeamPulse {
+  0% {
+    box-shadow: 0 0 10px #FFD700, 0 0 20px #FFAA00, 0 0 35px rgba(255, 215, 0, 0.85);
+    opacity: 0.9;
+  }
+  100% {
+    box-shadow: 0 0 16px #FFD700, 0 0 32px #FFAA00, 0 0 55px rgba(255, 215, 0, 1);
+    opacity: 1;
+  }
+}
+
+/* Left & Right Door Leaves (3D Swing Transition) */
 .palace-door-leaf {
   flex: 1;
   height: 100%;
@@ -519,12 +563,72 @@ div::-webkit-scrollbar {
 
 .leaf-left {
   transform-origin: left center;
-  border-radius: 14px 0 0 6px;
+  border-radius: 16px 0 0 16px;
+  overflow: hidden;
 }
 
 .leaf-right {
   transform-origin: right center;
-  border-radius: 0 14px 6px 0;
+  border-radius: 0 16px 16px 0;
+  overflow: hidden;
+}
+
+/* Door Panel Wood Background Container */
+.door-panel-wood {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #2b040c 0%, #150105 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 6px 5px;
+  box-sizing: border-box;
+}
+
+.leaf-left .door-panel-wood {
+  border-right: 1.5px solid rgba(212, 175, 55, 0.7);
+  border-radius: 16px 0 0 16px;
+}
+
+.leaf-right .door-panel-wood {
+  border-left: 1.5px solid rgba(212, 175, 55, 0.7);
+  border-radius: 0 16px 16px 0;
+}
+
+/* Carved Elephant & Lotus Arch Card Container */
+.door-carved-card {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1.8px solid rgba(212, 175, 55, 0.65);
+  box-shadow: 
+    inset 0 0 12px rgba(0, 0, 0, 0.95), 
+    0 2px 8px rgba(0, 0, 0, 0.7);
+  background: #180206;
+}
+
+.door-carved-img-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.door-carved-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  display: block;
+  filter: brightness(0.92) contrast(1.15) saturate(1.1);
+  transition: transform 0.5s ease;
+}
+
+.door-carved-img-wrap.mirrored img {
+  transform: scaleX(-1);
 }
 
 /* When Doors Open - Majestic 3D Cinematic Swing & Smooth Unveiling */
@@ -538,6 +642,13 @@ div::-webkit-scrollbar {
   transform: rotateY(132deg) translateZ(12px);
   box-shadow: -40px 0 90px rgba(0, 0, 0, 0.99);
   filter: brightness(1.2) contrast(1.05);
+}
+
+.royal-doors-screen.opening .doors-center-glow-beam {
+  transform: translateX(-50%) scaleX(30);
+  opacity: 1;
+  box-shadow: 0 0 120px 60px rgba(255, 235, 140, 1);
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease, box-shadow 1.2s ease;
 }
 
 .royal-doors-screen.opening .royal-palace-header {
@@ -556,19 +667,6 @@ div::-webkit-scrollbar {
   transform: translateX(35px);
   opacity: 0;
   transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.75s ease;
-}
-
-.royal-doors-screen.opening .door-center-lock-plate {
-  transform: translate(-50%, -50%) scale(0.05);
-  opacity: 0;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
-}
-
-.royal-doors-screen.opening .door-sanctum-light-beam {
-  transform: translateX(-50%) scaleX(40);
-  opacity: 1;
-  box-shadow: 0 0 120px 60px rgba(255, 235, 140, 1);
-  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease, box-shadow 1.2s ease;
 }
 
 .royal-doors-screen.opening .door-light-burst {
@@ -618,344 +716,6 @@ div::-webkit-scrollbar {
   }
 }
 
-/* Door Panel Wood Texture & Multi-layered Insets */
-.door-panel-wood {
-  width: 100%;
-  height: 100%;
-  background:
-    linear-gradient(180deg, rgba(95, 10, 28, 0.98) 0%, rgba(42, 4, 12, 1) 45%, rgba(68, 7, 20, 1) 75%, rgba(30, 2, 8, 1) 100%);
-  border: 3px solid var(--gold-500);
-  box-shadow:
-    inset 0 0 35px rgba(0, 0, 0, 0.95),
-    inset 0 0 10px rgba(212, 175, 55, 0.3);
-  padding: clamp(6px, 1.2vw, 10px);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.leaf-left .door-panel-wood {
-  border-right: 2px solid rgba(212, 175, 55, 0.6);
-  border-radius: 14px 0 0 6px;
-}
-
-.leaf-right .door-panel-wood {
-  border-left: 2px solid rgba(212, 175, 55, 0.6);
-  border-radius: 0 14px 6px 0;
-}
-
-/* Authentic Rajput Mehrab Arch Header */
-.door-mehrab-arch {
-  width: 100%;
-  height: clamp(18px, 3vh, 28px);
-  border-bottom: 2px solid var(--gold-400);
-  background: linear-gradient(180deg, rgba(212, 175, 55, 0.25) 0%, transparent 100%);
-  margin-bottom: 4px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px 8px 0 0;
-}
-
-.arch-gold-filigree {
-  width: 70%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #FFF6D6 50%, transparent);
-  box-shadow: 0 0 6px rgba(255, 230, 150, 0.8);
-}
-
-.door-inner-carved-frame {
-  flex: 1;
-  border: 2px solid rgba(212, 175, 55, 0.6);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 5px;
-  background: rgba(14, 1, 4, 0.55);
-  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9);
-}
-
-/* Wood Plank Vertical Grain Lines */
-.wood-plank-lines {
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(90deg, transparent 0, transparent 18px, rgba(0, 0, 0, 0.25) 18px, rgba(0, 0, 0, 0.25) 19px, rgba(212, 175, 55, 0.08) 19px, rgba(212, 175, 55, 0.08) 20px);
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-.carved-section {
-  border: 1.5px solid rgba(212, 175, 55, 0.45);
-  border-radius: 6px;
-  background: linear-gradient(145deg, rgba(28, 2, 8, 0.85) 0%, rgba(55, 6, 18, 0.65) 50%, rgba(18, 1, 5, 0.9) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  box-shadow:
-    inset 0 4px 12px rgba(0, 0, 0, 0.9),
-    0 2px 6px rgba(0, 0, 0, 0.6);
-}
-
-.carved-inset-border {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-.section-lotus {
-  height: 44%;
-}
-
-.gold-lotus-svg {
-  width: clamp(62px, 12vh, 92px);
-  height: clamp(62px, 12vh, 92px);
-  filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.65));
-  transition: transform 0.4s ease;
-}
-
-/* Middle Reinforcing Crossbar (Patti) & Heavy Brass Knocker */
-.door-middle-patti {
-  width: 100%;
-  height: clamp(38px, 6.5vh, 52px);
-  margin: 3px 0;
-  background: linear-gradient(180deg, #4A0614 0%, #1A0105 50%, #35030D 100%);
-  border-top: 1.5px solid var(--gold-400);
-  border-bottom: 1.5px solid var(--gold-400);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), inset 0 0 8px rgba(0, 0, 0, 0.7);
-}
-
-.brass-knocker-assembly {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 10;
-}
-
-.knocker-left {
-  right: 14px;
-}
-
-.knocker-right {
-  left: 14px;
-}
-
-/* 3D Lion Knocker Head Mount */
-.knocker-lion-head {
-  width: clamp(26px, 4.4vh, 32px);
-  height: clamp(26px, 4.4vh, 32px);
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #FFF6D6 0%, #D4AF37 40%, #8C6716 80%, #4D3405 100%);
-  border: 1.5px solid #FFF6D6;
-  box-shadow:
-    0 4px 12px rgba(0, 0, 0, 0.9),
-    0 0 8px rgba(212, 175, 55, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.lion-mouth-hole {
-  width: 7px;
-  height: 7px;
-  background: #1A0105;
-  border-radius: 50%;
-  border: 1px solid #D4AF37;
-}
-
-/* Thick Hanging Brass Knocker Ring */
-.knocker-brass-ring {
-  width: clamp(34px, 5.8vh, 42px);
-  height: clamp(34px, 5.8vh, 42px);
-  border-radius: 50%;
-  border: 4.5px solid #E6C564;
-  margin-top: -8px;
-  box-shadow:
-    0 6px 14px rgba(0, 0, 0, 0.85),
-    inset 0 2px 4px rgba(255, 246, 214, 0.8),
-    0 0 10px rgba(212, 175, 55, 0.5);
-  animation: knockerSway 3.2s ease-in-out infinite;
-  background: transparent;
-  position: relative;
-  z-index: 11;
-}
-
-@keyframes knockerSway {
-
-  0%,
-  100% {
-    transform: rotate(0deg);
-  }
-
-  50% {
-    transform: rotate(5deg);
-  }
-}
-
-.knocker-strike-plate {
-  width: 14px;
-  height: 14px;
-  background: var(--gold-gradient);
-  border-radius: 50%;
-  border: 1px solid #FFF6D6;
-  margin-top: -14px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
-}
-
-.section-elephant {
-  height: 48%;
-}
-
-.gold-elephant-svg {
-  width: clamp(72px, 14vh, 105px);
-  height: clamp(58px, 12vh, 88px);
-  filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.65));
-  transition: transform 0.4s ease;
-}
-
-/* Central Decorative Brass Lock Plate */
-.door-center-lock-plate {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 22;
-  width: clamp(48px, 8vh, 60px);
-  height: clamp(48px, 8vh, 60px);
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #FFF6D6 0%, #D4AF37 45%, #7A560C 100%);
-  border: 2px solid #FFF6D6;
-  box-shadow:
-    0 6px 25px rgba(0, 0, 0, 0.95),
-    0 0 18px rgba(212, 175, 55, 0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.8s ease, opacity 0.8s ease;
-}
-
-.lock-om-crest {
-  font-family: var(--font-sanskrit);
-  font-size: clamp(1.3rem, 2.6vh, 1.65rem);
-  font-weight: 700;
-  color: #200208;
-  text-shadow: 0 1px 2px rgba(255, 246, 214, 0.8);
-}
-
-/* 3D Pyramid Brass Studs */
-.door-studs-rail {
-  position: absolute;
-  top: 6px;
-  bottom: 6px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.studs-rail-left {
-  left: 4px;
-}
-
-.studs-rail-right {
-  right: 4px;
-}
-
-.door-stud {
-  width: clamp(6px, 1.1vh, 8px);
-  height: clamp(6px, 1.1vh, 8px);
-  border-radius: 50%;
-  background: radial-gradient(circle at 30% 30%, #FFFFFF 0%, #F9E496 30%, #B88E28 75%, #4A3405 100%);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.9), 0 0 5px rgba(249, 228, 150, 0.7);
-  border: 0.5px solid #FFF6D6;
-}
-
-/* Central Divine Sanctum Light Beam */
-.door-sanctum-light-beam {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 3px;
-  background: linear-gradient(to bottom, #fff6d6 0%, #ffd700 50%, #fff6d6 100%);
-  box-shadow: 0 0 18px 6px rgba(255, 215, 0, 0.9);
-  z-index: 15;
-  transition: transform 1.2s ease, opacity 1.2s ease;
-  pointer-events: none;
-}
-
-.door-light-burst {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 245, 180, 0.95) 0%, rgba(212, 175, 55, 0.7) 45%, transparent 70%);
-  opacity: 0;
-  pointer-events: none;
-  z-index: 25;
-  transition: transform 1s ease-out, opacity 1s ease-out;
-}
-
-/* Bottom Corner Ornate Mandalas */
-.bottom-mandala-corner {
-  position: absolute;
-  bottom: 0;
-  width: clamp(40px, 8vw, 70px);
-  height: clamp(40px, 8vw, 70px);
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, transparent 75%);
-  border: 1px dashed rgba(212, 175, 55, 0.4);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.corner-bl {
-  left: -15px;
-  bottom: -15px;
-}
-
-.corner-br {
-  right: -15px;
-  bottom: -15px;
-}
-
-/* ==========================================================================
-   MAIN SCROLLABLE SINGLE SCREEN ROYAL WEBSITE
-   ========================================================================== */
-.main-scroll-app,
-.main-screen-app {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  max-width: 100%;
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-}
 
 /* Floating Circular Top Left Media Control */
 .floating-media-wrapper,
