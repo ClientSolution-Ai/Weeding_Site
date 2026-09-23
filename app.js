@@ -123,7 +123,6 @@ function initRoyalDoorsExperience() {
   const doorsContainer = document.getElementById("doors-container");
   const openDoorsBtn = document.getElementById("open-doors-btn");
   const royalSeal = document.getElementById("royal-door-seal");
-  const replayDoorsBtn = document.getElementById("replay-doors-btn");
 
   if (!doorsScreen) return;
 
@@ -139,32 +138,12 @@ function initRoyalDoorsExperience() {
     // After door swing animation, unveil the single-screen website
     setTimeout(() => {
       doorsScreen.classList.add("opened");
-    }, 1750);
+    }, 1400);
   }
 
-  function handleReplayDoors() {
-    doorsScreen.classList.remove("opened");
-    // Reset opening state with a slight delay
-    setTimeout(() => {
-      doorsScreen.classList.remove("opening");
-    }, 50);
-  }
-
-  doorsScreen.addEventListener("click", handleOpenDoors);
-  if (doorsContainer) {
-    doorsContainer.addEventListener("click", handleOpenDoors);
-    doorsContainer.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        handleOpenDoors();
-      }
-    });
-  }
+  if (doorsContainer) doorsContainer.addEventListener("click", handleOpenDoors);
+  if (openDoorsBtn) openDoorsBtn.addEventListener("click", handleOpenDoors);
   if (royalSeal) royalSeal.addEventListener("click", handleOpenDoors);
-  if (replayDoorsBtn) replayDoorsBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    handleReplayDoors();
-  });
 }
 
 /* ==========================================================================
@@ -239,24 +218,36 @@ let isMusicPlaying = false;
 let synthTimer = null;
 let bgAudioElement = null;
 
-function updateMusicButtonUI(isPlaying) {
+function updateMusicButtonUI(playing) {
   const musicBtn = document.getElementById("floating-music-btn");
-  const musicText = document.getElementById("music-pill-text");
   const musicIcon = document.getElementById("music-play-pause-icon");
+  const musicText = document.getElementById("music-pill-text");
   const musicConfig = (typeof WEDDING_CONFIG !== "undefined" && WEDDING_CONFIG.music) ? WEDDING_CONFIG.music : {};
 
-  if (isPlaying) {
-    if (musicBtn) musicBtn.classList.add("playing");
-    if (musicIcon) {
-      musicIcon.className = "fa-solid fa-pause";
+  if (musicBtn) {
+    if (playing) {
+      musicBtn.classList.add("playing");
+      musicBtn.setAttribute("title", "Pause Music");
+      musicBtn.setAttribute("aria-label", "Pause Music");
+    } else {
+      musicBtn.classList.remove("playing");
+      musicBtn.setAttribute("title", "Play Music");
+      musicBtn.setAttribute("aria-label", "Play Music");
     }
-    if (musicText) musicText.textContent = musicConfig.playingTitle || "Pause Audio";
-  } else {
-    if (musicBtn) musicBtn.classList.remove("playing");
-    if (musicIcon) {
+  }
+
+  if (musicIcon) {
+    if (playing) {
+      musicIcon.className = "fa-solid fa-pause";
+    } else {
       musicIcon.className = "fa-solid fa-play";
     }
-    if (musicText) musicText.textContent = musicConfig.title || "Play Audio";
+  }
+
+  if (musicText) {
+    musicText.textContent = playing 
+      ? (musicConfig.playingTitle || "Pause Music") 
+      : (musicConfig.title || "Play Music");
   }
 }
 
@@ -264,9 +255,11 @@ function initAudioSystem() {
   const musicBtn = document.getElementById("floating-music-btn");
   if (!musicBtn) return;
 
+  const musicConfig = (typeof WEDDING_CONFIG !== "undefined" && WEDDING_CONFIG.music) ? WEDDING_CONFIG.music : {};
   updateMusicButtonUI(false);
 
-  musicBtn.addEventListener("click", () => {
+  musicBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
     if (isMusicPlaying) {
       pauseBackgroundMusic();
     } else {
@@ -346,7 +339,15 @@ function pauseBackgroundMusic() {
       bgAudioElement.pause();
     } catch (e) {}
   }
-  if (synthTimer) clearTimeout(synthTimer);
+  if (synthTimer) {
+    clearTimeout(synthTimer);
+    synthTimer = null;
+  }
+  if (audioCtx && audioCtx.state === "running") {
+    try {
+      audioCtx.suspend();
+    } catch (e) {}
+  }
   updateMusicButtonUI(false);
 }
 

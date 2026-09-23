@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Krishna &amp; Muskan | Royal Wedding Invitation</title>
+
+  <!-- SEO & Social Sharing Meta Tags -->
+  <meta name="description"
+    content="You are cordially invited to celebrate the royal wedding of Krishna Kumar & Kumari Muskan. Shubh Vivah 25th November 2026 at Sangli Resort, Dhanbad.">
+  <meta property="og:title" content="Krishna & Muskan | Royal Wedding Invitation">
+  <meta property="og:description"
+    content="Celebrate the union of Krishna & Muskan. Shubh Vivah 25th November 2026.">
+  <meta property="og:image" content="assets/images/couple_hero.jpg">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪔</text></svg>">
+
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="home-body">
+
+  <!-- Floating Falling Rose Petals & Golden Sparkles Canvas -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Background Decorative Rotating Mandalas -->
+  <div class="bg-mandala bg-mandala-left"></div>
+  <div class="bg-mandala bg-mandala-right"></div>
+
+  <!-- Floating Circular Music Play/Pause Button (Top Right Corner) -->
+  <div class="floating-music-wrapper" id="floating-music-bar">
+    <button id="floating-music-btn" class="music-circle-btn" title="Play or Pause Music" aria-label="Play or Pause Music">
+      <i id="music-play-pause-icon" class="fa-solid fa-play"></i>
+    </button>
+  </div>
+
+  <!-- Main Home Screen View (Groom -> home_center.png 100% width -> Bride) -->
+  <div id="main-scroll-app" class="main-screen-app">
+    
+    <main class="sacred-home-container">
+      
+      <!-- Top Section: Groom Details -->
+      <div class="person-details-section groom-details-top">
+        <h1 class="calligraphy-royal-name">Krishna Kumar</h1>
+        <p class="kinship-label">Son of</p>
+        <p class="parents-names">Smt. Sunita &amp; Shri Rajendra Singhania</p>
+      </div>
+
+      <!-- Center Section: home_center.png Image (100% width of screen, auto height, uncropped) -->
+      <div class="home-center-wrapper">
+        <img src="assets/images/home_center.png" alt="Sacred Union" class="home-center-img" />
+      </div>
+
+      <!-- Bottom Section: Bride Details -->
+      <div class="person-details-section bride-details-bottom">
+        <h1 class="calligraphy-royal-name">Kumari Muskan</h1>
+        <p class="kinship-label">Daughter of</p>
+        <p class="parents-names">Smt. Annu Prasad &amp; Shri Uday Shankar Prasad</p>
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="bg-audio" preload="auto" loop>
+    <source src="assets/audio/jai_jai_ram.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Scripts -->
+  <script src="wedding-config.js"></script>
+  <script src="home.js"></script>
+</body>
+
+</html>
