@@ -5,6 +5,58 @@
  */
 
 const WEDDING_CONFIG = {
+  // =========================================================================
+  // MULTILINGUAL CONTENT CONFIGURATION (ENGLISH & HINDI)
+  // Edit the text below to change what appears in English and Hindi on the site.
+  // =========================================================================
+  translations: {
+    // English Version Data
+    en: {
+      btnLabel: "अ",
+      btnTitle: "हिंदी में देखें / View in Hindi",
+      scrollHint: "Scroll to Unveil",
+      groom: {
+        name: "Abhijeet Kumar",
+        kinship: "Son of",
+        parents: "Smt. Sunita & Shri Rajendra Singhania"
+      },
+      bride: {
+        name: "Anjali Kumari",
+        kinship: "Daughter of",
+        parents: "Smt. Annu Prasad & Shri Uday Shankar Prasad"
+      },
+      countdown: {
+        days: "Days",
+        hours: "Hours",
+        mins: "Mins",
+        secs: "Secs"
+      }
+    },
+
+    // Hindi Version Data (हिंदी संस्करण)
+    hi: {
+      btnLabel: "EN",
+      btnTitle: "View in English / अंग्रेजी में देखें",
+      scrollHint: "दर्शन हेतु स्क्रॉल करें",
+      groom: {
+        name: "कृष्ण कुमार",
+        kinship: "सुपुत्र",
+        parents: "श्रीमती सुनीता एवं श्री राजेन्द्र सिंघानिया"
+      },
+      bride: {
+        name: "कुमारी मुस्कान",
+        kinship: "सुपुत्री",
+        parents: "श्रीमती अन्नू प्रसाद एवं श्री उदय शंकर प्रसाद"
+      },
+      countdown: {
+        days: "दिन",
+        hours: "घंटे",
+        mins: "मिनट",
+        secs: "सेकंड"
+      }
+    }
+  },
+
   // Couple Information
   couple: {
     groom: {

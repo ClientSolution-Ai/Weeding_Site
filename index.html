@@ -20,6 +20,9 @@
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪔</text></svg>">
 
   <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;600;700;800&family=Great+Vibes&family=Kalam:wght@400;700&family=Marcellus&family=Montserrat:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Yatra+One&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -33,8 +36,18 @@
   <div class="bg-mandala bg-mandala-left"></div>
   <div class="bg-mandala bg-mandala-right"></div>
 
-  <!-- Floating Circular Music Play/Pause Button (Top Right Corner) -->
+  <!-- Floating Top Left Control (Media / Photo Gallery Button) -->
+  <div class="floating-media-wrapper" id="floating-media-bar">
+    <button id="floating-media-btn" class="media-circle-btn" title="Photo Gallery & Moments / फोटो गैलरी" aria-label="Open Photo Gallery and Media">
+      <i class="fa-solid fa-images"></i>
+    </button>
+  </div>
+
+  <!-- Floating Top Controls (Top Right Corner: Language Toggle & Music Button) -->
   <div class="floating-music-wrapper" id="floating-music-bar">
+    <button id="floating-lang-btn" class="lang-circle-btn" title="हिंदी में देखें / View in Hindi" aria-label="Toggle Language English or Hindi">
+      <span id="lang-btn-text" class="lang-btn-label">अ</span>
+    </button>
     <button id="floating-music-btn" class="music-circle-btn" title="Play or Pause Music" aria-label="Play or Pause Music">
       <i id="music-play-pause-icon" class="fa-solid fa-play"></i>
     </button>
@@ -341,29 +354,103 @@
        ======================================================================== -->
   <div id="main-scroll-app" class="main-screen-app">
     
+    <!-- Aesthetic Blurred Sacred Background Layer -->
+    <div class="home-bg-backdrop" aria-hidden="true"></div>
+    <div class="home-bg-glow-vignette" aria-hidden="true"></div>
+
     <main class="sacred-home-container">
       
-      <!-- Top Section: Groom Details -->
-      <div class="person-details-section groom-details-top">
-        <h1 class="calligraphy-royal-name">Krishna Kumar</h1>
-        <p class="kinship-label">Son of</p>
-        <p class="parents-names">Smt. Sunita &amp; Shri Rajendra Singhania</p>
-      </div>
+      <!-- Left Section: Divine Lord Ganpati Image (Web View) -->
+      <section class="sacred-home-left" aria-label="Auspicious Lord Ganesha">
+        <div class="ganpati-home-wrapper">
+          <img src="assets/images/ganpati_home.png" alt="Auspicious Lord Ganesha" class="ganpati-home-img" />
+        </div>
+      </section>
 
-      <!-- Center Section: home_center.png Image (100% width of screen, auto height, uncropped) -->
-      <div class="home-center-wrapper">
-        <img src="assets/images/home_center.png" alt="Sacred Union" class="home-center-img" />
-      </div>
+      <!-- Right Section: Sacred Knot Union (Groom at Top -> Bigger home_center.png -> Bride at Bottom) -->
+      <section class="sacred-home-right" aria-label="Groom, Sacred Knot, and Bride Details">
+        <div class="sacred-knot-stage">
+          
+          <!-- Top Section: Groom Details -->
+          <div class="person-details-section groom-details-top">
+            <h1 class="calligraphy-royal-name" id="groom-name-text">Krishna Kumar</h1>
+            <p class="kinship-label" id="groom-kinship-text">Son of</p>
+            <p class="parents-names" id="groom-parents-text">Smt. Sunita &amp; Shri Rajendra Singhania</p>
+          </div>
 
-      <!-- Bottom Section: Bride Details -->
-      <div class="person-details-section bride-details-bottom">
-        <h1 class="calligraphy-royal-name">Kumari Muskan</h1>
-        <p class="kinship-label">Daughter of</p>
-        <p class="parents-names">Smt. Annu Prasad &amp; Shri Uday Shankar Prasad</p>
-      </div>
+          <!-- Center Section: home_center.png Image (Bigger & Grand) -->
+          <div class="home-center-wrapper">
+            <img src="assets/images/home_center.png" alt="Sacred Union Knot" class="home-center-img" />
+          </div>
+
+          <!-- Bottom Section: Bride Details -->
+          <div class="person-details-section bride-details-bottom">
+            <h1 class="calligraphy-royal-name" id="bride-name-text">Kumari Muskan</h1>
+            <p class="kinship-label" id="bride-kinship-text">Daughter of</p>
+            <p class="parents-names" id="bride-parents-text">Smt. Annu Prasad &amp; Shri Uday Shankar Prasad</p>
+          </div>
+
+        </div>
+      </section>
 
     </main>
 
+    <!-- Floating Bottom-Center Auspicious Wedding Countdown Timer (Revealed on Scroll) -->
+    <div id="home-countdown-banner" class="home-countdown-banner" aria-label="Wedding Countdown">
+      <div class="cd-banner-inner">
+        <div class="cd-banner-timer-row">
+          <div class="cd-unit-box">
+            <span class="cd-unit-num" id="home-cd-days">00</span>
+            <span class="cd-unit-label" id="cd-label-days">Days</span>
+          </div>
+          <span class="cd-unit-sep">:</span>
+          <div class="cd-unit-box">
+            <span class="cd-unit-num" id="home-cd-hours">00</span>
+            <span class="cd-unit-label" id="cd-label-hours">Hours</span>
+          </div>
+          <span class="cd-unit-sep">:</span>
+          <div class="cd-unit-box">
+            <span class="cd-unit-num" id="home-cd-mins">00</span>
+            <span class="cd-unit-label" id="cd-label-mins">Mins</span>
+          </div>
+          <span class="cd-unit-sep">:</span>
+          <div class="cd-unit-box">
+            <span class="cd-unit-num" id="home-cd-secs">00</span>
+            <span class="cd-unit-label" id="cd-label-secs">Secs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Scroll to Unveil Divine Celebration Hint -->
+    <div class="scroll-unveil-hint" id="scroll-unveil-hint" role="button" tabindex="0" title="Scroll or click to unveil">
+      <span class="hint-text" id="scroll-hint-text">Scroll to Unveil</span>
+      <div class="hint-mouse-indicator">
+        <span class="hint-wheel-dot"></span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Royal Media / Photo Moments Modal -->
+  <div id="royal-media-modal" class="royal-media-modal" aria-hidden="true" role="dialog" aria-labelledby="media-modal-heading">
+    <div class="media-modal-backdrop" id="media-modal-backdrop"></div>
+    <div class="media-modal-card">
+      <div class="media-modal-header">
+        <div class="media-modal-title-wrap">
+          <i class="fa-solid fa-camera-retro"></i>
+          <h2 class="media-modal-title" id="media-modal-heading">Royal Moments & Gallery</h2>
+        </div>
+        <button class="media-modal-close-btn" id="media-modal-close-btn" title="Close / बंद करें" aria-label="Close Gallery">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="media-modal-body">
+        <div class="media-gallery-grid" id="media-gallery-container">
+          <!-- Dynamically populated from wedding-config.js or fallback -->
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- Audio Element -->
