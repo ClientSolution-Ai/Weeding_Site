@@ -256,9 +256,9 @@ const WEDDING_CONFIG = {
   // If audioUrl is empty or not found, it automatically plays the Royal Shehnai synthesizer
   music: {
     enabled: true,
-    audioUrl: "assets/audio/jai_jai_ram.mp3",
-    title: "Play Jai Jai Ram",
-    playingTitle: "Pause Jai Jai Ram",
+    audioUrl: "assets/audio/AUD-20260928-WA0008.mp3",
+    title: "Play Music",
+    playingTitle: "Pause Music",
     volume: 0.8,
     loop: true
   },

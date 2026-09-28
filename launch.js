@@ -519,7 +519,7 @@ function initMusicSystem() {
   bgAudio = document.getElementById("bg-audio");
 
   if (!bgAudio) {
-    bgAudio = new Audio("assets/audio/jai_jai_ram.mp3");
+    bgAudio = new Audio(window.WEDDING_CONFIG?.music?.audioUrl || "assets/audio/AUD-20260928-WA0008.mp3");
     bgAudio.loop = true;
   }
 
