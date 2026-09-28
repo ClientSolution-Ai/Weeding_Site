@@ -15,21 +15,103 @@ const WEDDING_CONFIG = {
       btnLabel: "अ",
       btnTitle: "हिंदी में देखें / View in Hindi",
       scrollHint: "Scroll to Unveil",
-      groom: {
-        name: "Krishna Kumar",
-        kinship: "Son of",
-        parents: "Smt. Sunita & Shri Rajendra Singhania"
-      },
       bride: {
         name: "Kumari Muskan",
         kinship: "Daughter of",
         parents: "Smt. Annu Prasad & Shri Uday Shankar Prasad"
       },
+      groom: {
+        name: "Krishna Kumar",
+        kinship: "Son of",
+        parents: "Smt. Sunita & Shri Rajendra Singhania"
+      },
+
       countdown: {
         days: "Days",
         hours: "Hours",
         mins: "Mins",
         secs: "Secs"
+      },
+      eventsSection: {
+        subtitle: "SACRED WEDDING CELEBRATIONS",
+        title: "Auspicious Ceremonies",
+        scrollHint: "Swipe or Scroll to Explore Ceremonies",
+        btnMap: "View Venue",
+        btnCalendar: "Add to Calendar",
+        dressCodeLabel: "Attire",
+        events: [
+          {
+            id: "haldi",
+            badge: "CEREMONY 01",
+            name: "Haldi Ceremony",
+            tagline: "Ubtan, Laughter & Golden Sunshine",
+            date: "Tuesday, 24th November 2026",
+            time: "10:00 AM - 01:00 PM",
+            venue: "Sangli Resort Lawns",
+            dressCode: "Festive Yellow & Sunshine Pastels",
+            description: "An auspicious morning bathed in golden turmeric pastes, fragrant marigold showers, and joyful family banter."
+          },
+          {
+            id: "mehendi",
+            badge: "CEREMONY 02",
+            name: "Mehendi & High Tea",
+            tagline: "Intricate Henna, Folk Rhythms & Royal Flavors",
+            date: "Tuesday, 24th November 2026",
+            time: "04:00 PM - 07:30 PM",
+            venue: "Sangli Resort, Courtyard",
+            dressCode: "Emerald Green, Mint & Floral Attire",
+            description: "Adorning hands with exquisite fragrant henna motifs, live folk music, bangles stall, and lavish delicacies."
+          },
+          {
+            id: "sangeet",
+            badge: "CEREMONY 03",
+            name: "Sangeet Night",
+            tagline: "A Symphony of Beats, Glitz & Grand Performances",
+            date: "Tuesday, 24th November 2026",
+            time: "08:00 PM Onwards",
+            venue: "Grand Ballroom, Sangli Resort",
+            dressCode: "Glamorous Indo-Western & Sparkly Lehengas",
+            description: "An electrifying musical extravaganza featuring breathtaking family dance performances, DJ beats, and gourmet dining."
+          },
+          {
+            id: "barat",
+            badge: "CEREMONY 04",
+            name: "Baraat & Shubh Vivah",
+            tagline: "The Royal Wedding & Sacred 7 Pheras",
+            date: "Wednesday, 25th November 2026",
+            time: "Varmala 09:30 PM | Pheras 02:30 AM",
+            venue: "Sangli Resort Mandap, Dhanbad",
+            dressCode: "Traditional (Ivory, Crimson & Gold)",
+            description: "The grand Baraat procession, garland exchange under floral showers, and the eternal 7 vows around the holy Agni."
+          },
+          {
+            id: "reception",
+            badge: "CEREMONY 05",
+            name: "Reception",
+            tagline: "An Evening of Feast & Blessings",
+            date: "Wednesday, 25th November 2026",
+            time: "07:30 PM Onwards",
+            venue: "Sangli Resort Banquet, Dhanbad",
+            dressCode: "Royal Black Tie, Tuxedos & Regal Sarees",
+            description: "A majestic dinner celebrating the newlyweds with live classical melodies and grand Indian hospitality."
+          }
+        ]
+      },
+      familyBlessings: {
+        sanskritTag: "॥ पारिवारिक शुभाशीर्वाद ॥",
+        title: "FAMILY BLESSINGS",
+        subtitle: "With the Love & Blessings of Our Families",
+        quote: "“We cordially invite you and your family to grace the auspicious wedding ceremonies of our beloved children and bestow your heartfelt blessings upon the young couple as they start their sacred new journey together.”",
+        brideFamily: {
+          title: "THE PRASAD FAMILY",
+          badge: "BRIDE'S FAMILY",
+          ancestorLabel: "With the pious blessings of",
+          ancestors: "Late Kamini Devi & Late Sheo Nandan Prasad",
+          parentsLabel: "PARENTS",
+          parents: "Smt. Annu Prasad & Shri Uday Shankar Prasad"
+        },
+        gratitudeLabel: "दर्शनाभिलाषी:",
+        gratitudeVal: "Entire Prasad Family"
       }
     },
 
@@ -38,21 +120,103 @@ const WEDDING_CONFIG = {
       btnLabel: "EN",
       btnTitle: "View in English / अंग्रेजी में देखें",
       scrollHint: "दर्शन हेतु स्क्रॉल करें",
-      groom: {
-        name: "कृष्ण कुमार",
-        kinship: "सुपुत्र",
-        parents: "श्रीमती सुनीता एवं श्री राजेन्द्र सिंघानिया"
-      },
       bride: {
         name: "कुमारी मुस्कान",
         kinship: "सुपुत्री",
         parents: "श्रीमती अन्नू प्रसाद एवं श्री उदय शंकर प्रसाद"
       },
+      groom: {
+        name: "कृष्ण कुमार",
+        kinship: "सुपुत्र",
+        parents: "श्रीमती सुनीता एवं श्री राजेन्द्र सिंघानिया"
+      },
+
       countdown: {
         days: "दिन",
         hours: "घंटे",
         mins: "मिनट",
         secs: "सेकंड"
+      },
+      eventsSection: {
+        subtitle: "॥ मांगलिक वैवाहिक उत्सव ॥",
+        title: "शुभ विवाह कार्यक्रम",
+        scrollHint: "कार्यक्रम देखने हेतु स्क्रॉल अथवा स्वाइप करें",
+        btnMap: "स्थान देखें",
+        btnCalendar: "कैलेंडर में जोड़ें",
+        dressCodeLabel: "पहनावा",
+        events: [
+          {
+            id: "haldi",
+            badge: "कार्यक्रम ०१",
+            name: "हल्दी उत्सव",
+            tagline: "उबटन, हंसी-उल्लास एवं पीत आभा",
+            date: "मंगलवार, २४ नवंबर २०२६",
+            time: "प्रातः १०:०० बजे से अपराह्न ०१:०० बजे तक",
+            venue: "सांगली रिसॉर्ट, जिओ पेट्रोल पंप के पास, धनबाद",
+            dressCode: "पीला एवं सूर्यमुखी परिधान",
+            description: "पवित्र हल्दी, गेंदे के पुष्पों की वर्षा और परिजनों के स्नेह के साथ मंगलमय हल्दी का उत्सव।"
+          },
+          {
+            id: "mehendi",
+            badge: "कार्यक्रम ०२",
+            name: "मेहंदी एवं उत्सव",
+            tagline: "सुहाग की मेहंदी, लोक संगीत एवं उल्लास",
+            date: "मंगलवार, २४ नवंबर २०२६",
+            time: "सायं ०४:०० बजे से ०७:३० बजे तक",
+            venue: "सांगली रिसॉर्ट, जिओ पेट्रोल पंप के पास, धनबाद",
+            dressCode: "हरा एवं फ्लोरल परिधान",
+            description: "हाथों में सजती खुशबूदार मेहंदी की बेलें, लोक गीतों की मधुर धुनें और स्वादिष्ट व्यंजनों का आनंद।"
+          },
+          {
+            id: "sangeet",
+            badge: "कार्यक्रम ०३",
+            name: "शाही संगीत निशा",
+            tagline: "सुर, ताल और नृत्य का भव्य संगम",
+            date: "मंगलवार, २४ नवंबर २०२६",
+            time: "रात्रि ०८:०० बजे से",
+            venue: "सांगली रिसॉर्ट, जिओ पेट्रोल पंप के पास, धनबाद",
+            dressCode: "इंडो-वेस्टर्न एवं चमकीले परिधान",
+            description: "पारिवारिक मनमोहक नृत्य प्रस्तुतियां, डीजे की धुनें और भव्य शाही रात्रिभोज।"
+          },
+          {
+            id: "barat",
+            badge: "कार्यक्रम ०४",
+            name: "बारात एवं शुभ विवाह",
+            tagline: "वरयात्रा, वरमाला एवं पवित्र सप्तपदी",
+            date: "बुधवार, २५ नवंबर २०२६",
+            time: "बारात: सायं ०४:३० | वरमाला: ०६:३० | फेरे: ०७:१५",
+            venue: "सांगली रिसॉर्ट, जिओ पेट्रोल पंप के पास, धनबाद",
+            dressCode: "पारंपरिक शाही (लाल, महरून, आइवरी व सुनहरा)",
+            description: "भव्य बारात का आगमन, वरमाला एवं पवित्र अग्नि के साक्षी में जीवन भर साथ निभाने के सात फेरे।"
+          },
+          {
+            id: "reception",
+            badge: "कार्यक्रम ०५",
+            name: "भव्य प्रीतिभोज एवं रिसेप्शन",
+            tagline: "स्नेह मिलन, आशीर्वाद एवं उत्सव",
+            date: "गुरुवार, २६ नवंबर २०२६",
+            time: "सायं ०७:३० बजे से",
+            venue: "सांगली रिसॉर्ट, जिओ पेट्रोल पंप के पास, धनबाद",
+            dressCode: "शाही परिधान / टक्सीडो एवं साड़ियां",
+            description: "नवदंपति के स्वागत में भव्य प्रीतिभोज, संगीत एवं परिजनों का मंगल आशीर्वाद।"
+          }
+        ]
+      },
+      familyBlessings: {
+        sanskritTag: "॥ पारिवारिक शुभाशीर्वाद ॥",
+        title: "पारिवारिक शुभाशीर्वाद",
+        subtitle: "समस्त परिवार के स्नेह एवं मंगल आशीर्वाद सहित",
+        quote: "“हम आप सभी को सपरिवार अपने प्रिय बच्चों के मांगलिक वैवाहिक उत्सव में सादर आमंत्रित करते हैं। वर-वधू को अपने स्नेहिल आशीष से अनुगृहीत कर इस पावन बेला की शोभा बढ़ाएं।”",
+        brideFamily: {
+          title: "प्रसाद परिवार",
+          badge: "वधू पक्ष",
+          ancestorLabel: "परम पूज्य पूर्वजों के पावन आशीर्वाद से",
+          ancestors: "स्व. कामिनी देवी एवं स्व. शिव नंदन प्रसाद",
+          parentsLabel: "माता-पिता",
+          parents: "श्रीमती अन्नू प्रसाद एवं श्री उदय शंकर प्रसाद"
+        },
+        gratitudeLabel: "दर्शनाभिलाषी:",
+        gratitudeVal: "समस्त प्रसाद परिवार"
       }
     }
   },
@@ -111,8 +275,8 @@ const WEDDING_CONFIG = {
   // Auspicious Shlokas & Blessings
   shlokas: [
     {
-      sanskrit: "॥ ॐ श्री गणेशाय नमः ॥",
-      transliteration: "Om Shree Ganeshay Namah",
+      sanskrit: "॥ श्री गणेशाय नमः ॥",
+      transliteration: "Shree Ganeshay Namah",
       meaning: "Salutations to Lord Ganesha, the remover of obstacles and harbinger of auspicious beginnings."
     },
     {
@@ -135,7 +299,7 @@ const WEDDING_CONFIG = {
       tagline: "Ubtan, Laughter & Golden Glow",
       date: "Tuesday, 24th December 2026",
       time: "10:00 AM - 01:00 PM",
-      venue: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD",
+      venue: "Sangli Resort Lawns",
       address: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD",
       dressCode: "Festive Yellow & Sunshine Pastels",
       description: "An auspicious morning bathed in golden turmeric pastes, marigold showers, fragrant rosewater, and joyful family banter.",
@@ -143,10 +307,10 @@ const WEDDING_CONFIG = {
       themeColor: "#E5A93B",
       googleMapsUrl: "https://maps.google.com/?q=The+Oberoi+Udaivilas+Udaipur",
       calendarData: {
-        title: "Haldi Ceremony - Krishna & Muskan Wedding",
+        title: "Haldi Ceremony - Muskan & Krishna Wedding",
         start: "20261124T100000",
         end: "20261124T130000",
-        location: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD"
+        location: "Sangli Resort Lawns"
       }
     },
     {
@@ -155,7 +319,7 @@ const WEDDING_CONFIG = {
       tagline: "Intricate Henna, Folk Rhythms & Royal Flavors",
       date: "Monday, 24th December 2026",
       time: "04:00 PM - 07:30 PM",
-      venue: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD",
+      venue: "Sangli Resort Courtyard",
       address: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD",
       dressCode: "Emerald Green, Mint & Floral Attire",
       description: "Adorning hands with exquisite fragrant henna motifs, live folk musicians, bangles stall, and lavish Rajasthani high-tea delicacies.",
@@ -163,70 +327,70 @@ const WEDDING_CONFIG = {
       themeColor: "#2D7F5E",
       googleMapsUrl: "https://maps.google.com/?q=The+Oberoi+Udaivilas+Udaipur",
       calendarData: {
-        title: "Mehendi Ceremony - Krishna & Muskan Wedding",
+        title: "Mehendi Ceremony - Muskan & Krishna Wedding",
         start: "2026112411T160000",
         end: "20261124T193000",
-        location: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD"
+        location: "Sangli Resort Courtyard"
       }
     },
     {
       id: "sangeet",
       name: "Royal Sangeet Night",
       tagline: "A Symphony of Beats, Glitz & Grand Performances",
-      date: "Friday, 11th December 2026",
+      date: "Tuesday, 24th November 2026",
       time: "08:00 PM Onwards",
-      venue: "Grand Chandra Mahal Ballroom",
-      address: "The Oberoi Udaivilas, Udaipur",
+      venue: "Grand Ballroom, Sangli Resort",
+      address: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD",
       dressCode: "Glamorous Indowestern & Sparkly Lehengas",
       description: "An electrifying musical extravaganza featuring breathtaking family dance performances, DJ beats, signature royal cocktails, and gourmet dining.",
       icon: "music",
       themeColor: "#8B2671",
       googleMapsUrl: "https://maps.google.com/?q=The+Oberoi+Udaivilas+Udaipur",
       calendarData: {
-        title: "Royal Sangeet - Krishna & Muskan Wedding",
-        start: "20261211T200000",
-        end: "20261212T010000",
-        location: "Grand Chandra Mahal Ballroom, Udaivilas, Udaipur"
+        title: "Royal Sangeet - Muskan & Krishna Wedding",
+        start: "20261124T200000",
+        end: "20261124T010000",
+        location: "Grand Ballroom, Sangli Resort"
       }
     },
     {
       id: "wedding",
-      name: "Baraat & Varmala & Pheras",
-      tagline: "The Grand Royal Wedding Ceremony",
-      date: "Saturday, 12th December 2026",
-      time: "Baraat 04:30 PM | Varmala 06:30 PM | Pheras 07:15 PM",
-      venue: "Lakeview Royal Mandap, Jagmandir Island Palace",
-      address: "Pichola, Udaipur, Rajasthan 313001 (Boat transfer from jetty)",
+      name: "Varmala & Pheras",
+      tagline: "The Wedding Ceremony",
+      date: "Wednesday, 25th November 2026",
+      time: "Varmala 09:30 PM | Pheras 02:30 AM",
+      venue: "Sangli Resort Mandap, Dhanbad",
+      address: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD",
       dressCode: "Royal Traditional (Ivory, Crimson, Maroons & Gold)",
       description: "The royal royal procession by royal boats, the garland exchange under floral fireworks, and the sacred 7 vows around the holy Agni.",
       icon: "sparkles",
       themeColor: "#8B1E2D",
       googleMapsUrl: "https://maps.google.com/?q=Jagmandir+Island+Palace+Udaipur",
       calendarData: {
-        title: "Wedding Ceremony (Pheras) - Krishna & Muskan",
-        start: "20261212T163000",
-        end: "20261212T230000",
-        location: "Lakeview Mandap, Jagmandir Palace, Udaipur"
+        title: "Wedding Ceremony (Pheras) - Muskan & Krishna",
+        start: "20261125T163000",
+        end: "20261125T230000",
+        location: "Sangli Resort Mandap, Dhanbad"
       }
     },
     {
       id: "reception",
-      name: "Grand Reception & Gala",
-      tagline: "An Evening of Royal Feast, Toasts & Celebrations",
-      date: "Sunday, 13th December 2026",
+      name: "Reception",
+      tagline: "An Evening of  Feast, Toasts & Celebrations",
+      date: "Sunday, 25th November 2026",
       time: "07:30 PM Onwards",
-      venue: "Zenana Mahal Courtyard, City Palace",
-      address: "Old City, Udaipur, Rajasthan 313001",
+      venue: "Sangli Resort Banquet, Dhanbad",
+      address: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD",
       dressCode: "Royal Black Tie / Tuxedos & Regal Sarees",
       description: "A majestic imperial banquet welcoming the newlyweds with candlelit crystal chandeliers, live symphony orchestra, and royal Rajasthani hospitality.",
       icon: "crown",
       themeColor: "#C59B27",
       googleMapsUrl: "https://maps.google.com/?q=City+Palace+Udaipur",
       calendarData: {
-        title: "Grand Reception - Krishna & Muskan",
+        title: "Grand Reception - Muskan & Krishna",
         start: "20261213T193000",
         end: "20261213T235900",
-        location: "Zenana Mahal Courtyard, City Palace, Udaipur"
+        location: "Sangli Resort Banquet, Dhanbad"
       }
     }
   ],

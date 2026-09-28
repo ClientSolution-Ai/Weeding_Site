@@ -10,15 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
   initHomeScrollStory();
   initHomeLanguageSystem();
   initHomeMediaModal();
+  initEventsCardsSystem();
 });
 
 /* ==========================================================================
    SCROLL-DRIVEN STORYTELLING UNVEIL ENGINE
-   0.00 - 0.15: Sharp Pristine Background
-   0.15 - 0.40: Background blurs + Ganpati fades in
-   0.40 - 0.65: Groom name & details reveal
-   0.65 - 0.85: Bride name & details reveal
-   0.85 - 1.00: Sacred Knot home_center.png blooms in center
+   Progression Phases:
+   0.00 - 0.25: Sacred Background & Ganpati Reveal
+   0.20 - 0.45: Groom and Bride Details Unveil
+   0.40 - 0.65: Sacred Knot (home_center.png) Blooms in Center
+   0.58 - 0.76: Auspicious Countdown Banner Appears at Bottom-Center
+   0.75 - 1.00: THEN Royal Events Cards (Haldi, Mehndi, Sangeet, Barat, Reception)
+                Glides up smoothly into center stage!
    ========================================================================== */
 function initHomeScrollStory() {
   const bgBackdrop = document.querySelector(".home-bg-backdrop");
@@ -30,18 +33,30 @@ function initHomeScrollStory() {
   const knotWrapper = document.querySelector(".home-center-wrapper");
   const scrollHint = document.getElementById("scroll-unveil-hint");
   const countdownBanner = document.getElementById("home-countdown-banner");
+  const eventsSection = document.getElementById("royal-events-section");
 
   if (!bgBackdrop || !groomSection || !brideSection || !knotWrapper) return;
 
   let targetProgress = 0;
   let currentProgress = 0;
-  const maxScroll = 1400; // ample virtual scroll units for multi-phase unveil
+  const maxScroll = 2400; // ample virtual scroll units for multi-phase unveil
   let accumulatedScroll = 0;
 
   // Wheel listener
   window.addEventListener("wheel", (e) => {
+    const isOverEvents = e.target.closest("#royal-events-section");
+    if (isOverEvents && currentProgress >= 0.88) {
+      const isHorizontalCards = e.target.closest("#events-cards-track") && Math.abs(e.deltaX) > 0;
+      if (isHorizontalCards) return; // natural horizontal swipe inside cards track
+
+      // If scrolling down, or scrolling up while not at the very top of eventsSection
+      if (e.deltaY > 0 || (e.deltaY < 0 && eventsSection.scrollTop > 5)) {
+        return; // allow natural vertical scroll down to Family Blessings
+      }
+    }
+
     e.preventDefault();
-    accumulatedScroll += e.deltaY * 0.9;
+    accumulatedScroll += e.deltaY * 0.95;
     accumulatedScroll = Math.max(0, Math.min(maxScroll, accumulatedScroll));
     targetProgress = accumulatedScroll / maxScroll;
   }, { passive: false });
@@ -55,9 +70,16 @@ function initHomeScrollStory() {
   }, { passive: true });
 
   window.addEventListener("touchmove", (e) => {
+    const isOverEvents = e.target.closest("#royal-events-section");
+    if (isOverEvents && currentProgress >= 0.88) {
+      if (eventsSection.scrollTop > 5) {
+        return; // allow natural vertical scrolling inside events & family blessings
+      }
+    }
+
     if (e.touches.length > 0) {
       const touchCurrentY = e.touches[0].clientY;
-      const deltaY = (touchStartY - touchCurrentY) * 1.6;
+      const deltaY = (touchStartY - touchCurrentY) * 1.5;
       touchStartY = touchCurrentY;
       accumulatedScroll += deltaY;
       accumulatedScroll = Math.max(0, Math.min(maxScroll, accumulatedScroll));
@@ -68,10 +90,10 @@ function initHomeScrollStory() {
   // Keyboard navigation
   window.addEventListener("keydown", (e) => {
     if (["ArrowDown", "PageDown", " "].includes(e.key)) {
-      accumulatedScroll = Math.min(maxScroll, accumulatedScroll + 250);
+      accumulatedScroll = Math.min(maxScroll, accumulatedScroll + 280);
       targetProgress = accumulatedScroll / maxScroll;
     } else if (["ArrowUp", "PageUp"].includes(e.key)) {
-      accumulatedScroll = Math.max(0, accumulatedScroll - 250);
+      accumulatedScroll = Math.max(0, accumulatedScroll - 280);
       targetProgress = accumulatedScroll / maxScroll;
     }
   });
@@ -79,8 +101,13 @@ function initHomeScrollStory() {
   // Clicking on hint instantly reveals the celebration smoothly
   if (scrollHint) {
     scrollHint.addEventListener("click", () => {
-      accumulatedScroll = maxScroll;
-      targetProgress = 1;
+      if (currentProgress < 0.6) {
+        accumulatedScroll = maxScroll * 0.7;
+        targetProgress = 0.7;
+      } else {
+        accumulatedScroll = maxScroll;
+        targetProgress = 1;
+      }
     });
   }
 
@@ -94,19 +121,21 @@ function initHomeScrollStory() {
     currentProgress += (targetProgress - currentProgress) * 0.12;
     const isMobile = window.innerWidth <= 768;
 
-    // 1. Background Blur & Vignette (0.04 to 0.30)
-    const blurPx = mapRange(currentProgress, 0.04, 0.30, 0, 4.5);
-    const brightness = mapRange(currentProgress, 0.04, 0.30, 0.94, 0.64);
-    const vignetteOpacity = mapRange(currentProgress, 0.04, 0.30, 0.15, 1);
+    // 1. Background Blur & Vignette (0.04 to 0.25)
+    const blurPx = mapRange(currentProgress, 0.04, 0.25, 0, 4.5);
+    const brightness = mapRange(currentProgress, 0.04, 0.25, 0.94, 0.58);
+    const vignetteOpacity = mapRange(currentProgress, 0.04, 0.25, 0.15, 1);
 
     bgBackdrop.style.filter = `blur(${blurPx.toFixed(2)}px) brightness(${brightness.toFixed(3)}) saturate(1.25) contrast(1.08)`;
     if (bgVignette) {
       bgVignette.style.opacity = vignetteOpacity.toFixed(3);
     }
 
-    // 2. Scroll Hint (fades out from 0.0 to 0.12)
+    // 2. Scroll Hint (fades out when scrolled into events, or when > 0.8)
     if (scrollHint) {
-      const hintOpacity = mapRange(currentProgress, 0.0, 0.12, 1, 0);
+      const hintOpacity = currentProgress < 0.75
+        ? mapRange(currentProgress, 0.0, 0.10, 1, 0.85)
+        : mapRange(currentProgress, 0.75, 0.88, 0.85, 0);
       scrollHint.style.opacity = hintOpacity.toFixed(3);
       scrollHint.style.pointerEvents = hintOpacity < 0.05 ? "none" : "auto";
     }
@@ -114,134 +143,191 @@ function initHomeScrollStory() {
     if (!isMobile) {
       /* ================================================================
          DESKTOP / WEB VIEW PROGRESSION:
-         0.10 - 0.35: Ganpati fades in
-         0.30 - 0.50: Groom details reveal
-         0.48 - 0.68: Bride details reveal
-         0.65 - 0.84: Sacred Knot blooms in center
-         0.86 - 1.00: THEN countdown timer reveals at bottom center
+         0.08 - 0.28: Ganpati fades in
+         0.22 - 0.42: Groom details reveal
+         0.35 - 0.55: Bride details reveal
+         0.48 - 0.68: Sacred Knot blooms in center
+         0.60 - 0.78: Countdown timer reveals at bottom center
+         0.78 - 1.00: THEN Sacred Union fades gracefully & Royal Events Section
+                      unveils with Haldi, Mehndi, Sangeet, Barat & Reception cards!
          ================================================================ */
-      // 3. Ganpati Image Reveal (0.10 to 0.35)
+      // 3. Stage 1: Sacred Union Fade Out when entering Events Section (0.75 - 0.90)
+      const unionStageOpacity = currentProgress <= 0.75
+        ? 1
+        : mapRange(currentProgress, 0.75, 0.90, 1, 0);
+      const unionStageScale = currentProgress <= 0.75
+        ? 1
+        : mapRange(currentProgress, 0.75, 0.90, 1, 0.92);
+
+      // Ganpati Image Reveal (0.08 to 0.28)
       if (ganpatiSection) {
-        const ganpatiOpacity = mapRange(currentProgress, 0.10, 0.35, 0, 1);
-        const ganpatiScale = mapRange(currentProgress, 0.10, 0.35, 0.92, 1.0);
-        const ganpatiTranslateX = mapRange(currentProgress, 0.10, 0.35, -35, 0);
+        let ganpatiOpacity = mapRange(currentProgress, 0.08, 0.28, 0, 1);
+        if (currentProgress > 0.75) {
+          ganpatiOpacity *= unionStageOpacity;
+        }
+        const ganpatiScale = mapRange(currentProgress, 0.08, 0.28, 0.92, 1.0) * unionStageScale;
+        const ganpatiTranslateX = mapRange(currentProgress, 0.08, 0.28, -35, 0);
         ganpatiSection.style.opacity = ganpatiOpacity.toFixed(3);
         ganpatiSection.style.filter = "none";
         ganpatiSection.style.transform = `translateX(${ganpatiTranslateX.toFixed(1)}px) scale(${ganpatiScale.toFixed(3)})`;
       }
 
-      // 4. Groom Details Reveal (0.30 to 0.50)
-      const groomOpacity = mapRange(currentProgress, 0.30, 0.50, 0, 1);
-      const groomTranslateY = mapRange(currentProgress, 0.30, 0.50, -25, 0);
+      // Groom Details Reveal (0.22 to 0.42)
+      let groomOpacity = mapRange(currentProgress, 0.22, 0.42, 0, 1);
+      if (currentProgress > 0.75) groomOpacity *= unionStageOpacity;
+      const groomTranslateY = mapRange(currentProgress, 0.22, 0.42, -25, 0);
       groomSection.style.opacity = groomOpacity.toFixed(3);
       groomSection.style.filter = "none";
       groomSection.style.transform = `translateY(${groomTranslateY.toFixed(1)}px)`;
 
-      // 5. Bride Details Reveal (0.48 to 0.68)
-      const brideOpacity = mapRange(currentProgress, 0.48, 0.68, 0, 1);
-      const brideTranslateY = mapRange(currentProgress, 0.48, 0.68, 25, 0);
+      // Bride Details Reveal (0.35 to 0.55)
+      let brideOpacity = mapRange(currentProgress, 0.35, 0.55, 0, 1);
+      if (currentProgress > 0.75) brideOpacity *= unionStageOpacity;
+      const brideTranslateY = mapRange(currentProgress, 0.35, 0.55, 25, 0);
       brideSection.style.opacity = brideOpacity.toFixed(3);
       brideSection.style.filter = "none";
       brideSection.style.transform = `translateY(${brideTranslateY.toFixed(1)}px)`;
 
-      // 6. Sacred Knot home_center.png Bloom (0.65 to 0.84)
-      const knotOpacity = mapRange(currentProgress, 0.65, 0.84, 0, 1);
-      const knotScale = mapRange(currentProgress, 0.65, 0.84, 0.85, 1.0);
+      // Sacred Knot home_center.png Bloom (0.48 to 0.68)
+      let knotOpacity = mapRange(currentProgress, 0.48, 0.68, 0, 1);
+      if (currentProgress > 0.75) knotOpacity *= unionStageOpacity;
+      const knotScale = mapRange(currentProgress, 0.48, 0.68, 0.85, 1.0) * unionStageScale;
       knotWrapper.style.opacity = knotOpacity.toFixed(3);
       knotWrapper.style.filter = "none";
       knotWrapper.style.transform = `scale(${knotScale.toFixed(3)})`;
 
       if (sacredRight) {
-        sacredRight.style.opacity = "1";
+        sacredRight.style.opacity = unionStageOpacity.toFixed(3);
         sacredRight.style.filter = "none";
       }
 
-      // 7. Countdown Timer (Comes at LAST after home_center arrives, 0.86 to 1.00)
+      // Countdown Timer Banner (Revealed 0.60 to 0.78, then fades gracefully for cards 0.78 to 0.88)
       if (countdownBanner) {
-        const cdOpacity = mapRange(currentProgress, 0.86, 1.00, 0, 1);
-        const cdTranslateY = mapRange(currentProgress, 0.86, 1.00, 18, 0);
+        let cdOpacity = 0;
+        if (currentProgress < 0.60) {
+          cdOpacity = 0;
+        } else if (currentProgress <= 0.78) {
+          cdOpacity = mapRange(currentProgress, 0.60, 0.78, 0, 1);
+        } else {
+          cdOpacity = mapRange(currentProgress, 0.78, 0.88, 1, 0);
+        }
+        const cdTranslateY = mapRange(currentProgress, 0.60, 0.78, 18, 0);
         countdownBanner.style.opacity = cdOpacity.toFixed(3);
         countdownBanner.style.transform = `translateX(-50%) translateY(${cdTranslateY.toFixed(1)}px)`;
-        countdownBanner.style.pointerEvents = cdOpacity < 0.1 ? "none" : "auto";
+        countdownBanner.style.pointerEvents = cdOpacity > 0.5 ? "auto" : "none";
       }
+
+      // 4. ROYAL EVENTS SECTION (AFTER COUNTDOWN, 0.78 to 1.00)
+      if (eventsSection) {
+        const evOpacity = mapRange(currentProgress, 0.78, 0.96, 0, 1);
+        const evTranslateY = mapRange(currentProgress, 0.78, 0.96, 45, 0);
+        eventsSection.style.opacity = evOpacity.toFixed(3);
+        eventsSection.style.transform = `translateY(${evTranslateY.toFixed(1)}px)`;
+        eventsSection.style.pointerEvents = evOpacity > 0.4 ? "auto" : "none";
+        if (evOpacity > 0.1) {
+          eventsSection.classList.add("visible");
+        } else {
+          eventsSection.classList.remove("visible");
+        }
+      }
+
     } else {
       /* ================================================================
          MOBILE DEVICE PROGRESSION:
-         Phase 1 (0.08 - 0.56):
-           - Ganpati initial appear
-           - Groom & Bride appear
-           - home_center.png appears
-         Phase 2 (0.58 - 1.00):
-           - home_center + Groom + Bride names blur & disappear into background
-           - Ganpati image gets BIGGER, centers and gains divine aura
-           - Countdown timer reveals at bottom center!
+         0.08 - 0.42: Ganpati + Groom + Bride + Sacred Knot
+         0.45 - 0.70: Knot & Names blur, Ganpati grows bigger, Countdown reveals!
+         0.75 - 1.00: Ganpati & Countdown transition out -> Royal Events Cards Section!
          ================================================================ */
-      // 1. Groom details appear (0.14 - 0.30), then blur & disappear (0.58 - 0.78)
-      let groomOpacity = mapRange(currentProgress, 0.14, 0.30, 0, 1);
-      if (currentProgress > 0.58) {
-        groomOpacity = mapRange(currentProgress, 0.58, 0.78, 1, 0);
+      // 1. Groom details
+      let groomOpacity = mapRange(currentProgress, 0.10, 0.26, 0, 1);
+      if (currentProgress > 0.48) {
+        groomOpacity = mapRange(currentProgress, 0.48, 0.68, 1, 0);
       }
-      const groomBlur = mapRange(currentProgress, 0.58, 0.78, 0, 10);
-      const groomTranslateY = currentProgress <= 0.58 
-        ? mapRange(currentProgress, 0.14, 0.30, -15, 0)
-        : mapRange(currentProgress, 0.58, 0.78, 0, 20);
+      const groomBlur = mapRange(currentProgress, 0.48, 0.68, 0, 10);
+      const groomTranslateY = currentProgress <= 0.48
+        ? mapRange(currentProgress, 0.10, 0.26, -15, 0)
+        : mapRange(currentProgress, 0.48, 0.68, 0, 20);
       groomSection.style.opacity = groomOpacity.toFixed(3);
       groomSection.style.filter = `blur(${groomBlur.toFixed(1)}px)`;
       groomSection.style.transform = `translateY(${groomTranslateY.toFixed(1)}px)`;
 
-      // 2. Bride details appear (0.26 - 0.42), then blur & disappear (0.58 - 0.78)
-      let brideOpacity = mapRange(currentProgress, 0.26, 0.42, 0, 1);
-      if (currentProgress > 0.58) {
-        brideOpacity = mapRange(currentProgress, 0.58, 0.78, 1, 0);
+      // 2. Bride details
+      let brideOpacity = mapRange(currentProgress, 0.22, 0.38, 0, 1);
+      if (currentProgress > 0.48) {
+        brideOpacity = mapRange(currentProgress, 0.48, 0.68, 1, 0);
       }
-      const brideBlur = mapRange(currentProgress, 0.58, 0.78, 0, 10);
-      const brideTranslateY = currentProgress <= 0.58
-        ? mapRange(currentProgress, 0.26, 0.42, 15, 0)
-        : mapRange(currentProgress, 0.58, 0.78, 0, 25);
+      const brideBlur = mapRange(currentProgress, 0.48, 0.68, 0, 10);
+      const brideTranslateY = currentProgress <= 0.48
+        ? mapRange(currentProgress, 0.22, 0.38, 15, 0)
+        : mapRange(currentProgress, 0.48, 0.68, 0, 25);
       brideSection.style.opacity = brideOpacity.toFixed(3);
       brideSection.style.filter = `blur(${brideBlur.toFixed(1)}px)`;
       brideSection.style.transform = `translateY(${brideTranslateY.toFixed(1)}px)`;
 
-      // 3. Sacred knot home_center appears (0.38 - 0.56), then blurs & disappears (0.58 - 0.80)
-      let knotOpacity = mapRange(currentProgress, 0.38, 0.56, 0, 1);
-      let knotScale = mapRange(currentProgress, 0.38, 0.56, 0.88, 1.0);
-      if (currentProgress > 0.58) {
-        knotOpacity = mapRange(currentProgress, 0.58, 0.80, 1, 0);
-        knotScale = mapRange(currentProgress, 0.58, 0.80, 1.0, 0.88);
+      // 3. Sacred knot
+      let knotOpacity = mapRange(currentProgress, 0.32, 0.48, 0, 1);
+      let knotScale = mapRange(currentProgress, 0.32, 0.48, 0.88, 1.0);
+      if (currentProgress > 0.48) {
+        knotOpacity = mapRange(currentProgress, 0.48, 0.68, 1, 0);
+        knotScale = mapRange(currentProgress, 0.48, 0.68, 1.0, 0.88);
       }
-      const knotBlur = mapRange(currentProgress, 0.58, 0.80, 0, 12);
+      const knotBlur = mapRange(currentProgress, 0.48, 0.68, 0, 12);
       knotWrapper.style.opacity = knotOpacity.toFixed(3);
       knotWrapper.style.filter = `blur(${knotBlur.toFixed(1)}px)`;
       knotWrapper.style.transform = `scale(${knotScale.toFixed(3)})`;
 
-      // 4. Ganpati: Initial fade-in (0.08 - 0.24), then gets BIGGER & centers (0.58 - 1.00)
+      // 4. Ganpati: Initial fade-in (0.06 - 0.20), grows bigger (0.48 - 0.72), fades for events (0.75 - 0.88)
       if (ganpatiSection) {
-        let ganpatiOpacity = mapRange(currentProgress, 0.08, 0.24, 0, 1);
-        let ganpatiScale = mapRange(currentProgress, 0.08, 0.24, 0.92, 1.0);
-        let ganpatiTranslateY = mapRange(currentProgress, 0.08, 0.24, -15, 0);
+        let ganpatiOpacity = mapRange(currentProgress, 0.06, 0.20, 0, 1);
+        let ganpatiScale = mapRange(currentProgress, 0.06, 0.20, 0.92, 1.0);
+        let ganpatiTranslateY = mapRange(currentProgress, 0.06, 0.20, -15, 0);
 
-        if (currentProgress > 0.58) {
-          // Ganpati grows bigger and shifts toward center of screen
-          const growScale = mapRange(currentProgress, 0.58, 1.00, 1.0, 1.85);
-          const centerShiftY = mapRange(currentProgress, 0.58, 1.00, 0, window.innerHeight * 0.17);
+        if (currentProgress > 0.48 && currentProgress <= 0.75) {
+          const growScale = mapRange(currentProgress, 0.48, 0.72, 1.0, 1.85);
+          const centerShiftY = mapRange(currentProgress, 0.48, 0.72, 0, window.innerHeight * 0.17);
           ganpatiScale = growScale;
           ganpatiTranslateY = centerShiftY;
+        } else if (currentProgress > 0.75) {
+          ganpatiOpacity = mapRange(currentProgress, 0.75, 0.88, 1, 0);
+          ganpatiScale = 1.85;
+          ganpatiTranslateY = window.innerHeight * 0.17;
         }
 
         ganpatiSection.style.opacity = ganpatiOpacity.toFixed(3);
         ganpatiSection.style.transform = `translateY(${ganpatiTranslateY.toFixed(1)}px) scale(${ganpatiScale.toFixed(3)})`;
-        ganpatiSection.style.filter = currentProgress > 0.65 
-          ? `drop-shadow(0 15px 35px rgba(0,0,0,0.9)) drop-shadow(0 0 35px rgba(249, 228, 150, ${mapRange(currentProgress, 0.65, 1.00, 0.35, 0.8).toFixed(2)}))`
+        ganpatiSection.style.filter = (currentProgress > 0.52 && currentProgress <= 0.75)
+          ? `drop-shadow(0 15px 35px rgba(0,0,0,0.9)) drop-shadow(0 0 35px rgba(249, 228, 150, ${mapRange(currentProgress, 0.52, 0.72, 0.35, 0.8).toFixed(2)}))`
           : "none";
       }
 
-      // 5. Countdown Timer on Mobile (Reveals at bottom center after knot blur & Ganpati grows, 0.78 - 1.00)
+      // 5. Countdown Timer on Mobile (0.62 - 0.75 prominent, then fades for events 0.75 - 0.88)
       if (countdownBanner) {
-        const cdOpacity = mapRange(currentProgress, 0.78, 1.00, 0, 1);
-        const cdTranslateY = mapRange(currentProgress, 0.78, 1.00, 16, 0);
+        let cdOpacity = 0;
+        if (currentProgress < 0.62) {
+          cdOpacity = 0;
+        } else if (currentProgress <= 0.75) {
+          cdOpacity = mapRange(currentProgress, 0.62, 0.75, 0, 1);
+        } else {
+          cdOpacity = mapRange(currentProgress, 0.75, 0.88, 1, 0);
+        }
+        const cdTranslateY = mapRange(currentProgress, 0.62, 0.75, 16, 0);
         countdownBanner.style.opacity = cdOpacity.toFixed(3);
         countdownBanner.style.transform = `translateX(-50%) translateY(${cdTranslateY.toFixed(1)}px)`;
-        countdownBanner.style.pointerEvents = cdOpacity < 0.1 ? "none" : "auto";
+        countdownBanner.style.pointerEvents = cdOpacity > 0.5 ? "auto" : "none";
+      }
+
+      // 6. ROYAL EVENTS SECTION ON MOBILE (0.75 - 1.00)
+      if (eventsSection) {
+        const evOpacity = mapRange(currentProgress, 0.75, 0.94, 0, 1);
+        const evTranslateY = mapRange(currentProgress, 0.75, 0.94, 40, 0);
+        eventsSection.style.opacity = evOpacity.toFixed(3);
+        eventsSection.style.transform = `translateY(${evTranslateY.toFixed(1)}px)`;
+        eventsSection.style.pointerEvents = evOpacity > 0.4 ? "auto" : "none";
+        if (evOpacity > 0.1) {
+          eventsSection.classList.add("visible");
+        } else {
+          eventsSection.classList.remove("visible");
+        }
       }
     }
 
@@ -262,8 +348,8 @@ function initHomeCountdownTimer() {
 
   if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
-  const targetDateStr = (typeof WEDDING_CONFIG !== "undefined" && WEDDING_CONFIG.weddingDate?.targetIso) 
-    ? WEDDING_CONFIG.weddingDate.targetIso 
+  const targetDateStr = (typeof WEDDING_CONFIG !== "undefined" && WEDDING_CONFIG.weddingDate?.targetIso)
+    ? WEDDING_CONFIG.weddingDate.targetIso
     : "2026-11-25T19:00:00+05:30";
   const targetTime = new Date(targetDateStr).getTime();
 
@@ -501,7 +587,7 @@ function pauseMusic() {
   if (bgAudio) {
     try {
       bgAudio.pause();
-    } catch (e) {}
+    } catch (e) { }
   }
   if (synthTimer) {
     clearTimeout(synthTimer);
@@ -510,7 +596,7 @@ function pauseMusic() {
   if (audioCtx && audioCtx.state === "running") {
     try {
       audioCtx.suspend();
-    } catch (e) {}
+    } catch (e) { }
   }
   updateMusicButtonUI(false);
 }
@@ -662,6 +748,119 @@ function initHomeLanguageSystem() {
     if (cdMinsEl && t.countdown) cdMinsEl.textContent = t.countdown.mins;
     if (cdSecsEl && t.countdown) cdSecsEl.textContent = t.countdown.secs;
 
+    // Update Royal Events Section Text Dynamically
+    if (t.eventsSection) {
+      const evSubtitleEl = document.getElementById("events-sec-subtitle");
+      const evTitleEl = document.getElementById("events-sec-title");
+      if (evSubtitleEl) evSubtitleEl.textContent = t.eventsSection.subtitle;
+      if (evTitleEl) evTitleEl.textContent = t.eventsSection.title;
+
+      // Update Nav Pill Tab Labels
+      const pillMap = {
+        "haldi": lang === "hi" ? "हल्दी" : "Haldi",
+        "mehendi": lang === "hi" ? "मेहंदी" : "Mehndi",
+        "sangeet": lang === "hi" ? "संगीत" : "Sangeet",
+        "barat": lang === "hi" ? "बारात" : "Barat",
+        "reception": lang === "hi" ? "रिसेप्शन" : "Reception"
+      };
+      const pillHaldi = document.getElementById("pill-haldi-text");
+      const pillMehendi = document.getElementById("pill-mehendi-text");
+      const pillSangeet = document.getElementById("pill-sangeet-text");
+      const pillBarat = document.getElementById("pill-barat-text");
+      const pillReception = document.getElementById("pill-reception-text");
+      if (pillHaldi) pillHaldi.textContent = pillMap.haldi;
+      if (pillMehendi) pillMehendi.textContent = pillMap.mehendi;
+      if (pillSangeet) pillSangeet.textContent = pillMap.sangeet;
+      if (pillBarat) pillBarat.textContent = pillMap.barat;
+      if (pillReception) pillReception.textContent = pillMap.reception;
+
+      // Update Individual Cards
+      if (Array.isArray(t.eventsSection.events)) {
+        t.eventsSection.events.forEach((ev) => {
+          const badgeEl = document.getElementById(`card-badge-${ev.id}`);
+          const titleEl = document.getElementById(`card-title-${ev.id}`);
+          const taglineEl = document.getElementById(`card-tagline-${ev.id}`);
+          const dateEl = document.getElementById(`card-date-${ev.id}`);
+          const timeEl = document.getElementById(`card-time-${ev.id}`);
+          const venueEl = document.getElementById(`card-venue-${ev.id}`);
+          const dressEl = document.getElementById(`card-dress-${ev.id}`);
+          const descEl = document.getElementById(`card-desc-${ev.id}`);
+          const mapBtnEl = document.getElementById(`btn-map-${ev.id}`);
+          const calBtnEl = document.getElementById(`btn-cal-${ev.id}`);
+
+          if (badgeEl) badgeEl.textContent = ev.badge;
+          if (titleEl) titleEl.textContent = ev.name;
+          if (taglineEl) taglineEl.textContent = ev.tagline;
+          if (dateEl) dateEl.textContent = ev.date;
+          if (timeEl) timeEl.textContent = ev.time;
+          if (venueEl) venueEl.textContent = ev.venue;
+          if (dressEl) {
+            const dot = dressEl.querySelector(".color-dot");
+            dressEl.innerHTML = "";
+            if (dot) dressEl.appendChild(dot);
+            dressEl.appendChild(document.createTextNode(" " + ev.dressCode));
+          }
+          if (descEl) descEl.textContent = ev.description;
+          if (mapBtnEl) {
+            const span = mapBtnEl.querySelector("span");
+            if (span) span.textContent = t.eventsSection.btnMap || "View Venue";
+          }
+          if (calBtnEl) {
+            const span = calBtnEl.querySelector("span");
+            if (span) span.textContent = t.eventsSection.btnCalendar || "Add to Calendar";
+          }
+        });
+      }
+    }
+
+    // Update Family Blessings Section Text Dynamically
+    if (t.familyBlessings) {
+      const fbSanskrit = document.getElementById("fb-sanskrit-tag");
+      const fbTitle = document.getElementById("fb-title");
+      const fbSubtitle = document.getElementById("fb-subtitle");
+      const fbQuote = document.getElementById("fb-quote-text");
+      const fbGroomTitle = document.getElementById("fb-groom-family-title");
+      const fbGroomBadge = document.getElementById("fb-groom-family-badge");
+      const fbGroomAncLabel = document.getElementById("fb-groom-ancestor-label");
+      const fbGroomAncestors = document.getElementById("fb-groom-ancestors");
+      const fbGroomParLabel = document.getElementById("fb-groom-parents-label");
+      const fbGroomParents = document.getElementById("fb-groom-parents");
+      const fbBrideTitle = document.getElementById("fb-bride-family-title");
+      const fbBrideBadge = document.getElementById("fb-bride-family-badge");
+      const fbBrideAncLabel = document.getElementById("fb-bride-ancestor-label");
+      const fbBrideAncestors = document.getElementById("fb-bride-ancestors");
+      const fbBrideParLabel = document.getElementById("fb-bride-parents-label");
+      const fbBrideParents = document.getElementById("fb-bride-parents");
+      const fbGratitudeLabel = document.getElementById("fb-gratitude-label");
+      const fbGratitudeVal = document.getElementById("fb-gratitude-val");
+
+      if (fbSanskrit) fbSanskrit.textContent = t.familyBlessings.sanskritTag;
+      if (fbTitle) fbTitle.textContent = t.familyBlessings.title;
+      if (fbSubtitle) fbSubtitle.textContent = t.familyBlessings.subtitle;
+      if (fbQuote) fbQuote.textContent = t.familyBlessings.quote;
+
+      if (t.familyBlessings.groomFamily) {
+        if (fbGroomTitle) fbGroomTitle.textContent = t.familyBlessings.groomFamily.title;
+        if (fbGroomBadge) fbGroomBadge.textContent = t.familyBlessings.groomFamily.badge;
+        if (fbGroomAncLabel) fbGroomAncLabel.textContent = t.familyBlessings.groomFamily.ancestorLabel;
+        if (fbGroomAncestors) fbGroomAncestors.textContent = t.familyBlessings.groomFamily.ancestors;
+        if (fbGroomParLabel) fbGroomParLabel.textContent = t.familyBlessings.groomFamily.parentsLabel;
+        if (fbGroomParents) fbGroomParents.textContent = t.familyBlessings.groomFamily.parents;
+      }
+
+      if (t.familyBlessings.brideFamily) {
+        if (fbBrideTitle) fbBrideTitle.textContent = t.familyBlessings.brideFamily.title;
+        if (fbBrideBadge) fbBrideBadge.textContent = t.familyBlessings.brideFamily.badge;
+        if (fbBrideAncLabel) fbBrideAncLabel.textContent = t.familyBlessings.brideFamily.ancestorLabel;
+        if (fbBrideAncestors) fbBrideAncestors.textContent = t.familyBlessings.brideFamily.ancestors;
+        if (fbBrideParLabel) fbBrideParLabel.textContent = t.familyBlessings.brideFamily.parentsLabel;
+        if (fbBrideParents) fbBrideParents.textContent = t.familyBlessings.brideFamily.parents;
+      }
+
+      if (fbGratitudeLabel) fbGratitudeLabel.textContent = t.familyBlessings.gratitudeLabel;
+      if (fbGratitudeVal) fbGratitudeVal.textContent = t.familyBlessings.gratitudeVal;
+    }
+
     // Update Media Button Tooltip & Modal Title
     const mediaBtnEl = document.getElementById("floating-media-btn");
     const mediaHeadingEl = document.getElementById("media-modal-heading");
@@ -681,6 +880,212 @@ function initHomeLanguageSystem() {
 
   // Initialize with current preference
   applyLanguage(currentLang);
+}
+
+/* ==========================================================================
+   ROYAL EVENTS CARDS SYSTEM (HALDI, MEHNDI, SANGEET, BARAT, RECEPTION)
+   Interactive Tabs, Arrow Nav, 3D Card Tilt, Calendar Add & Smooth Scroll
+   ========================================================================== */
+function initEventsCardsSystem() {
+  const track = document.getElementById("events-cards-track");
+  const prevBtn = document.getElementById("events-prev-btn");
+  const nextBtn = document.getElementById("events-next-btn");
+  const pills = document.querySelectorAll(".event-nav-pill");
+  const dots = document.querySelectorAll(".event-dot");
+  const cards = document.querySelectorAll(".event-card");
+
+  if (!track || cards.length === 0) return;
+
+  let activeIndex = 0;
+
+  function scrollToCard(index) {
+    if (index < 0) index = 0;
+    if (index >= cards.length) index = cards.length - 1;
+    activeIndex = index;
+
+    const targetCard = cards[index];
+    if (targetCard) {
+      const trackPadding = parseInt(window.getComputedStyle(track).paddingLeft) || 0;
+      const scrollPos = targetCard.offsetLeft - track.offsetLeft - (track.clientWidth - targetCard.clientWidth) / 2;
+      track.scrollTo({
+        left: Math.max(0, scrollPos),
+        behavior: "smooth"
+      });
+    }
+
+    updateActiveState(index);
+  }
+
+  function updateActiveState(index) {
+    // Update pills
+    pills.forEach((p, idx) => {
+      const isSelected = idx === index;
+      p.classList.toggle("active", isSelected);
+      p.setAttribute("aria-selected", isSelected ? "true" : "false");
+    });
+
+    // Update dots
+    dots.forEach((d, idx) => {
+      d.classList.toggle("active", idx === index);
+    });
+
+    // Update cards
+    cards.forEach((c, idx) => {
+      c.classList.toggle("active", idx === index);
+    });
+  }
+
+  // Pill tab click
+  pills.forEach((pill) => {
+    pill.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const idx = parseInt(pill.getAttribute("data-index"), 10);
+      if (!isNaN(idx)) scrollToCard(idx);
+    });
+  });
+
+  // Dot click
+  dots.forEach((dot) => {
+    dot.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const idx = parseInt(dot.getAttribute("data-index"), 10);
+      if (!isNaN(idx)) scrollToCard(idx);
+    });
+  });
+
+  // Card click / focus
+  cards.forEach((card, idx) => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".card-action-btn")) return;
+      scrollToCard(idx);
+    });
+  });
+
+  // Arrow buttons
+  if (prevBtn) {
+    prevBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      scrollToCard(activeIndex - 1);
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      scrollToCard(activeIndex + 1);
+    });
+  }
+
+  // Track scroll observer (auto update active pill & dot while swiping)
+  let scrollTimeout;
+  track.addEventListener("scroll", () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      const trackCenter = track.scrollLeft + track.clientWidth / 2;
+      let closestIdx = 0;
+      let minDistance = Infinity;
+
+      cards.forEach((card, idx) => {
+        const cardCenter = card.offsetLeft - track.offsetLeft + card.clientWidth / 2;
+        const dist = Math.abs(cardCenter - trackCenter);
+        if (dist < minDistance) {
+          minDistance = dist;
+          closestIdx = idx;
+        }
+      });
+
+      if (closestIdx !== activeIndex) {
+        activeIndex = closestIdx;
+        updateActiveState(closestIdx);
+      }
+    }, 60);
+  }, { passive: true });
+
+  // 3D Card Hover Tilt Effect for Desktop
+  if (window.matchMedia("(pointer: fine)").matches) {
+    cards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = ((y - centerY) / centerY) * -9;
+        const rotateY = ((x - centerX) / centerX) * 9;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-8px) scale(1.02)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+      });
+    });
+  }
+
+  // Add to Calendar buttons handler
+  document.querySelectorAll(".btn-calendar").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const eventId = btn.getAttribute("data-event-id");
+      handleAddToCalendar(eventId);
+    });
+  });
+}
+
+/* ==========================================================================
+   CALENDAR EVENT EXPORT & GOOGLE CALENDAR GENERATOR
+   ========================================================================== */
+function handleAddToCalendar(eventId) {
+  const eventsData = {
+    haldi: {
+      title: "Haldi Ceremony -Muskan & Krishna Wedding",
+      start: "20261124T100000",
+      end: "20261124T130000",
+      location: "Sangli Resort Lawns",
+      description: "Auspicious Haldi Ceremony of Muskan & Krishna. Dress code: Festive Yellow."
+    },
+    mehendi: {
+      title: "Mehendi Celebration - Muskan & Krishna Wedding",
+      start: "20261124T160000",
+      end: "20261124T193000",
+      location: "Sangli Resort Courtyard",
+      description: "Mehendi & High Tea celebration of Muskan & Krishna. Dress code: Emerald Green & Floral."
+    },
+    sangeet: {
+      title: "Sangeet Night - Muskan & Krishna Wedding",
+      start: "20261124T200000",
+      end: "20261125T010000",
+      location: "Grand Ballroom, Sangli Resor",
+      description: "Sangeet Night & dinner of Muskan & Krishna. Dress code: Glamorous Indo-Western."
+    },
+    barat: {
+      title: "Shubh Vivah - Muskan & Krishna Wedding",
+      start: "20261125T163000",
+      end: "20261125T235900",
+      location: "Sangli Resort Mandap, Dhanbad",
+      description: "Varmala & Sacred Pheras of Muskan & Krishna. Shubh Vivah."
+    },
+    reception: {
+      title: "Reception - Muskan & Krishna",
+      start: "20261125T193000",
+      end: "20261125T235900",
+      location: "Sangli Resort Banquet, Dhanbad",
+      description: "Reception & Feast of Muskan & Krishna."
+    },
+    blessings: {
+      title: "Mangal Ashirwad & Blessings - Muskan & Krishna Wedding",
+      start: "20261125T100000",
+      end: "20261125T235900",
+      location: "Sangli Resort Dhanbad",
+      description: "Family Blessings & Divine Prayers with Prasad Parivar for Muskan & Krishna."
+    }
+  };
+
+  const ev = eventsData[eventId] || eventsData.barat;
+  const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(ev.title)}&dates=${ev.start}/${ev.end}&details=${encodeURIComponent(ev.description)}&location=${encodeURIComponent(ev.location)}`;
+
+  window.open(gcalUrl, "_blank", "noopener,noreferrer");
 }
 
 /* ==========================================================================

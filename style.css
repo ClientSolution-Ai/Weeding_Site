@@ -4416,3 +4416,1494 @@ body.lang-hindi .cd-unit-label {
   letter-spacing: 0.6px;
   color: #E5C378;
 }
+
+/* ==========================================================================
+   ROYAL WEDDING CELEBRATION CARDS SECTION (HALDI, MEHNDI, SANGEET, BARAT, RECEPTION)
+   ========================================================================== */
+.royal-events-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: clamp(14px, 2.5vh, 28px) clamp(16px, 3vw, 48px) 80px clamp(16px, 3vw, 48px);
+  box-sizing: border-box;
+  z-index: 60;
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
+  will-change: opacity, transform;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  background: radial-gradient(circle at 50% 40%, rgba(55, 4, 16, 0.45) 0%, rgba(18, 1, 6, 0.82) 70%, rgba(8, 0, 3, 0.95) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.royal-events-section::-webkit-scrollbar {
+  width: 6px;
+}
+
+.royal-events-section::-webkit-scrollbar-track {
+  background: rgba(15, 2, 5, 0.5);
+}
+
+.royal-events-section::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.45);
+  border-radius: 4px;
+}
+
+.royal-events-section::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 185, 30, 0.85);
+}
+
+.royal-events-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Events Header */
+.events-section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: clamp(6px, 1.2vh, 14px);
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.events-crest-om {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.25) 0%, rgba(30, 3, 9, 0.8) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+  box-shadow: 0 0 14px rgba(249, 228, 150, 0.35);
+  animation: gentlePulseCrest 3s ease-in-out infinite alternate;
+}
+
+.events-crest-symbol {
+  font-size: 1.1rem;
+  color: #F9E496;
+  line-height: 1;
+}
+
+@keyframes gentlePulseCrest {
+  0% { transform: scale(0.95); box-shadow: 0 0 10px rgba(212, 175, 55, 0.25); }
+  100% { transform: scale(1.05); box-shadow: 0 0 18px rgba(249, 228, 150, 0.55); }
+}
+
+.events-section-subtitle {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.68rem, 1.2vh, 0.82rem);
+  font-weight: 700;
+  color: #FFDE8A;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.events-section-title {
+  font-family: 'Cinzel Decorative', 'Marcellus', 'Cinzel', serif;
+  font-size: clamp(1.4rem, 3.2vh, 2.3rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  margin: 2px 0 3px 0;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.95), 
+    0 0 18px rgba(249, 228, 150, 0.6);
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF4D0 40%, #E8C364 70%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.events-header-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 180px;
+}
+
+.events-header-divider .e-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #D4AF37 50%, transparent 100%);
+}
+
+.events-header-divider .e-motif {
+  font-size: 0.85rem;
+  color: #D4AF37;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.7);
+}
+
+/* Quick Ceremony Navigation Pill Tabs */
+.events-nav-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(6px, 1vw, 12px);
+  background: rgba(26, 2, 7, 0.78);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  padding: 5px 8px;
+  border-radius: 30px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 230, 150, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  margin-bottom: clamp(10px, 1.8vh, 18px);
+  max-width: 95%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  z-index: 5;
+  flex-shrink: 0;
+}
+
+.events-nav-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.event-nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: clamp(5px, 0.9vh, 8px) clamp(10px, 1.4vw, 18px);
+  border-radius: 20px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #E2C99D;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.72rem, 1.2vh, 0.85rem);
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  cursor: pointer;
+  transition: all 0.28s ease;
+  white-space: nowrap;
+}
+
+.event-nav-pill i {
+  font-size: 0.82rem;
+  color: #D4AF37;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.event-nav-pill:hover {
+  color: #FFF6D6;
+  background: rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.35);
+}
+
+.event-nav-pill.active {
+  background: linear-gradient(135deg, #D4AF37 0%, #8C6716 100%);
+  color: #1A0105;
+  font-weight: 700;
+  border-color: #F9E496;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transform: scale(1.04);
+}
+
+.event-nav-pill.active i {
+  color: #1A0105;
+  transform: scale(1.15);
+}
+
+/* Carousel Viewport Stage */
+.events-carousel-stage {
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  overflow: visible;
+}
+
+/* Arrow Buttons */
+.events-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(38px, 4.5vh, 46px);
+  height: clamp(38px, 4.5vh, 46px);
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(45, 5, 14, 0.95) 0%, rgba(18, 1, 6, 0.98) 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.6);
+  color: #F9E496;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.75), 0 0 14px rgba(212, 175, 55, 0.25);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: all 0.28s ease;
+}
+
+.events-arrow-btn.arrow-prev {
+  left: clamp(-4px, -1vw, 8px);
+}
+
+.events-arrow-btn.arrow-next {
+  right: clamp(-4px, -1vw, 8px);
+}
+
+.events-arrow-btn:hover {
+  background: linear-gradient(135deg, #D4AF37 0%, #8C6716 100%);
+  color: #1A0105;
+  border-color: #FFF6D6;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.9), 0 0 20px rgba(249, 228, 150, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Horizontal Cards Track */
+.events-cards-track {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: clamp(14px, 2vw, 28px);
+  width: 100%;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: 12px clamp(12px, 2vw, 36px);
+  box-sizing: border-box;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.events-cards-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Event Card Base */
+.event-card {
+  flex: 0 0 clamp(290px, 30vw, 360px);
+  max-width: 380px;
+  scroll-snap-align: center;
+  position: relative;
+  border-radius: 18px;
+  background: linear-gradient(155deg, rgba(42, 5, 14, 0.94) 0%, rgba(20, 2, 7, 0.97) 100%);
+  border: 1.5px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 
+    0 14px 38px rgba(0, 0, 0, 0.85), 
+    0 0 22px rgba(212, 175, 55, 0.18),
+    inset 0 1px 0 rgba(255, 235, 160, 0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: clamp(16px, 2.2vh, 24px) clamp(16px, 2vw, 22px);
+  box-sizing: border-box;
+  cursor: pointer;
+  perspective: 1000px;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.38s ease;
+  user-select: none;
+  overflow: hidden;
+  outline: none;
+}
+
+.event-card::before {
+  content: "";
+  position: absolute;
+  inset: -100%;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 240, 180, 0.15) 50%, transparent 60%);
+  transform: rotate(25deg);
+  pointer-events: none;
+  transition: transform 0.8s ease;
+}
+
+.event-card:hover::before {
+  transform: rotate(25deg) translate(80%, -80%);
+}
+
+.event-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: #F9E496;
+  box-shadow: 
+    0 22px 50px rgba(0, 0, 0, 0.92), 
+    0 0 35px rgba(212, 175, 55, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.event-card.active {
+  border-color: #F9E496;
+  box-shadow: 
+    0 18px 45px rgba(0, 0, 0, 0.9), 
+    0 0 30px rgba(249, 228, 150, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* Card Inner */
+.event-card-inner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+}
+
+/* Corner Ornaments */
+.event-card-decor-corner {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: #D4AF37;
+  border-style: solid;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.corner-tl { top: -6px; left: -6px; border-width: 2px 0 0 2px; border-top-left-radius: 4px; }
+.corner-tr { top: -6px; right: -6px; border-width: 2px 2px 0 0; border-top-right-radius: 4px; }
+.corner-bl { bottom: -6px; left: -6px; border-width: 0 0 2px 2px; border-bottom-left-radius: 4px; }
+.corner-br { bottom: -6px; right: -6px; border-width: 0 2px 2px 0; border-bottom-right-radius: 4px; }
+
+/* Animated Card Media Banner Frame */
+.event-card-media-banner {
+  position: relative;
+  width: 100%;
+  height: clamp(140px, 18vh, 180px);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: clamp(10px, 1.3vh, 14px);
+  border: 1.5px solid rgba(212, 175, 55, 0.5);
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.65), 
+    inset 0 0 20px rgba(0, 0, 0, 0.4);
+  background: #150207;
+  flex-shrink: 0;
+}
+
+/* Shimmer Sweep Layer */
+.event-card-media-banner::after {
+  content: "";
+  position: absolute;
+  inset: -150%;
+  background: linear-gradient(
+    115deg,
+    transparent 42%,
+    rgba(255, 240, 190, 0.28) 48%,
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(255, 240, 190, 0.28) 52%,
+    transparent 58%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  z-index: 3;
+  animation: bannerShimmerSweep 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes bannerShimmerSweep {
+  0% { transform: rotate(25deg) translateY(-80%); }
+  35%, 100% { transform: rotate(25deg) translateY(80%); }
+}
+
+/* Media Banner Image with Smooth Ken Burns Animation */
+.event-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+  transform: scale(1.02);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease;
+  will-change: transform;
+  animation: kenBurnsFloating 8s ease-in-out infinite alternate;
+}
+
+@keyframes kenBurnsFloating {
+  0% { transform: scale(1.02) translate(0, 0); }
+  50% { transform: scale(1.06) translate(-1%, -1%); }
+  100% { transform: scale(1.03) translate(1%, 0.5%); }
+}
+
+.event-card:hover .event-card-img,
+.event-card.active .event-card-img {
+  filter: brightness(1.08) contrast(1.04);
+}
+
+/* Media Glow Aura Overlay */
+.media-glow-aura {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 35%, rgba(15, 1, 4, 0.75) 100%);
+  transition: opacity 0.4s ease;
+}
+
+/* Floating Sparkle / Petal Dots */
+.media-floating-sparkles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+.sparkle-dot {
+  position: absolute;
+  font-size: 0.95rem;
+  opacity: 0.75;
+  filter: drop-shadow(0 0 6px rgba(255, 220, 100, 0.8));
+  pointer-events: none;
+}
+
+.sp-1 {
+  top: 15%;
+  left: 20%;
+  animation: sparkleFloat1 4s ease-in-out infinite alternate;
+}
+
+.sp-2 {
+  bottom: 25%;
+  left: 55%;
+  font-size: 1.15rem;
+  animation: sparkleFloat2 5s ease-in-out infinite alternate 0.6s;
+}
+
+.sp-3 {
+  top: 30%;
+  right: 18%;
+  animation: sparkleFloat3 4.4s ease-in-out infinite alternate 1.2s;
+}
+
+@keyframes sparkleFloat1 {
+  0% { transform: translateY(0) scale(0.85) rotate(0deg); opacity: 0.4; }
+  50% { transform: translateY(-8px) scale(1.15) rotate(15deg); opacity: 0.95; }
+  100% { transform: translateY(-16px) scale(0.9) rotate(-10deg); opacity: 0.5; }
+}
+
+@keyframes sparkleFloat2 {
+  0% { transform: translateY(0) scale(0.9) rotate(0deg); opacity: 0.5; }
+  50% { transform: translateY(-12px) scale(1.2) rotate(-20deg); opacity: 1; }
+  100% { transform: translateY(-22px) scale(1) rotate(15deg); opacity: 0.6; }
+}
+
+@keyframes sparkleFloat3 {
+  0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.6; }
+  50% { transform: translateY(-10px) scale(1.25) rotate(25deg); opacity: 1; }
+  100% { transform: translateY(-18px) scale(0.85) rotate(-15deg); opacity: 0.45; }
+}
+
+/* Badge & Floating Circle on Banner */
+.event-card-media-banner .event-card-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 4;
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 4px 10px;
+  border-radius: 12px;
+  background: rgba(18, 1, 5, 0.72);
+  border: 1px solid rgba(249, 228, 150, 0.6);
+  color: #FFDE8A;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.event-card-media-banner .event-icon-circle {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  z-index: 4;
+  width: clamp(34px, 4.2vh, 40px);
+  height: clamp(34px, 4.2vh, 40px);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid rgba(212, 175, 55, 0.8);
+  font-size: clamp(0.95rem, 1.8vh, 1.15rem);
+  color: #FFF6D6;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover .event-icon-circle,
+.event-card.active .event-icon-circle {
+  transform: scale(1.12) rotate(6deg);
+}
+
+/* Theme Accents & Glows */
+.theme-haldi .event-card-media-banner {
+  border-color: rgba(245, 185, 30, 0.75);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 20px rgba(245, 185, 30, 0.3);
+  animation: haldiAuraBreathing 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes haldiAuraBreathing {
+  0% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 14px rgba(245, 185, 30, 0.25); border-color: rgba(245, 185, 30, 0.6); }
+  100% { box-shadow: 0 8px 26px rgba(0, 0, 0, 0.75), 0 0 28px rgba(255, 215, 60, 0.55); border-color: rgba(255, 225, 100, 0.95); }
+}
+
+.theme-haldi .event-icon-circle {
+  background: radial-gradient(circle, rgba(229, 169, 59, 0.75) 0%, rgba(45, 5, 14, 0.92) 100%);
+  color: #FFDE8A;
+  border-color: #E5A93B;
+  box-shadow: 0 0 16px rgba(229, 169, 59, 0.55);
+}
+
+.theme-mehendi .event-card-media-banner {
+  border-color: rgba(45, 160, 110, 0.65);
+}
+
+.theme-mehendi .event-icon-circle {
+  background: radial-gradient(circle, rgba(45, 127, 94, 0.75) 0%, rgba(45, 5, 14, 0.92) 100%);
+  color: #92E8C0;
+  border-color: #2D7F5E;
+  box-shadow: 0 0 16px rgba(45, 127, 94, 0.55);
+}
+
+.theme-sangeet .event-card-media-banner {
+  border-color: rgba(180, 50, 150, 0.65);
+}
+
+.theme-sangeet .event-card-img {
+  object-position: center 18%;
+}
+
+.theme-sangeet .event-icon-circle {
+  background: radial-gradient(circle, rgba(139, 38, 113, 0.8) 0%, rgba(45, 5, 14, 0.92) 100%);
+  color: #FFB3E6;
+  border-color: #8B2671;
+  box-shadow: 0 0 16px rgba(139, 38, 113, 0.55);
+}
+
+.theme-barat .event-card-media-banner {
+  border-color: rgba(210, 40, 70, 0.65);
+}
+
+.theme-barat .event-icon-circle {
+  background: radial-gradient(circle, rgba(158, 27, 50, 0.8) 0%, rgba(45, 5, 14, 0.92) 100%);
+  color: #FF99A8;
+  border-color: #9E1B32;
+  box-shadow: 0 0 16px rgba(158, 27, 50, 0.55);
+}
+
+.theme-reception .event-card-media-banner {
+  border-color: rgba(225, 175, 50, 0.7);
+}
+
+.theme-reception .event-icon-circle {
+  background: radial-gradient(circle, rgba(197, 155, 39, 0.8) 0%, rgba(45, 5, 14, 0.92) 100%);
+  color: #FFF2B2;
+  border-color: #C59B27;
+  box-shadow: 0 0 16px rgba(197, 155, 39, 0.55);
+}
+
+.theme-blessings .event-card-media-banner {
+  border-color: rgba(230, 130, 30, 0.75);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 22px rgba(230, 130, 30, 0.35);
+  animation: blessingsAuraGlow 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes blessingsAuraGlow {
+  0% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 16px rgba(230, 130, 30, 0.3); border-color: rgba(230, 130, 30, 0.65); }
+  100% { box-shadow: 0 8px 28px rgba(0, 0, 0, 0.75), 0 0 32px rgba(255, 180, 50, 0.6); border-color: rgba(255, 210, 110, 0.95); }
+}
+
+.theme-blessings .event-icon-circle {
+  background: radial-gradient(circle, rgba(218, 120, 25, 0.82) 0%, rgba(45, 5, 14, 0.95) 100%);
+  color: #FFE6A3;
+  border-color: #DA7819;
+  box-shadow: 0 0 18px rgba(218, 120, 25, 0.6);
+}
+
+/* Card Headings */
+.event-card-title {
+  font-family: 'Cinzel Decorative', 'Marcellus', 'Cinzel', serif;
+  font-size: clamp(1.1rem, 2vh, 1.4rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  margin: 0 0 2px 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95), 0 0 12px rgba(249, 228, 150, 0.6);
+}
+
+.event-card-tagline {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(0.72rem, 1.2vh, 0.84rem);
+  color: #FFDE8A;
+  margin: 0 0 8px 0;
+  line-height: 1.25;
+}
+
+.event-card-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(212, 175, 55, 0.55) 50%, transparent 100%);
+  margin: 4px 0 10px 0;
+}
+
+/* Event Details Grid */
+.event-details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1vh, 9px);
+  margin-bottom: clamp(8px, 1.2vh, 12px);
+}
+
+.event-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.detail-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #F9E496;
+  font-size: 0.72rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.detail-info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.detail-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #D4AF37;
+  letter-spacing: 0.8px;
+}
+
+.detail-val {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.74rem, 1.2vh, 0.84rem);
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.3px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.attire-val {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.color-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid #FFFFFF;
+}
+
+.dot-yellow { background-color: #FFD23F; box-shadow: 0 0 6px #FFD23F; }
+.dot-green { background-color: #2D7F5E; box-shadow: 0 0 6px #2D7F5E; }
+.dot-magenta { background-color: #C026D3; box-shadow: 0 0 6px #C026D3; }
+.dot-crimson { background-color: #E11D48; box-shadow: 0 0 6px #E11D48; }
+.dot-gold { background-color: #F59E0B; box-shadow: 0 0 6px #F59E0B; }
+
+/* Description */
+.event-card-desc {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(0.7rem, 1.1vh, 0.8rem);
+  line-height: 1.35;
+  color: #E8D5BC;
+  margin: 0 0 clamp(10px, 1.5vh, 14px) 0;
+  opacity: 0.9;
+}
+
+/* Card Action Buttons */
+.event-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.card-action-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: clamp(6px, 1vh, 9px) 10px;
+  border-radius: 8px;
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.66rem, 1.1vh, 0.74rem);
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-sizing: border-box;
+}
+
+.card-action-btn.btn-map {
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: #FFDE8A;
+}
+
+.card-action-btn.btn-map:hover {
+  background: rgba(212, 175, 55, 0.28);
+  border-color: #FFF6D6;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.35);
+}
+
+.card-action-btn.btn-calendar {
+  background: linear-gradient(135deg, #D4AF37 0%, #8C6716 100%);
+  border: 1px solid #F9E496;
+  color: #1A0105;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.card-action-btn.btn-calendar:hover {
+  background: linear-gradient(135deg, #FFF6D6 0%, #D4AF37 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(212, 175, 55, 0.55);
+}
+
+/* Dots Indicator */
+.events-dots-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: clamp(8px, 1.2vh, 14px);
+  z-index: 5;
+  flex-shrink: 0;
+}
+
+.event-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(212, 175, 55, 0.35);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.event-dot.active {
+  width: 24px;
+  background: linear-gradient(90deg, #F9E496 0%, #D4AF37 100%);
+  box-shadow: 0 0 10px rgba(249, 228, 150, 0.7);
+}
+
+/* ==========================================================================
+   HINDI TYPOGRAPHY FOR ROYAL EVENTS SECTION
+   ========================================================================== */
+body.lang-hindi .events-section-subtitle {
+  font-family: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
+  letter-spacing: 1.5px;
+  font-size: clamp(0.74rem, 1.3vh, 0.9rem);
+}
+
+body.lang-hindi .events-section-title {
+  font-family: 'Kalam', 'Noto Serif Devanagari', serif;
+  font-size: clamp(1.45rem, 3.4vh, 2.3rem);
+}
+
+body.lang-hindi .event-nav-pill {
+  font-family: 'Noto Serif Devanagari', sans-serif;
+  font-size: clamp(0.75rem, 1.3vh, 0.88rem);
+}
+
+body.lang-hindi .event-card-badge {
+  font-family: 'Noto Serif Devanagari', sans-serif;
+  letter-spacing: 0.8px;
+}
+
+body.lang-hindi .event-card-title {
+  font-family: 'Kalam', 'Noto Serif Devanagari', serif;
+  font-size: clamp(1.15rem, 2.2vh, 1.45rem);
+}
+
+body.lang-hindi .event-card-tagline {
+  font-family: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
+  font-style: normal;
+  font-size: clamp(0.78rem, 1.3vh, 0.9rem);
+}
+
+body.lang-hindi .detail-label {
+  font-family: 'Noto Serif Devanagari', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+body.lang-hindi .detail-val {
+  font-family: 'Noto Serif Devanagari', sans-serif;
+  font-size: clamp(0.76rem, 1.25vh, 0.88rem);
+}
+
+body.lang-hindi .event-card-desc {
+  font-family: 'Noto Serif Devanagari', sans-serif;
+  font-size: clamp(0.74rem, 1.2vh, 0.84rem);
+}
+
+body.lang-hindi .card-action-btn {
+  font-family: 'Noto Serif Devanagari', sans-serif;
+  font-size: clamp(0.7rem, 1.15vh, 0.8rem);
+}
+
+/* ==========================================================================
+   MOBILE & TABLET RESPONSIVE TWEAKS FOR EVENTS CARDS SECTION
+   ========================================================================== */
+@media (max-width: 768px) {
+  .royal-events-section {
+    padding: clamp(6px, 1.2vh, 12px) clamp(8px, 2vw, 14px) clamp(12px, 2vh, 20px);
+    justify-content: center;
+  }
+
+  .events-section-header {
+    margin-bottom: 4px;
+  }
+
+  .events-crest-om {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 2px;
+  }
+
+  .events-crest-symbol {
+    font-size: 0.95rem;
+  }
+
+  .events-section-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+  }
+
+  .events-section-title {
+    font-size: 1.35rem;
+    margin: 1px 0 2px 0;
+  }
+
+  .events-nav-tabs {
+    margin-bottom: 6px;
+    padding: 3px 6px;
+    gap: 4px;
+    max-width: 98%;
+  }
+
+  .event-nav-pill {
+    padding: 3px 9px;
+    font-size: 0.72rem;
+    gap: 4px;
+  }
+
+  .events-cards-track {
+    gap: 12px;
+    padding: 4px 10px;
+  }
+
+  .event-card {
+    flex: 0 0 82vw;
+    max-width: 310px;
+    padding: 10px 10px 10px;
+    border-radius: 14px;
+  }
+
+  .event-card-media-banner {
+    height: clamp(115px, 15vh, 140px);
+    margin-bottom: 8px;
+    border-radius: 10px;
+  }
+
+  .event-card-media-banner .event-card-badge {
+    top: 6px;
+    left: 6px;
+    font-size: 0.55rem;
+    padding: 2px 7px;
+  }
+
+  .event-card-media-banner .event-icon-circle {
+    bottom: 6px;
+    right: 6px;
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+  }
+
+  .events-arrow-btn {
+    display: none; /* Smooth swipe snap is primary on mobile */
+  }
+
+  .event-card-title {
+    font-size: 1.12rem;
+    margin-bottom: 1px;
+  }
+
+  .event-card-tagline {
+    font-size: 0.7rem;
+    margin-bottom: 4px;
+  }
+
+  .event-card-divider {
+    margin: 3px 0 6px 0;
+  }
+
+  .event-details-grid {
+    gap: 5px;
+    margin-bottom: 6px;
+  }
+
+  .detail-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 0.65rem;
+  }
+
+  .detail-label {
+    font-size: 0.52rem;
+  }
+
+  .detail-val {
+    font-size: 0.72rem;
+  }
+
+  .event-card-desc {
+    margin-bottom: 8px;
+    font-size: 0.68rem;
+    line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-action-btn {
+    padding: 5px 6px;
+    font-size: 0.62rem;
+    gap: 4px;
+  }
+
+  .events-dots-indicator {
+    margin-top: 4px;
+  }
+
+  .event-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .event-dot.active {
+    width: 18px;
+  }
+}
+
+/* ==========================================================================
+   FAMILY BLESSINGS DEDICATED SECTION (॥ पारिवारिक शुभाशीर्वाद ॥)
+   ========================================================================== */
+.family-blessings-section {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 40px auto 30px auto;
+  padding: 40px 24px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(68, 12, 24, 0.7) 0%, rgba(26, 4, 9, 0.95) 70%, #150206 100%);
+  border: 1px solid rgba(229, 169, 59, 0.45);
+  border-radius: 20px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 0 35px rgba(229, 169, 59, 0.25), inset 0 0 30px rgba(229, 169, 59, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+  z-index: 10;
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.family-blessings-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 50% 20%, rgba(245, 185, 30, 0.08) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.family-blessings-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  text-align: center;
+}
+
+/* Section Header */
+.fb-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+
+.fb-header-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.fb-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(229, 169, 59, 0.8), transparent);
+}
+
+.fb-sanskrit-tag {
+  font-family: 'Tiro Devanagari Hindi', 'Cinzel', serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 700;
+  color: #FFDE8A;
+  letter-spacing: 2px;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 0 12px rgba(229, 169, 59, 0.6);
+}
+
+.fb-title {
+  font-family: 'Cinzel Decorative', 'Cinzel', 'Marcellus', serif;
+  font-size: clamp(1.8rem, 4vw, 2.9rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 2px;
+  margin: 4px 0 0 0;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.95), 0 0 20px rgba(255, 215, 60, 0.65);
+  background: linear-gradient(135deg, #FFF6D0 0%, #FFD700 50%, #FFA500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.fb-subtitle {
+  font-family: 'Alex Brush', 'Playfair Display', cursive;
+  font-size: clamp(1.3rem, 2.8vw, 2rem);
+  color: #FFE6A3;
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.fb-namaste-icon-wrap {
+  margin-top: 4px;
+}
+
+.fb-namaste-icon {
+  display: inline-block;
+  font-size: 1.8rem;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 60, 0.7));
+  animation: fbPulseNamaste 3s ease-in-out infinite alternate;
+}
+
+@keyframes fbPulseNamaste {
+  0% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(255, 215, 60, 0.5)); }
+  100% { transform: scale(1.15); filter: drop-shadow(0 0 16px rgba(255, 215, 60, 0.9)); }
+}
+
+/* Invitation Quote Card */
+.fb-quote-card {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+  padding: 22px 32px;
+  background: rgba(18, 2, 6, 0.75);
+  border: 1px solid rgba(229, 169, 59, 0.45);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(229, 169, 59, 0.06);
+  box-sizing: border-box;
+}
+
+.fb-quote-text {
+  font-family: 'Playfair Display', 'Marcellus', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(0.95rem, 1.8vw, 1.22rem);
+  line-height: 1.65;
+  color: #FFF2D6;
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Corner Ornaments */
+.fb-quote-decor,
+.fb-card-decor {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-color: #E5A93B;
+  pointer-events: none;
+}
+
+.corner-tl {
+  top: 6px;
+  left: 6px;
+  border-top: 2px solid #E5A93B;
+  border-left: 2px solid #E5A93B;
+}
+
+.corner-tr {
+  top: 6px;
+  right: 6px;
+  border-top: 2px solid #E5A93B;
+  border-right: 2px solid #E5A93B;
+}
+
+.corner-bl {
+  bottom: 6px;
+  left: 6px;
+  border-bottom: 2px solid #E5A93B;
+  border-left: 2px solid #E5A93B;
+}
+
+.corner-br {
+  bottom: 6px;
+  right: 6px;
+  border-bottom: 2px solid #E5A93B;
+  border-right: 2px solid #E5A93B;
+}
+
+/* Two Royal Families Grid & Single Centered Family */
+.fb-families-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  width: 100%;
+  max-width: 1050px;
+}
+
+.fb-families-grid.fb-single-family {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.fb-family-card {
+  position: relative;
+  background: rgba(18, 2, 6, 0.85);
+  border: 1px solid rgba(229, 169, 59, 0.4);
+  border-radius: 16px;
+  padding: 28px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 18px rgba(229, 169, 59, 0.05);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  box-sizing: border-box;
+}
+
+.fb-family-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(255, 215, 60, 0.85);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.85), 0 0 25px rgba(229, 169, 59, 0.45);
+}
+
+/* Centered & Animated Prasad Family Card */
+.fb-family-card.animated-prasad-card {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  position: relative;
+  border-color: rgba(229, 169, 59, 0.65);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.85), 0 0 30px rgba(229, 169, 59, 0.3), inset 0 0 25px rgba(229, 169, 59, 0.08);
+  animation: prasadCardBreathe 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes prasadCardBreathe {
+  0% {
+    border-color: rgba(229, 169, 59, 0.5);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(229, 169, 59, 0.25), inset 0 0 20px rgba(229, 169, 59, 0.05);
+  }
+  100% {
+    border-color: rgba(255, 215, 80, 0.95);
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.9), 0 0 45px rgba(255, 215, 80, 0.5), inset 0 0 32px rgba(255, 215, 80, 0.15);
+  }
+}
+
+.animated-prasad-card .fb-card-glow-aura {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(ellipse at 50% 50%, rgba(229, 169, 59, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  animation: prasadAuraFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes prasadAuraFloat {
+  0% { transform: scale(0.95); opacity: 0.7; }
+  100% { transform: scale(1.08); opacity: 1; }
+}
+
+.animated-prasad-card .fb-card-decor {
+  border-color: #FFD700;
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 80, 0.8));
+  animation: cornerGlint 3s ease-in-out infinite alternate;
+}
+
+@keyframes cornerGlint {
+  0% { opacity: 0.8; filter: drop-shadow(0 0 4px rgba(255, 215, 80, 0.5)); }
+  100% { opacity: 1; filter: drop-shadow(0 0 10px rgba(255, 230, 100, 1)); }
+}
+
+.animated-prasad-card .fb-ancestor-box {
+  background: radial-gradient(circle at 50% 50%, rgba(45, 5, 14, 0.6) 0%, rgba(10, 1, 3, 0.7) 100%);
+  border: 1px solid rgba(229, 169, 59, 0.5);
+  box-shadow: inset 0 0 15px rgba(229, 169, 59, 0.12), 0 4px 16px rgba(0, 0, 0, 0.6);
+  animation: ancestorFrameGlow 4.5s ease-in-out infinite alternate;
+}
+
+@keyframes ancestorFrameGlow {
+  0% { border-color: rgba(229, 169, 59, 0.4); box-shadow: inset 0 0 10px rgba(229, 169, 59, 0.08); }
+  100% { border-color: rgba(255, 215, 80, 0.8); box-shadow: inset 0 0 22px rgba(255, 215, 80, 0.2), 0 0 16px rgba(229, 169, 59, 0.3); }
+}
+
+.animated-prasad-card .fb-family-heading {
+  background: linear-gradient(135deg, #FFF8DB 0%, #FFD700 50%, #FFA500 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 18px rgba(229, 169, 59, 0.6);
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+}
+
+.fb-family-heading {
+  font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  color: #FFDF88;
+  letter-spacing: 1.5px;
+  margin: 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 12px rgba(229, 169, 59, 0.5);
+}
+
+.fb-family-subheading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #D4AF37;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: -8px;
+}
+
+/* Ancestor & Grandparents Box */
+.fb-ancestor-box {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(229, 169, 59, 0.35);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  box-sizing: border-box;
+}
+
+.fb-ancestor-label {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: 0.88rem;
+  color: #FFDF88;
+}
+
+.fb-ancestor-names {
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: clamp(0.95rem, 1.6vw, 1.18rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 2px 0 0 0;
+  line-height: 1.35;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+}
+
+/* Parents Box */
+.fb-parents-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.fb-parents-label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #E5A93B;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.fb-parents-names {
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  line-height: 1.35;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 10px rgba(229, 169, 59, 0.3);
+}
+
+/* Gratitude / दर्शनाभिलाषी Strip */
+.fb-gratitude-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 950px;
+  padding: 12px 20px;
+  background: rgba(18, 2, 6, 0.65);
+  border: 1px solid rgba(229, 169, 59, 0.3);
+  border-radius: 30px;
+  box-sizing: border-box;
+}
+
+.fb-gratitude-icon {
+  font-size: 1.1rem;
+  color: #E5A93B;
+  text-shadow: 0 0 8px rgba(229, 169, 59, 0.6);
+}
+
+.fb-gratitude-text {
+  font-family: 'Cinzel', 'Marcellus', serif;
+  font-size: clamp(0.88rem, 1.5vw, 1.05rem);
+  color: #FFE6A3;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.fb-gratitude-label {
+  color: #FFDF88;
+  font-weight: 700;
+}
+
+.fb-gratitude-val {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+
+/* Hindi Mode Typography */
+body.lang-hindi .fb-sanskrit-tag,
+body.lang-hindi .fb-title,
+body.lang-hindi .fb-subtitle,
+body.lang-hindi .fb-quote-text,
+body.lang-hindi .fb-family-heading,
+body.lang-hindi .fb-family-subheading,
+body.lang-hindi .fb-ancestor-label,
+body.lang-hindi .fb-ancestor-names,
+body.lang-hindi .fb-parents-label,
+body.lang-hindi .fb-parents-names,
+body.lang-hindi .fb-gratitude-text {
+  font-family: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', 'Rozha One', serif;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 820px) {
+  .family-blessings-section {
+    margin: 20px 12px 30px 12px;
+    padding: 28px 16px;
+    border-radius: 16px;
+  }
+
+  .fb-families-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .fb-family-card {
+    padding: 22px 16px;
+  }
+
+  .fb-quote-card {
+    padding: 16px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .family-blessings-section {
+    margin: 15px 8px 25px 8px;
+    padding: 20px 12px;
+    border-radius: 14px;
+  }
+
+  .fb-sanskrit-tag {
+    font-size: 0.92rem;
+  }
+
+  .fb-title {
+    font-size: 1.5rem;
+  }
+
+  .fb-subtitle {
+    font-size: 1.15rem;
+  }
+
+  .fb-quote-text {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .fb-family-heading {
+    font-size: 1.15rem;
+  }
+
+  .fb-ancestor-names,
+  .fb-parents-names {
+    font-size: 0.95rem;
+  }
+
+  .fb-gratitude-text {
+    font-size: 0.8rem;
+  }
+}
