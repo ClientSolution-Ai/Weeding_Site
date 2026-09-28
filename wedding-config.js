@@ -16,12 +16,12 @@ const WEDDING_CONFIG = {
       btnTitle: "हिंदी में देखें / View in Hindi",
       scrollHint: "Scroll to Unveil",
       bride: {
-        name: "Kumari Muskan",
+        name: "Muskan",
         kinship: "Daughter of",
         parents: "Smt. Annu Prasad & Shri Uday Shankar Prasad"
       },
       groom: {
-        name: "Krishna Kumar",
+        name: "Krishna",
         kinship: "Son of",
         parents: "Smt. Kalyani Bid & Shri Sukumar Bid"
       },
@@ -48,51 +48,39 @@ const WEDDING_CONFIG = {
             date: "Tuesday, 24th November 2026",
             time: "10:00 AM - 01:00 PM",
             venue: "Sangli Resort Lawns",
-            dressCode: "Festive Yellow & Sunshine Pastels",
+            dressCode: "Festive Yellow",
             description: "An auspicious morning bathed in golden turmeric pastes, fragrant marigold showers, and joyful family banter."
           },
           {
-            id: "mehendi",
-            badge: "CEREMONY 02",
-            name: "Mehendi & High Tea",
-            tagline: "Intricate Henna, Folk Rhythms & Royal Flavors",
-            date: "Tuesday, 24th November 2026",
-            time: "04:00 PM - 07:30 PM",
-            venue: "Sangli Resort, Courtyard",
-            dressCode: "Emerald Green, Mint & Floral Attire",
-            description: "Adorning hands with exquisite fragrant henna motifs, live folk music, bangles stall, and lavish delicacies."
-          },
-          {
             id: "sangeet",
-            badge: "CEREMONY 03",
+            badge: "CEREMONY 02",
             name: "Sangeet Night",
             tagline: "A Symphony of Beats, Glitz & Grand Performances",
             date: "Tuesday, 24th November 2026",
             time: "08:00 PM Onwards",
-            venue: "Grand Ballroom, Sangli Resort",
-            dressCode: "Glamorous Indo-Western & Sparkly Lehengas",
+            venue: "Sangli Resort Lawns",
+            dressCode: "Glamorous Indo-Western",
             description: "An electrifying musical extravaganza featuring breathtaking family dance performances, DJ beats, and gourmet dining."
           },
           {
             id: "barat",
-            badge: "CEREMONY 04",
-            name: "Baraat & Shubh Vivah",
-            tagline: "The Royal Wedding & Sacred 7 Pheras",
+            badge: "CEREMONY 03",
+            name: "Baraat Agaman & Shubh Vivah",
+            tagline: "The Wedding & Sacred 7 Pheras",
             date: "Wednesday, 25th November 2026",
-            time: "Varmala 09:30 PM | Pheras 02:30 AM",
+            time: "Varmala 09:30 PM",
             venue: "Sangli Resort Mandap, Dhanbad",
-            dressCode: "Traditional (Ivory, Crimson & Gold)",
+            dressCode: "Traditional",
             description: "The grand Baraat procession, garland exchange under floral showers, and the eternal 7 vows around the holy Agni."
           },
           {
-            id: "reception",
-            badge: "CEREMONY 05",
-            name: "Reception",
+            id: "DINNER",
+            badge: "CEREMONY 04",
+            name: "DINNER",
             tagline: "An Evening of Feast & Blessings",
             date: "Wednesday, 25th November 2026",
             time: "07:30 PM Onwards",
             venue: "Sangli Resort Banquet, Dhanbad",
-            dressCode: "Royal Black Tie, Tuxedos & Regal Sarees",
             description: "A majestic dinner celebrating the newlyweds with live classical melodies and grand Indian hospitality."
           }
         ]
@@ -157,19 +145,8 @@ const WEDDING_CONFIG = {
             description: "पवित्र हल्दी, गेंदे के पुष्पों की वर्षा और परिजनों के स्नेह के साथ मंगलमय हल्दी का उत्सव।"
           },
           {
-            id: "mehendi",
-            badge: "कार्यक्रम ०२",
-            name: "मेहंदी एवं उत्सव",
-            tagline: "सुहाग की मेहंदी, लोक संगीत एवं उल्लास",
-            date: "मंगलवार, २४ नवंबर २०२६",
-            time: "सायं ०४:०० बजे से ०७:३० बजे तक",
-            venue: "सांगली रिसॉर्ट, जिओ पेट्रोल पंप के पास, धनबाद",
-            dressCode: "हरा एवं फ्लोरल परिधान",
-            description: "हाथों में सजती खुशबूदार मेहंदी की बेलें, लोक गीतों की मधुर धुनें और स्वादिष्ट व्यंजनों का आनंद।"
-          },
-          {
             id: "sangeet",
-            badge: "कार्यक्रम ०३",
+            badge: "कार्यक्रम ०२",
             name: "शाही संगीत निशा",
             tagline: "सुर, ताल और नृत्य का भव्य संगम",
             date: "मंगलवार, २४ नवंबर २०२६",
@@ -180,7 +157,7 @@ const WEDDING_CONFIG = {
           },
           {
             id: "barat",
-            badge: "कार्यक्रम ०४",
+            badge: "कार्यक्रम ०३",
             name: "बारात एवं शुभ विवाह",
             tagline: "वरयात्रा, वरमाला एवं पवित्र सप्तपदी",
             date: "बुधवार, २५ नवंबर २०२६",
@@ -190,14 +167,13 @@ const WEDDING_CONFIG = {
             description: "भव्य बारात का आगमन, वरमाला एवं पवित्र अग्नि के साक्षी में जीवन भर साथ निभाने के सात फेरे।"
           },
           {
-            id: "reception",
-            badge: "कार्यक्रम ०५",
-            name: "भव्य प्रीतिभोज एवं रिसेप्शन",
+            id: "DINNER",
+            badge: "कार्यक्रम ०४",
+            name: "भव्य प्रीतिभोज एवं डिनर",
             tagline: "स्नेह मिलन, आशीर्वाद एवं उत्सव",
-            date: "गुरुवार, २६ नवंबर २०२६",
+            date: "बुधवार, २५ नवंबर २०२६",
             time: "सायं ०७:३० बजे से",
             venue: "सांगली रिसॉर्ट, जिओ पेट्रोल पंप के पास, धनबाद",
-            dressCode: "शाही परिधान / टक्सीडो एवं साड़ियां",
             description: "नवदंपति के स्वागत में भव्य प्रीतिभोज, संगीत एवं परिजनों का मंगल आशीर्वाद।"
           }
         ]
@@ -374,20 +350,19 @@ const WEDDING_CONFIG = {
       }
     },
     {
-      id: "reception",
-      name: "Reception",
+      id: "DINNER",
+      name: "DINNER",
       tagline: "An Evening of  Feast, Toasts & Celebrations",
       date: "Sunday, 25th November 2026",
       time: "07:30 PM Onwards",
       venue: "Sangli Resort Banquet, Dhanbad",
       address: "Sangli Resort, Near JIO Petrol PUMP, DHANBAD",
-      dressCode: "Royal Black Tie / Tuxedos & Regal Sarees",
       description: "A majestic imperial banquet welcoming the newlyweds with candlelit crystal chandeliers, live symphony orchestra, and royal Rajasthani hospitality.",
       icon: "crown",
       themeColor: "#C59B27",
       googleMapsUrl: "https://maps.google.com/?q=City+Palace+Udaipur",
       calendarData: {
-        title: "Grand Reception - Muskan & Krishna",
+        title: "Grand DINNER - Muskan & Krishna",
         start: "20261213T193000",
         end: "20261213T235900",
         location: "Sangli Resort Banquet, Dhanbad"

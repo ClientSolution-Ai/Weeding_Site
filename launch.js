@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
    0.20 - 0.45: Groom and Bride Details Unveil
    0.40 - 0.65: Sacred Knot (home_center.png) Blooms in Center
    0.58 - 0.76: Auspicious Countdown Banner Appears at Bottom-Center
-   0.75 - 1.00: THEN Royal Events Cards (Haldi, Mehndi, Sangeet, Barat, Reception)
+   0.75 - 1.00: THEN Royal Events Cards (Haldi, Mehndi, Sangeet, Barat, DINNER)
                 Glides up smoothly into center stage!
    ========================================================================== */
 function initHomeScrollStory() {
@@ -830,18 +830,18 @@ function initHomeLanguageSystem() {
         "mehendi": lang === "hi" ? "मेहंदी" : "Mehndi",
         "sangeet": lang === "hi" ? "संगीत" : "Sangeet",
         "barat": lang === "hi" ? "बारात" : "Barat",
-        "reception": lang === "hi" ? "रिसेप्शन" : "Reception"
+        "DINNER": lang === "hi" ? "रिसेप्शन" : "DINNER"
       };
       const pillHaldi = document.getElementById("pill-haldi-text");
       const pillMehendi = document.getElementById("pill-mehendi-text");
       const pillSangeet = document.getElementById("pill-sangeet-text");
       const pillBarat = document.getElementById("pill-barat-text");
-      const pillReception = document.getElementById("pill-reception-text");
+      const pillDINNER = document.getElementById("pill-DINNER-text");
       if (pillHaldi) pillHaldi.textContent = pillMap.haldi;
       if (pillMehendi) pillMehendi.textContent = pillMap.mehendi;
       if (pillSangeet) pillSangeet.textContent = pillMap.sangeet;
       if (pillBarat) pillBarat.textContent = pillMap.barat;
-      if (pillReception) pillReception.textContent = pillMap.reception;
+      if (pillDINNER) pillDINNER.textContent = pillMap.DINNER;
 
       // Update Individual Cards
       if (Array.isArray(t.eventsSection.events)) {
@@ -954,7 +954,7 @@ function initHomeLanguageSystem() {
 }
 
 /* ==========================================================================
-   ROYAL EVENTS CARDS SYSTEM (HALDI, MEHNDI, SANGEET, BARAT, RECEPTION)
+   ROYAL EVENTS CARDS SYSTEM (HALDI, MEHNDI, SANGEET, BARAT, DINNER)
    Interactive Tabs, Arrow Nav, 3D Card Tilt, Calendar Add & Smooth Scroll
    ========================================================================== */
 function initEventsCardsSystem() {
@@ -1097,12 +1097,12 @@ function handleAddToCalendar(eventId) {
       location: "Sangli Resort Mandap, Dhanbad",
       description: "Baraat, Varmala & Sacred Pheras of Muskan & Krishna. Shubh Vivah."
     },
-    reception: {
-      title: "Reception - Muskan & Krishna",
+    DINNER: {
+      title: "DINNER - Muskan & Krishna",
       start: "20261125T193000",
       end: "20261125T235900",
       location: "Sangli Resort Banquet, Dhanbad",
-      description: "Reception & Feast of Muskan & Krishna."
+      description: "DINNER & Feast of Muskan & Krishna."
     },
     blessings: {
       title: "Mangal Ashirwad & Blessings - Muskan & Krishna Wedding",

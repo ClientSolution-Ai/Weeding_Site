@@ -484,8 +484,8 @@ div::-webkit-scrollbar {
   border-radius: 20px;
   pointer-events: none;
   z-index: 25;
-  box-shadow: 
-    0 0 16px rgba(212, 175, 55, 0.4), 
+  box-shadow:
+    0 0 16px rgba(212, 175, 55, 0.4),
     inset 0 0 12px rgba(212, 175, 55, 0.25);
 }
 
@@ -501,24 +501,87 @@ div::-webkit-scrollbar {
 }
 
 /* Corner Studs */
-.portal-stud.stud-tl { top: 6px; left: 6px; }
-.portal-stud.stud-tr { top: 6px; right: 6px; }
-.portal-stud.stud-bl { bottom: 6px; left: 6px; }
-.portal-stud.stud-br { bottom: 6px; right: 6px; }
+.portal-stud.stud-tl {
+  top: 6px;
+  left: 6px;
+}
+
+.portal-stud.stud-tr {
+  top: 6px;
+  right: 6px;
+}
+
+.portal-stud.stud-bl {
+  bottom: 6px;
+  left: 6px;
+}
+
+.portal-stud.stud-br {
+  bottom: 6px;
+  right: 6px;
+}
 
 /* Left Side Studs */
-.portal-stud.stud-l1 { top: 20%; left: 4px; transform: translateY(-50%); }
-.portal-stud.stud-l2 { top: 35%; left: 4px; transform: translateY(-50%); }
-.portal-stud.stud-l3 { top: 50%; left: 4px; transform: translateY(-50%); }
-.portal-stud.stud-l4 { top: 65%; left: 4px; transform: translateY(-50%); }
-.portal-stud.stud-l5 { top: 80%; left: 4px; transform: translateY(-50%); }
+.portal-stud.stud-l1 {
+  top: 20%;
+  left: 4px;
+  transform: translateY(-50%);
+}
+
+.portal-stud.stud-l2 {
+  top: 35%;
+  left: 4px;
+  transform: translateY(-50%);
+}
+
+.portal-stud.stud-l3 {
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%);
+}
+
+.portal-stud.stud-l4 {
+  top: 65%;
+  left: 4px;
+  transform: translateY(-50%);
+}
+
+.portal-stud.stud-l5 {
+  top: 80%;
+  left: 4px;
+  transform: translateY(-50%);
+}
 
 /* Right Side Studs */
-.portal-stud.stud-r1 { top: 20%; right: 4px; transform: translateY(-50%); }
-.portal-stud.stud-r2 { top: 35%; right: 4px; transform: translateY(-50%); }
-.portal-stud.stud-r3 { top: 50%; right: 4px; transform: translateY(-50%); }
-.portal-stud.stud-r4 { top: 65%; right: 4px; transform: translateY(-50%); }
-.portal-stud.stud-r5 { top: 80%; right: 4px; transform: translateY(-50%); }
+.portal-stud.stud-r1 {
+  top: 20%;
+  right: 4px;
+  transform: translateY(-50%);
+}
+
+.portal-stud.stud-r2 {
+  top: 35%;
+  right: 4px;
+  transform: translateY(-50%);
+}
+
+.portal-stud.stud-r3 {
+  top: 50%;
+  right: 4px;
+  transform: translateY(-50%);
+}
+
+.portal-stud.stud-r4 {
+  top: 65%;
+  right: 4px;
+  transform: translateY(-50%);
+}
+
+.portal-stud.stud-r5 {
+  top: 80%;
+  right: 4px;
+  transform: translateY(-50%);
+}
 
 /* Center Glowing Vertical Seam (Radiant Golden Light Shining from Within) */
 .doors-center-glow-beam {
@@ -529,9 +592,9 @@ div::-webkit-scrollbar {
   width: 3.5px;
   transform: translateX(-50%);
   background: linear-gradient(180deg, #FFFFFF 0%, #FFF4B8 20%, #FFD700 50%, #FFAA00 80%, #FFFFFF 100%);
-  box-shadow: 
-    0 0 12px #FFD700, 
-    0 0 25px #FFAA00, 
+  box-shadow:
+    0 0 12px #FFD700,
+    0 0 25px #FFAA00,
     0 0 45px rgba(255, 215, 0, 0.95);
   z-index: 20;
   pointer-events: none;
@@ -544,6 +607,7 @@ div::-webkit-scrollbar {
     box-shadow: 0 0 10px #FFD700, 0 0 20px #FFAA00, 0 0 35px rgba(255, 215, 0, 0.85);
     opacity: 0.9;
   }
+
   100% {
     box-shadow: 0 0 16px #FFD700, 0 0 32px #FFAA00, 0 0 55px rgba(255, 215, 0, 1);
     opacity: 1;
@@ -604,8 +668,8 @@ div::-webkit-scrollbar {
   border-radius: 8px;
   overflow: hidden;
   border: 1.8px solid rgba(212, 175, 55, 0.65);
-  box-shadow: 
-    inset 0 0 12px rgba(0, 0, 0, 0.95), 
+  box-shadow:
+    inset 0 0 12px rgba(0, 0, 0, 0.95),
     0 2px 8px rgba(0, 0, 0, 0.7);
   background: #180206;
 }
@@ -928,8 +992,8 @@ div::-webkit-scrollbar {
   background: linear-gradient(145deg, rgba(38, 4, 12, 0.97) 0%, rgba(18, 1, 5, 0.99) 100%);
   border: 1.5px solid rgba(212, 175, 55, 0.55);
   border-radius: 16px;
-  box-shadow: 
-    0 25px 70px rgba(0, 0, 0, 0.95), 
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.95),
     0 0 35px rgba(212, 175, 55, 0.25),
     inset 0 1px 0 rgba(255, 230, 150, 0.3);
   display: flex;
@@ -943,6 +1007,7 @@ div::-webkit-scrollbar {
     transform: scale(0.92) translateY(20px);
     opacity: 0;
   }
+
   100% {
     transform: scale(1) translateY(0);
     opacity: 1;
@@ -1076,6 +1141,7 @@ div::-webkit-scrollbar {
 }
 
 @media (max-width: 768px) {
+
   .floating-media-wrapper,
   .floating-media-bar {
     top: 12px;
@@ -1896,26 +1962,26 @@ div::-webkit-scrollbar {
   }
 }
 
-/* 5. GRAND RECEPTION & GALA FEAST (Imperial Champagne & Amber Gold Aura) */
-.ceremony-reception {
+/* 5. GRAND DINNER & GALA FEAST (Imperial Champagne & Amber Gold Aura) */
+.ceremony-DINNER {
   border-color: rgba(212, 175, 55, 0.35);
 }
 
-.ceremony-reception:hover {
+.ceremony-DINNER:hover {
   border-color: var(--gold-300);
   box-shadow: 0 16px 45px rgba(0, 0, 0, 0.8), 0 0 30px rgba(212, 175, 55, 0.45);
 }
 
-.ceremony-reception .card-glow-aura {
+.ceremony-DINNER .card-glow-aura {
   background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.4), rgba(180, 83, 9, 0.2), transparent 70%);
 }
 
-.ceremony-reception .card-accent-bar {
+.ceremony-DINNER .card-accent-bar {
   background: linear-gradient(to bottom, #FEF08A, #CA8A04, #78350F);
   color: #CA8A04;
 }
 
-.ceremony-reception .reception-icon {
+.ceremony-DINNER .DINNER-icon {
   background: linear-gradient(135deg, rgba(202, 138, 4, 0.3), rgba(120, 53, 15, 0.15));
   border: 1px solid #CA8A04;
   color: #FEF08A;
@@ -3775,7 +3841,7 @@ div::-webkit-scrollbar {
   inset: 0;
   width: 100%;
   height: 100%;
-  background: 
+  background:
     radial-gradient(ellipse at 50% 36%, rgba(130, 10, 38, 0.38) 0%, rgba(20, 2, 6, 0.76) 62%, rgba(6, 0, 2, 0.96) 100%),
     radial-gradient(circle at 25% 48%, rgba(255, 215, 80, 0.08) 0%, transparent 45%),
     radial-gradient(circle at 75% 48%, rgba(255, 180, 50, 0.08) 0%, transparent 45%);
@@ -3836,9 +3902,8 @@ div::-webkit-scrollbar {
   width: auto;
   height: auto;
   object-fit: contain;
-  filter: 
-    drop-shadow(0 15px 35px rgba(0, 0, 0, 0.8)) 
-    drop-shadow(0 0 25px rgba(249, 228, 150, 0.28));
+  filter:
+    drop-shadow(0 15px 35px rgba(0, 0, 0, 0.8)) drop-shadow(0 0 25px rgba(249, 228, 150, 0.28));
   display: block;
   animation: gentleFloatGanpati 4s ease-in-out infinite alternate;
   transition: transform 0.4s ease;
@@ -3986,6 +4051,7 @@ div::-webkit-scrollbar {
     opacity: 1;
     transform: translateY(0);
   }
+
   100% {
     opacity: 0;
     transform: translateY(12px);
@@ -4198,8 +4264,8 @@ div::-webkit-scrollbar {
     border-radius: 14px;
     border: 1.5px solid rgba(212, 175, 55, 0.65);
     background: linear-gradient(135deg, rgba(42, 5, 14, 0.96) 0%, rgba(20, 2, 7, 0.98) 100%);
-    box-shadow: 
-      0 10px 28px rgba(0, 0, 0, 0.95), 
+    box-shadow:
+      0 10px 28px rgba(0, 0, 0, 0.95),
       0 0 22px rgba(212, 175, 55, 0.35),
       inset 0 1px 0 rgba(255, 230, 150, 0.35);
   }
@@ -4221,8 +4287,8 @@ div::-webkit-scrollbar {
     font-size: 1.75rem;
     line-height: 1.05;
     color: #FFFFFF;
-    text-shadow: 
-      0 1px 4px rgba(0, 0, 0, 1), 
+    text-shadow:
+      0 1px 4px rgba(0, 0, 0, 1),
       0 0 12px rgba(255, 230, 150, 0.85);
   }
 
@@ -4264,9 +4330,9 @@ div::-webkit-scrollbar {
   border: 1.5px solid rgba(212, 175, 55, 0.6);
   border-radius: 12px;
   padding: 8px 18px 7px;
-  box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.9), 
-    0 0 20px rgba(212, 175, 55, 0.3), 
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(212, 175, 55, 0.3),
     inset 0 1px 0 rgba(255, 230, 150, 0.35);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -4276,8 +4342,8 @@ div::-webkit-scrollbar {
 
 .home-countdown-banner:hover {
   border-color: #F9E496;
-  box-shadow: 
-    0 10px 28px rgba(0, 0, 0, 0.92), 
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.92),
     0 0 24px rgba(212, 175, 55, 0.45);
 }
 
@@ -4312,8 +4378,8 @@ div::-webkit-scrollbar {
   font-size: 1.45rem;
   font-weight: 700;
   color: #FFFFFF;
-  text-shadow: 
-    0 1px 4px rgba(0, 0, 0, 1), 
+  text-shadow:
+    0 1px 4px rgba(0, 0, 0, 1),
     0 0 10px rgba(249, 228, 150, 0.7);
   line-height: 1.05;
 }
@@ -4342,6 +4408,7 @@ div::-webkit-scrollbar {
   0% {
     opacity: 0.55;
   }
+
   100% {
     opacity: 1;
     text-shadow: 0 0 8px rgba(249, 228, 150, 0.95);
@@ -4407,7 +4474,7 @@ body.lang-hindi .cd-unit-label {
 }
 
 /* ==========================================================================
-   ROYAL WEDDING CELEBRATION CARDS SECTION (HALDI, MEHNDI, SANGEET, BARAT, RECEPTION)
+   ROYAL WEDDING CELEBRATION CARDS SECTION (HALDI, MEHNDI, SANGEET, BARAT, DINNER)
    ========================================================================== */
 .royal-events-section {
   position: absolute;
@@ -4431,7 +4498,7 @@ body.lang-hindi .cd-unit-label {
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  background: 
+  background:
     radial-gradient(circle at 50% 10%, rgba(145, 26, 52, 0.95) 0%, rgba(95, 14, 38, 0.96) 38%, rgba(52, 7, 22, 0.98) 75%, rgba(26, 3, 10, 1) 100%);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -4494,8 +4561,15 @@ body.lang-hindi .cd-unit-label {
 }
 
 @keyframes gentlePulseCrest {
-  0% { transform: scale(0.95); box-shadow: 0 0 12px rgba(255, 215, 80, 0.35); }
-  100% { transform: scale(1.05); box-shadow: 0 0 22px rgba(255, 230, 120, 0.7); }
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 12px rgba(255, 215, 80, 0.35);
+  }
+
+  100% {
+    transform: scale(1.05);
+    box-shadow: 0 0 22px rgba(255, 230, 120, 0.7);
+  }
 }
 
 .events-section-subtitle {
@@ -4516,8 +4590,8 @@ body.lang-hindi .cd-unit-label {
   color: #FFFFFF;
   letter-spacing: 1.5px;
   margin: 2px 0 3px 0;
-  text-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.95), 
+  text-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.95),
     0 0 22px rgba(255, 220, 110, 0.75);
   background: linear-gradient(135deg, #FFFFFF 0%, #FFF8DC 35%, #FFD700 70%, #FFFFFF 100%);
   -webkit-background-clip: text;
@@ -4591,8 +4665,8 @@ body.lang-hindi .cd-unit-label {
   border-radius: 22px;
   background: linear-gradient(155deg, rgba(92, 16, 36, 0.93) 0%, rgba(62, 9, 24, 0.96) 50%, rgba(38, 4, 15, 0.98) 100%);
   border: 1.8px solid rgba(255, 222, 138, 0.75);
-  box-shadow: 
-    0 18px 46px rgba(0, 0, 0, 0.7), 
+  box-shadow:
+    0 18px 46px rgba(0, 0, 0, 0.7),
     0 0 32px rgba(255, 215, 90, 0.28),
     inset 0 1px 2px rgba(255, 245, 200, 0.55);
   backdrop-filter: blur(16px);
@@ -4622,16 +4696,16 @@ body.lang-hindi .cd-unit-label {
 .event-card:hover {
   transform: translateY(-8px) scale(1.02);
   border-color: #FFFFFF;
-  box-shadow: 
-    0 24px 56px rgba(0, 0, 0, 0.85), 
+  box-shadow:
+    0 24px 56px rgba(0, 0, 0, 0.85),
     0 0 42px rgba(255, 222, 138, 0.55),
     inset 0 1px 0 rgba(255, 255, 255, 0.7);
 }
 
 .event-card.active {
   border-color: #FFFFFF;
-  box-shadow: 
-    0 20px 50px rgba(0, 0, 0, 0.8), 
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.8),
     0 0 36px rgba(255, 230, 140, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.6);
 }
@@ -4657,10 +4731,33 @@ body.lang-hindi .cd-unit-label {
   opacity: 0.9;
 }
 
-.corner-tl { top: -6px; left: -6px; border-width: 2.5px 0 0 2.5px; border-top-left-radius: 4px; }
-.corner-tr { top: -6px; right: -6px; border-width: 2.5px 2.5px 0 0; border-top-right-radius: 4px; }
-.corner-bl { bottom: -6px; left: -6px; border-width: 0 0 2.5px 2.5px; border-bottom-left-radius: 4px; }
-.corner-br { bottom: -6px; right: -6px; border-width: 0 2.5px 2.5px 0; border-bottom-right-radius: 4px; }
+.corner-tl {
+  top: -6px;
+  left: -6px;
+  border-width: 2.5px 0 0 2.5px;
+  border-top-left-radius: 4px;
+}
+
+.corner-tr {
+  top: -6px;
+  right: -6px;
+  border-width: 2.5px 2.5px 0 0;
+  border-top-right-radius: 4px;
+}
+
+.corner-bl {
+  bottom: -6px;
+  left: -6px;
+  border-width: 0 0 2.5px 2.5px;
+  border-bottom-left-radius: 4px;
+}
+
+.corner-br {
+  bottom: -6px;
+  right: -6px;
+  border-width: 0 2.5px 2.5px 0;
+  border-bottom-right-radius: 4px;
+}
 
 /* Animated Card Media Banner Frame */
 .event-card-media-banner {
@@ -4673,8 +4770,8 @@ body.lang-hindi .cd-unit-label {
   overflow: hidden;
   margin-bottom: clamp(14px, 1.8vh, 20px);
   border: 2px solid rgba(255, 222, 138, 0.85);
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.55), 
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.55),
     0 0 24px rgba(255, 215, 80, 0.35),
     inset 0 0 15px rgba(0, 0, 0, 0.2);
   background: #25050C;
@@ -4686,14 +4783,12 @@ body.lang-hindi .cd-unit-label {
   content: "";
   position: absolute;
   inset: -150%;
-  background: linear-gradient(
-    115deg,
-    transparent 42%,
-    rgba(255, 245, 200, 0.35) 48%,
-    rgba(255, 255, 255, 0.55) 50%,
-    rgba(255, 245, 200, 0.35) 52%,
-    transparent 58%
-  );
+  background: linear-gradient(115deg,
+      transparent 42%,
+      rgba(255, 245, 200, 0.35) 48%,
+      rgba(255, 255, 255, 0.55) 50%,
+      rgba(255, 245, 200, 0.35) 52%,
+      transparent 58%);
   transform: rotate(25deg);
   pointer-events: none;
   z-index: 3;
@@ -4701,8 +4796,14 @@ body.lang-hindi .cd-unit-label {
 }
 
 @keyframes bannerShimmerSweep {
-  0% { transform: rotate(25deg) translateY(-80%); }
-  35%, 100% { transform: rotate(25deg) translateY(80%); }
+  0% {
+    transform: rotate(25deg) translateY(-80%);
+  }
+
+  35%,
+  100% {
+    transform: rotate(25deg) translateY(80%);
+  }
 }
 
 /* Media Banner Image with Smooth Ken Burns Animation */
@@ -4719,9 +4820,17 @@ body.lang-hindi .cd-unit-label {
 }
 
 @keyframes kenBurnsFloating {
-  0% { transform: scale(1.02) translate(0, 0); }
-  50% { transform: scale(1.05) translate(-1%, -0.5%); }
-  100% { transform: scale(1.03) translate(1%, 0.5%); }
+  0% {
+    transform: scale(1.02) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.05) translate(-1%, -0.5%);
+  }
+
+  100% {
+    transform: scale(1.03) translate(1%, 0.5%);
+  }
 }
 
 .event-card:hover .event-card-img,
@@ -4776,21 +4885,54 @@ body.lang-hindi .cd-unit-label {
 }
 
 @keyframes sparkleFloat1 {
-  0% { transform: translateY(0) scale(0.85) rotate(0deg); opacity: 0.4; }
-  50% { transform: translateY(-8px) scale(1.15) rotate(15deg); opacity: 0.95; }
-  100% { transform: translateY(-16px) scale(0.9) rotate(-10deg); opacity: 0.5; }
+  0% {
+    transform: translateY(0) scale(0.85) rotate(0deg);
+    opacity: 0.4;
+  }
+
+  50% {
+    transform: translateY(-8px) scale(1.15) rotate(15deg);
+    opacity: 0.95;
+  }
+
+  100% {
+    transform: translateY(-16px) scale(0.9) rotate(-10deg);
+    opacity: 0.5;
+  }
 }
 
 @keyframes sparkleFloat2 {
-  0% { transform: translateY(0) scale(0.9) rotate(0deg); opacity: 0.5; }
-  50% { transform: translateY(-12px) scale(1.2) rotate(-20deg); opacity: 1; }
-  100% { transform: translateY(-22px) scale(1) rotate(15deg); opacity: 0.6; }
+  0% {
+    transform: translateY(0) scale(0.9) rotate(0deg);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: translateY(-12px) scale(1.2) rotate(-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-22px) scale(1) rotate(15deg);
+    opacity: 0.6;
+  }
 }
 
 @keyframes sparkleFloat3 {
-  0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.6; }
-  50% { transform: translateY(-10px) scale(1.25) rotate(25deg); opacity: 1; }
-  100% { transform: translateY(-18px) scale(0.85) rotate(-15deg); opacity: 0.45; }
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(-10px) scale(1.25) rotate(25deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-18px) scale(0.85) rotate(-15deg);
+    opacity: 0.45;
+  }
 }
 
 /* Badge & Floating Circle on Banner */
@@ -4863,8 +5005,15 @@ body.lang-hindi .cd-unit-label {
 }
 
 @keyframes haldiAuraBreathing {
-  0% { box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 16px rgba(255, 205, 50, 0.3); border-color: rgba(255, 205, 50, 0.7); }
-  100% { box-shadow: 0 8px 28px rgba(0, 0, 0, 0.75), 0 0 32px rgba(255, 225, 80, 0.65); border-color: rgba(255, 235, 120, 1); }
+  0% {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 16px rgba(255, 205, 50, 0.3);
+    border-color: rgba(255, 205, 50, 0.7);
+  }
+
+  100% {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.75), 0 0 32px rgba(255, 225, 80, 0.65);
+    border-color: rgba(255, 235, 120, 1);
+  }
 }
 
 .theme-haldi .event-icon-circle {
@@ -4955,27 +5104,27 @@ body.lang-hindi .cd-unit-label {
   box-shadow: 0 0 18px rgba(215, 45, 75, 0.65);
 }
 
-/* Grand Reception */
-.theme-reception.event-card {
+/* Grand DINNER */
+.theme-DINNER.event-card {
   background: linear-gradient(155deg, rgba(92, 45, 16, 0.95) 0%, rgba(65, 28, 10, 0.96) 50%, rgba(35, 6, 14, 0.98) 100%);
   border-color: rgba(255, 222, 115, 0.85);
   box-shadow: 0 18px 46px rgba(0, 0, 0, 0.65), 0 0 32px rgba(245, 190, 55, 0.35);
 }
 
-.theme-reception .event-card-media-banner {
+.theme-DINNER .event-card-media-banner {
   aspect-ratio: 16 / 10;
   max-height: 400px;
   border-color: rgba(255, 205, 70, 0.85);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 24px rgba(255, 200, 60, 0.4);
 }
 
-.theme-reception .event-card-img {
+.theme-DINNER .event-card-img {
   object-fit: cover;
   object-position: center 30%;
   filter: brightness(1.06) contrast(1.05) saturate(1.1);
 }
 
-.theme-reception .event-icon-circle {
+.theme-DINNER .event-icon-circle {
   background: radial-gradient(circle, rgba(225, 175, 45, 0.85) 0%, rgba(55, 12, 18, 0.95) 100%);
   color: #FFF8E0;
   border-color: #FFD54F;
@@ -5080,11 +5229,30 @@ body.lang-hindi .cd-unit-label {
   border: 1.5px solid #FFFFFF;
 }
 
-.dot-yellow { background-color: #FFD23F; box-shadow: 0 0 8px #FFD23F; }
-.dot-green { background-color: #34D399; box-shadow: 0 0 8px #34D399; }
-.dot-magenta { background-color: #F472B6; box-shadow: 0 0 8px #F472B6; }
-.dot-crimson { background-color: #FB7185; box-shadow: 0 0 8px #FB7185; }
-.dot-gold { background-color: #FBBF24; box-shadow: 0 0 8px #FBBF24; }
+.dot-yellow {
+  background-color: #FFD23F;
+  box-shadow: 0 0 8px #FFD23F;
+}
+
+.dot-green {
+  background-color: #34D399;
+  box-shadow: 0 0 8px #34D399;
+}
+
+.dot-magenta {
+  background-color: #F472B6;
+  box-shadow: 0 0 8px #F472B6;
+}
+
+.dot-crimson {
+  background-color: #FB7185;
+  box-shadow: 0 0 8px #FB7185;
+}
+
+.dot-gold {
+  background-color: #FBBF24;
+  box-shadow: 0 0 8px #FBBF24;
+}
 
 /* Description */
 .event-card-desc {
@@ -5321,7 +5489,7 @@ body.lang-hindi .card-action-btn {
     object-position: center 35%;
   }
 
-  .theme-reception .event-card-img {
+  .theme-DINNER .event-card-img {
     object-position: center 30%;
   }
 
@@ -5341,7 +5509,8 @@ body.lang-hindi .card-action-btn {
   }
 
   .events-arrow-btn {
-    display: none; /* Smooth swipe snap is primary on mobile */
+    display: none;
+    /* Smooth swipe snap is primary on mobile */
   }
 
   .event-card-title {
@@ -5518,8 +5687,15 @@ body.lang-hindi .card-action-btn {
 }
 
 @keyframes fbPulseNamaste {
-  0% { transform: scale(1); filter: drop-shadow(0 0 8px rgba(255, 215, 60, 0.5)); }
-  100% { transform: scale(1.15); filter: drop-shadow(0 0 16px rgba(255, 215, 60, 0.9)); }
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 60, 0.5));
+  }
+
+  100% {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 16px rgba(255, 215, 60, 0.9));
+  }
 }
 
 /* Invitation Quote Card */
@@ -5639,6 +5815,7 @@ body.lang-hindi .card-action-btn {
     border-color: rgba(229, 169, 59, 0.5);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), 0 0 20px rgba(229, 169, 59, 0.25), inset 0 0 20px rgba(229, 169, 59, 0.05);
   }
+
   100% {
     border-color: rgba(255, 215, 80, 0.95);
     box-shadow: 0 18px 48px rgba(0, 0, 0, 0.9), 0 0 45px rgba(255, 215, 80, 0.5), inset 0 0 32px rgba(255, 215, 80, 0.15);
@@ -5655,8 +5832,15 @@ body.lang-hindi .card-action-btn {
 }
 
 @keyframes prasadAuraFloat {
-  0% { transform: scale(0.95); opacity: 0.7; }
-  100% { transform: scale(1.08); opacity: 1; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
 }
 
 .animated-prasad-card .fb-card-decor {
@@ -5668,8 +5852,15 @@ body.lang-hindi .card-action-btn {
 }
 
 @keyframes cornerGlint {
-  0% { opacity: 0.8; filter: drop-shadow(0 0 4px rgba(255, 215, 80, 0.5)); }
-  100% { opacity: 1; filter: drop-shadow(0 0 10px rgba(255, 230, 100, 1)); }
+  0% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 4px rgba(255, 215, 80, 0.5));
+  }
+
+  100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 10px rgba(255, 230, 100, 1));
+  }
 }
 
 .animated-prasad-card .fb-ancestor-box {
@@ -5680,8 +5871,15 @@ body.lang-hindi .card-action-btn {
 }
 
 @keyframes ancestorFrameGlow {
-  0% { border-color: rgba(229, 169, 59, 0.4); box-shadow: inset 0 0 10px rgba(229, 169, 59, 0.08); }
-  100% { border-color: rgba(255, 215, 80, 0.8); box-shadow: inset 0 0 22px rgba(255, 215, 80, 0.2), 0 0 16px rgba(229, 169, 59, 0.3); }
+  0% {
+    border-color: rgba(229, 169, 59, 0.4);
+    box-shadow: inset 0 0 10px rgba(229, 169, 59, 0.08);
+  }
+
+  100% {
+    border-color: rgba(255, 215, 80, 0.8);
+    box-shadow: inset 0 0 22px rgba(255, 215, 80, 0.2), 0 0 16px rgba(229, 169, 59, 0.3);
+  }
 }
 
 .animated-prasad-card .fb-family-heading {
@@ -5887,4 +6085,4 @@ body.lang-hindi .fb-gratitude-text {
   .fb-gratitude-text {
     font-size: 0.8rem;
   }
-}
+}
