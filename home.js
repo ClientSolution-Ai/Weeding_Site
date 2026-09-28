@@ -884,14 +884,11 @@ function initHomeLanguageSystem() {
    Interactive Tabs, Arrow Nav, 3D Card Tilt, Calendar Add & Smooth Scroll
    ========================================================================== */
 function initEventsCardsSystem() {
-  const track = document.getElementById("events-cards-track");
-  const prevBtn = document.getElementById("events-prev-btn");
-  const nextBtn = document.getElementById("events-next-btn");
+  const eventsSection = document.getElementById("royal-events-section");
   const pills = document.querySelectorAll(".event-nav-pill");
-  const dots = document.querySelectorAll(".event-dot");
   const cards = document.querySelectorAll(".event-card");
 
-  if (!track || cards.length === 0) return;
+  if (cards.length === 0) return;
 
   let activeIndex = 0;
 
@@ -902,11 +899,9 @@ function initEventsCardsSystem() {
 
     const targetCard = cards[index];
     if (targetCard) {
-      const trackPadding = parseInt(window.getComputedStyle(track).paddingLeft) || 0;
-      const scrollPos = targetCard.offsetLeft - track.offsetLeft - (track.clientWidth - targetCard.clientWidth) / 2;
-      track.scrollTo({
-        left: Math.max(0, scrollPos),
-        behavior: "smooth"
+      targetCard.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
       });
     }
 
@@ -914,19 +909,12 @@ function initEventsCardsSystem() {
   }
 
   function updateActiveState(index) {
-    // Update pills
     pills.forEach((p, idx) => {
       const isSelected = idx === index;
       p.classList.toggle("active", isSelected);
       p.setAttribute("aria-selected", isSelected ? "true" : "false");
     });
 
-    // Update dots
-    dots.forEach((d, idx) => {
-      d.classList.toggle("active", idx === index);
-    });
-
-    // Update cards
     cards.forEach((c, idx) => {
       c.classList.toggle("active", idx === index);
     });
@@ -941,62 +929,34 @@ function initEventsCardsSystem() {
     });
   });
 
-  // Dot click
-  dots.forEach((dot) => {
-    dot.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const idx = parseInt(dot.getAttribute("data-index"), 10);
-      if (!isNaN(idx)) scrollToCard(idx);
-    });
-  });
+  // Vertical scroll observer (auto update active pill while scrolling down)
+  if (eventsSection) {
+    let scrollTimeout;
+    eventsSection.addEventListener("scroll", () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const secRect = eventsSection.getBoundingClientRect();
+        const viewportCenter = secRect.top + secRect.height * 0.35;
+        let closestIdx = 0;
+        let minDistance = Infinity;
 
-  // Card click / focus
-  cards.forEach((card, idx) => {
-    card.addEventListener("click", (e) => {
-      if (e.target.closest(".card-action-btn")) return;
-      scrollToCard(idx);
-    });
-  });
+        cards.forEach((card, idx) => {
+          const cardRect = card.getBoundingClientRect();
+          const cardCenter = cardRect.top + cardRect.height / 2;
+          const dist = Math.abs(cardCenter - viewportCenter);
+          if (dist < minDistance) {
+            minDistance = dist;
+            closestIdx = idx;
+          }
+        });
 
-  // Arrow buttons
-  if (prevBtn) {
-    prevBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      scrollToCard(activeIndex - 1);
-    });
-  }
-
-  if (nextBtn) {
-    nextBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      scrollToCard(activeIndex + 1);
-    });
-  }
-
-  // Track scroll observer (auto update active pill & dot while swiping)
-  let scrollTimeout;
-  track.addEventListener("scroll", () => {
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      const trackCenter = track.scrollLeft + track.clientWidth / 2;
-      let closestIdx = 0;
-      let minDistance = Infinity;
-
-      cards.forEach((card, idx) => {
-        const cardCenter = card.offsetLeft - track.offsetLeft + card.clientWidth / 2;
-        const dist = Math.abs(cardCenter - trackCenter);
-        if (dist < minDistance) {
-          minDistance = dist;
-          closestIdx = idx;
+        if (closestIdx !== activeIndex) {
+          activeIndex = closestIdx;
+          updateActiveState(closestIdx);
         }
-      });
-
-      if (closestIdx !== activeIndex) {
-        activeIndex = closestIdx;
-        updateActiveState(closestIdx);
-      }
-    }, 60);
-  }, { passive: true });
+      }, 50);
+    }, { passive: true });
+  }
 
   // 3D Card Hover Tilt Effect for Desktop
   if (window.matchMedia("(pointer: fine)").matches) {

@@ -4557,29 +4557,9 @@ body.lang-hindi .cd-unit-label {
   text-shadow: 0 0 8px rgba(212, 175, 55, 0.7);
 }
 
-/* Quick Ceremony Navigation Pill Tabs */
+/* Quick Ceremony Navigation Pill Tabs (Hidden) */
 .events-nav-tabs {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(6px, 1vw, 12px);
-  background: rgba(26, 2, 7, 0.78);
-  border: 1px solid rgba(212, 175, 55, 0.4);
-  padding: 5px 8px;
-  border-radius: 30px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 230, 150, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  margin-bottom: clamp(10px, 1.8vh, 18px);
-  max-width: 95%;
-  overflow-x: auto;
-  scrollbar-width: none;
-  z-index: 5;
-  flex-shrink: 0;
-}
-
-.events-nav-tabs::-webkit-scrollbar {
-  display: none;
+  display: none !important;
 }
 
 .event-nav-pill {
@@ -4626,84 +4606,46 @@ body.lang-hindi .cd-unit-label {
   transform: scale(1.15);
 }
 
-/* Carousel Viewport Stage */
+/* Carousel / Vertical Cards Stage */
 .events-carousel-stage {
   position: relative;
   width: 100%;
-  max-width: 1280px;
+  max-width: 800px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   flex: 0 0 auto;
   overflow: visible;
+  margin: 0 auto;
 }
 
-/* Arrow Buttons */
+/* Arrow Buttons (hidden in vertical layout) */
 .events-arrow-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: clamp(38px, 4.5vh, 46px);
-  height: clamp(38px, 4.5vh, 46px);
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(45, 5, 14, 0.95) 0%, rgba(18, 1, 6, 0.98) 100%);
-  border: 1.5px solid rgba(212, 175, 55, 0.6);
-  color: #F9E496;
-  font-size: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 10;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.75), 0 0 14px rgba(212, 175, 55, 0.25);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: all 0.28s ease;
+  display: none !important;
 }
 
-.events-arrow-btn.arrow-prev {
-  left: clamp(-4px, -1vw, 8px);
-}
-
-.events-arrow-btn.arrow-next {
-  right: clamp(-4px, -1vw, 8px);
-}
-
-.events-arrow-btn:hover {
-  background: linear-gradient(135deg, #D4AF37 0%, #8C6716 100%);
-  color: #1A0105;
-  border-color: #FFF6D6;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.9), 0 0 20px rgba(249, 228, 150, 0.6);
-  transform: translateY(-50%) scale(1.1);
-}
-
-/* Horizontal Cards Track */
+/* Vertical Up-to-Down Cards Track */
 .events-cards-track {
   display: flex;
-  flex-direction: row;
-  align-items: stretch;
-  gap: clamp(14px, 2vw, 28px);
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
   width: 100%;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory;
-  padding: 12px clamp(12px, 2vw, 36px);
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 10px 12px 30px 12px;
   box-sizing: border-box;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  overflow: visible;
 }
 
-.events-cards-track::-webkit-scrollbar {
-  display: none;
-}
-
-/* Event Card Base */
+/* Event Card Base (Vertical Stack) */
 .event-card {
-  flex: 0 0 clamp(290px, 30vw, 360px);
-  max-width: 380px;
-  scroll-snap-align: center;
+  width: 100%;
+  max-width: 720px;
+  flex: 0 0 auto;
   position: relative;
-  border-radius: 18px;
+  border-radius: 20px;
   background: linear-gradient(155deg, rgba(42, 5, 14, 0.94) 0%, rgba(20, 2, 7, 0.97) 100%);
   border: 1.5px solid rgba(212, 175, 55, 0.45);
   box-shadow: 
@@ -4712,12 +4654,10 @@ body.lang-hindi .cd-unit-label {
     inset 0 1px 0 rgba(255, 235, 160, 0.28);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: clamp(16px, 2.2vh, 24px) clamp(16px, 2vw, 22px);
+  padding: 24px 24px;
   box-sizing: border-box;
   cursor: pointer;
-  perspective: 1000px;
   transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.38s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.38s ease;
-  user-select: none;
   overflow: hidden;
   outline: none;
 }
@@ -5202,32 +5142,9 @@ body.lang-hindi .cd-unit-label {
   box-shadow: 0 6px 16px rgba(212, 175, 55, 0.55);
 }
 
-/* Dots Indicator */
+/* Dots Indicator (Hidden in vertical layout) */
 .events-dots-indicator {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-top: clamp(8px, 1.2vh, 14px);
-  z-index: 5;
-  flex-shrink: 0;
-}
-
-.event-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 4px;
-  background: rgba(212, 175, 55, 0.35);
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.event-dot.active {
-  width: 24px;
-  background: linear-gradient(90deg, #F9E496 0%, #D4AF37 100%);
-  box-shadow: 0 0 10px rgba(249, 228, 150, 0.7);
+  display: none !important;
 }
 
 /* ==========================================================================
@@ -5334,16 +5251,16 @@ body.lang-hindi .card-action-btn {
   }
 
   .events-cards-track {
-    gap: 16px;
-    padding: 8px 14px 14px;
-    scroll-padding: 0 14px;
+    gap: 24px;
+    padding: 6px 8px 24px 8px;
+    width: 100%;
   }
 
   .event-card {
-    flex: 0 0 calc(100vw - 44px);
-    max-width: 355px;
-    min-width: 285px;
-    padding: 14px 14px 14px;
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 auto;
+    padding: 18px 16px;
     border-radius: 16px;
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.9), 0 0 20px rgba(212, 175, 55, 0.2);
   }
