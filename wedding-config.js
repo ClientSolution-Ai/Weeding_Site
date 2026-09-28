@@ -16,12 +16,12 @@ const WEDDING_CONFIG = {
       btnTitle: "हिंदी में देखें / View in Hindi",
       scrollHint: "Scroll to Unveil",
       groom: {
-        name: "Abhijeet Kumar",
+        name: "Krishna Kumar",
         kinship: "Son of",
         parents: "Smt. Sunita & Shri Rajendra Singhania"
       },
       bride: {
-        name: "Anjali Kumari",
+        name: "Kumari Muskan",
         kinship: "Daughter of",
         parents: "Smt. Annu Prasad & Shri Uday Shankar Prasad"
       },
