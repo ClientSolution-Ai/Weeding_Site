@@ -128,7 +128,7 @@ const WEDDING_CONFIG = {
       groom: {
         name: "कृष्ण कुमार",
         kinship: "सुपुत्र",
-        parents: "श्रीमती सुनीता एवं श्री राजेन्द्र सिंघानिया"
+        parents: "श्रीमती कल्याणी बिद एवं श्री सुकुमार बिद"
       },
 
       countdown: {
