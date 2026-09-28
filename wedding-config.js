@@ -23,7 +23,7 @@ const WEDDING_CONFIG = {
       groom: {
         name: "Krishna Kumar",
         kinship: "Son of",
-        parents: "Smt. Sunita & Shri Rajendra Singhania"
+        parents: "Smt. Kalyani Bid & Shri Sukumar Bid"
       },
 
       countdown: {
@@ -228,7 +228,7 @@ const WEDDING_CONFIG = {
       lastName: "Kumar",
       fullName: "Krishna Kumar",
       title: " Groom",
-      parents: "Son of Smt. Sunita & Shri Rajendra Singhania",
+      parents: "Son of Smt. Kalyani Bid & Shri Sukumar Bid",
       grandparents: "Grandson of Late Smt. Kamala & Late Shri Govind Singhania",
       bio: "An architect with a passion for heritage design and classical music, Krishna brings warmth, creativity, and steadfast love to every moment.",
       photo: "assets/images/groom_portrait.jpg",
@@ -469,7 +469,7 @@ const WEDDING_CONFIG = {
       familyName: "The Singhania Family",
       title: "Groom's Family",
       elders: "With the loving blessings of Late Smt. Kamala & Late Shri Govind Singhania",
-      parents: "Smt. Sunita & Shri Rajendra Singhania",
+      parents: "Smt. Kalyani Bid & Shri Sukumar Bid",
       siblings: "Rohan & Meera Singhania (Brother & Sister-in-law)",
       relatives: "All near and dear members of the Singhania & Verma families"
     },

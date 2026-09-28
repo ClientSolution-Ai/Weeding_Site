@@ -128,7 +128,7 @@ function initRoyalDoorsExperience() {
 
   function handleOpenDoors() {
     if (doorsScreen.classList.contains("opening") || doorsScreen.classList.contains("opened")) return;
-    
+
     doorsScreen.classList.add("opening");
 
     // Play royal temple chimes & start Shehnai music
@@ -157,8 +157,8 @@ function initCountdownTimer() {
 
   if (!daysEl || !hoursEl || !minsEl || !secsEl) return;
 
-  const targetDateStr = (typeof WEDDING_CONFIG !== "undefined" && WEDDING_CONFIG.weddingDate?.targetIso) 
-    ? WEDDING_CONFIG.weddingDate.targetIso 
+  const targetDateStr = (typeof WEDDING_CONFIG !== "undefined" && WEDDING_CONFIG.weddingDate?.targetIso)
+    ? WEDDING_CONFIG.weddingDate.targetIso
     : "2026-11-25T19:00:00+05:30";
   const targetTime = new Date(targetDateStr).getTime();
 
@@ -245,8 +245,8 @@ function updateMusicButtonUI(playing) {
   }
 
   if (musicText) {
-    musicText.textContent = playing 
-      ? (musicConfig.playingTitle || "Pause Music") 
+    musicText.textContent = playing
+      ? (musicConfig.playingTitle || "Pause Music")
       : (musicConfig.title || "Play Music");
   }
 }
@@ -337,7 +337,7 @@ function pauseBackgroundMusic() {
   if (bgAudioElement) {
     try {
       bgAudioElement.pause();
-    } catch (e) {}
+    } catch (e) { }
   }
   if (synthTimer) {
     clearTimeout(synthTimer);
@@ -346,7 +346,7 @@ function pauseBackgroundMusic() {
   if (audioCtx && audioCtx.state === "running") {
     try {
       audioCtx.suspend();
-    } catch (e) {}
+    } catch (e) { }
   }
   updateMusicButtonUI(false);
 }
@@ -370,7 +370,7 @@ function playRoyalChime() {
       osc.start(audioCtx.currentTime + idx * 0.12);
       osc.stop(audioCtx.currentTime + idx * 0.12 + 0.8);
     });
-  } catch (e) {}
+  } catch (e) { }
 }
 
 function playRaagYamanLoop() {
@@ -472,7 +472,7 @@ function initRSVPAndWishes() {
   // Default Initial Wishes
   const defaultWishes = [
     {
-      name: "Smt. Sunita & Shri Rajendra Singhania",
+      name: "Smt. Kalyani Bid & Shri Sukumar Bid",
       message: "May God shower infinite blessings, joyous health, and eternal companionship on Krishna & Muskan.",
       time: "Family Blessing"
     },
@@ -545,7 +545,7 @@ function initRSVPAndWishes() {
       savedWishes.unshift(newWish);
       try {
         localStorage.setItem("km_scroll_wishes", JSON.stringify(savedWishes));
-      } catch (err) {}
+      } catch (err) { }
 
       renderWishes();
 
@@ -569,7 +569,7 @@ function initRSVPAndWishes() {
   emojiButtons.forEach(btn => {
     btn.addEventListener("click", (e) => {
       const emoji = btn.getAttribute("data-emoji") || "❤️";
-      
+
       // Spawn floating flying emojis from button position
       const rect = btn.getBoundingClientRect();
       const count = 4;
@@ -610,7 +610,7 @@ function initRSVPAndWishes() {
       savedWishes.unshift(quickWish);
       try {
         localStorage.setItem("km_scroll_wishes", JSON.stringify(savedWishes));
-      } catch (err) {}
+      } catch (err) { }
 
       renderWishes();
       showToast(`${emoji} Instant blessing sent to Krishna & Muskan!`);

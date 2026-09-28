@@ -700,7 +700,7 @@ function initHomeLanguageSystem() {
       groom: {
         name: lang === "en" ? "Krishna Kumar" : "कृष्ण कुमार",
         kinship: lang === "en" ? "Son of" : "सुपुत्र",
-        parents: lang === "en" ? "Smt. Sunita & Shri Rajendra Singhania" : "श्रीमती सुनीता एवं श्री राजेन्द्र सिंघानिया"
+        parents: lang === "en" ? "Smt. Kalyani Bid & Shri Sukumar Bid" : "श्रीमती सुनीता एवं श्री राजेन्द्र सिंघानिया"
       },
       bride: {
         name: lang === "en" ? "Kumari Muskan" : "कुमारी मुस्कान",
