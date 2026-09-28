@@ -239,12 +239,11 @@ function initHomeScrollStory() {
       if (currentProgress > 0.48) {
         groomOpacity = mapRange(currentProgress, 0.48, 0.68, 1, 0);
       }
-      const groomBlur = mapRange(currentProgress, 0.48, 0.68, 0, 10);
       const groomTranslateY = currentProgress <= 0.48
         ? mapRange(currentProgress, 0.10, 0.26, -15, 0)
         : mapRange(currentProgress, 0.48, 0.68, 0, 20);
       groomSection.style.opacity = groomOpacity.toFixed(3);
-      groomSection.style.filter = `blur(${groomBlur.toFixed(1)}px)`;
+      groomSection.style.filter = "none";
       groomSection.style.transform = `translateY(${groomTranslateY.toFixed(1)}px)`;
 
       // 2. Bride details
@@ -252,12 +251,11 @@ function initHomeScrollStory() {
       if (currentProgress > 0.48) {
         brideOpacity = mapRange(currentProgress, 0.48, 0.68, 1, 0);
       }
-      const brideBlur = mapRange(currentProgress, 0.48, 0.68, 0, 10);
       const brideTranslateY = currentProgress <= 0.48
         ? mapRange(currentProgress, 0.22, 0.38, 15, 0)
         : mapRange(currentProgress, 0.48, 0.68, 0, 25);
       brideSection.style.opacity = brideOpacity.toFixed(3);
-      brideSection.style.filter = `blur(${brideBlur.toFixed(1)}px)`;
+      brideSection.style.filter = "none";
       brideSection.style.transform = `translateY(${brideTranslateY.toFixed(1)}px)`;
 
       // 3. Sacred knot
@@ -267,9 +265,8 @@ function initHomeScrollStory() {
         knotOpacity = mapRange(currentProgress, 0.48, 0.68, 1, 0);
         knotScale = mapRange(currentProgress, 0.48, 0.68, 1.0, 0.88);
       }
-      const knotBlur = mapRange(currentProgress, 0.48, 0.68, 0, 12);
       knotWrapper.style.opacity = knotOpacity.toFixed(3);
-      knotWrapper.style.filter = `blur(${knotBlur.toFixed(1)}px)`;
+      knotWrapper.style.filter = "none";
       knotWrapper.style.transform = `scale(${knotScale.toFixed(3)})`;
 
       // 4. Ganpati: Initial fade-in (0.06 - 0.20), grows bigger (0.48 - 0.72), fades for events (0.75 - 0.88)
