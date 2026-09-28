@@ -101,7 +101,7 @@ const WEDDING_CONFIG = {
         sanskritTag: "॥ पारिवारिक शुभाशीर्वाद ॥",
         title: "FAMILY BLESSINGS",
         subtitle: "With the Love & Blessings of Our Families",
-        quote: "“We cordially invite you and your family to grace the auspicious wedding ceremonies of our beloved children and bestow your heartfelt blessings upon the young couple as they start their sacred new journey together.”",
+        quote: "“We cordially invite you and your family to grace the auspicious wedding ceremonies of our beloved daughter and bestow your heartfelt blessings upon the bride and groom as they embark on their sacred journey of love and togetherness.”",
         brideFamily: {
           title: "THE PRASAD FAMILY",
           badge: "BRIDE'S FAMILY",
@@ -481,7 +481,7 @@ const WEDDING_CONFIG = {
       siblings: "Kabir Kapoor (Brother)",
       relatives: "All near and dear members of the Kapoor & Malhotra families"
     },
-    message: "We cordially invite you and your family to grace the auspicious wedding ceremonies of our beloved children and bestow your heartfelt blessings upon the young couple as they start their new life together."
+    message: "We cordially invite you and your family to grace the auspicious wedding ceremonies of our beloved daughter and bestow your heartfelt blessings upon the bride and groom as they embark on their sacred journey of love and togetherness."
   },
 
   // Venue & Travel Information

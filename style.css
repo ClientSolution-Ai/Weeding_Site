@@ -3939,25 +3939,10 @@ div::-webkit-scrollbar {
 
 /* Floating Scroll Unveil Hint */
 .scroll-unveil-hint {
-  position: absolute;
-  bottom: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  background: rgba(20, 2, 6, 0.72);
-  border: 1px solid rgba(212, 175, 55, 0.45);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75), 0 0 16px rgba(212, 175, 55, 0.22);
-  border-radius: 20px;
-  padding: 8px 20px 10px;
-  z-index: 50;
-  cursor: pointer;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-  user-select: none;
+  display: none !important;
+  pointer-events: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
 }
 
 .scroll-unveil-hint:hover {
@@ -4435,20 +4420,21 @@ body.lang-hindi .cd-unit-label {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding: clamp(14px, 2.5vh, 28px) clamp(16px, 3vw, 48px) 80px clamp(16px, 3vw, 48px);
+  padding: clamp(14px, 2.5vh, 28px) clamp(16px, 3vw, 48px) 100px clamp(16px, 3vw, 48px);
   box-sizing: border-box;
-  z-index: 60;
+  z-index: 100;
   opacity: 0;
   transform: translateY(40px);
   pointer-events: none;
-  will-change: opacity, transform;
+  visibility: hidden;
+  will-change: opacity, transform, visibility;
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
-  background: radial-gradient(circle at 50% 40%, rgba(55, 4, 16, 0.45) 0%, rgba(18, 1, 6, 0.82) 70%, rgba(8, 0, 3, 0.95) 100%);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  background: radial-gradient(circle at 50% 30%, rgba(35, 3, 10, 0.98) 0%, rgba(18, 1, 6, 0.99) 65%, rgba(8, 0, 3, 1) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .royal-events-section::-webkit-scrollbar {
@@ -4723,15 +4709,17 @@ body.lang-hindi .cd-unit-label {
 .event-card-media-banner {
   position: relative;
   width: 100%;
-  height: clamp(140px, 18vh, 180px);
+  aspect-ratio: 16 / 10;
+  max-height: 420px;
+  min-height: 220px;
   border-radius: 14px;
   overflow: hidden;
-  margin-bottom: clamp(10px, 1.3vh, 14px);
+  margin-bottom: clamp(12px, 1.6vh, 18px);
   border: 1.5px solid rgba(212, 175, 55, 0.5);
   box-shadow: 
     0 8px 24px rgba(0, 0, 0, 0.65), 
     inset 0 0 20px rgba(0, 0, 0, 0.4);
-  background: #150207;
+  background: radial-gradient(circle at center, #2e0811 0%, #150106 100%);
   flex-shrink: 0;
 }
 
@@ -4764,7 +4752,7 @@ body.lang-hindi .cd-unit-label {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 25%;
+  object-position: center center;
   display: block;
   transform: scale(1.02);
   transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), filter 0.65s ease;
@@ -4774,7 +4762,7 @@ body.lang-hindi .cd-unit-label {
 
 @keyframes kenBurnsFloating {
   0% { transform: scale(1.02) translate(0, 0); }
-  50% { transform: scale(1.06) translate(-1%, -1%); }
+  50% { transform: scale(1.05) translate(-1%, -0.5%); }
   100% { transform: scale(1.03) translate(1%, 0.5%); }
 }
 
@@ -4789,7 +4777,7 @@ body.lang-hindi .cd-unit-label {
   inset: 0;
   pointer-events: none;
   z-index: 2;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, transparent 35%, rgba(15, 1, 4, 0.75) 100%);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, transparent 40%, rgba(15, 1, 4, 0.65) 100%);
   transition: opacity 0.4s ease;
 }
 
@@ -4893,11 +4881,20 @@ body.lang-hindi .cd-unit-label {
   transform: scale(1.12) rotate(6deg);
 }
 
-/* Theme Accents & Glows */
+/* Theme Accents & Glows - Custom Card Proportions */
+/* Haldi Carnival: 16:9 Widescreen with Smiling Couple & Carnival Sign */
 .theme-haldi .event-card-media-banner {
+  aspect-ratio: 16 / 9;
+  max-height: 380px;
+  min-height: 200px;
   border-color: rgba(245, 185, 30, 0.75);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.65), 0 0 20px rgba(245, 185, 30, 0.3);
   animation: haldiAuraBreathing 4.5s ease-in-out infinite alternate;
+}
+
+.theme-haldi .event-card-img {
+  object-fit: cover;
+  object-position: center center;
 }
 
 @keyframes haldiAuraBreathing {
@@ -4913,7 +4910,14 @@ body.lang-hindi .cd-unit-label {
 }
 
 .theme-mehendi .event-card-media-banner {
+  aspect-ratio: 16 / 10;
+  max-height: 400px;
   border-color: rgba(45, 160, 110, 0.65);
+}
+
+.theme-mehendi .event-card-img {
+  object-fit: cover;
+  object-position: center 30%;
 }
 
 .theme-mehendi .event-icon-circle {
@@ -4923,12 +4927,16 @@ body.lang-hindi .cd-unit-label {
   box-shadow: 0 0 16px rgba(45, 127, 94, 0.55);
 }
 
+/* Sangeet Night 16:9 Landscape */
 .theme-sangeet .event-card-media-banner {
+  aspect-ratio: 16 / 9;
+  max-height: 400px;
   border-color: rgba(180, 50, 150, 0.65);
 }
 
 .theme-sangeet .event-card-img {
-  object-position: center 18%;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .theme-sangeet .event-icon-circle {
@@ -4939,7 +4947,14 @@ body.lang-hindi .cd-unit-label {
 }
 
 .theme-barat .event-card-media-banner {
+  aspect-ratio: 16 / 10;
+  max-height: 400px;
   border-color: rgba(210, 40, 70, 0.65);
+}
+
+.theme-barat .event-card-img {
+  object-fit: cover;
+  object-position: center 35%;
 }
 
 .theme-barat .event-icon-circle {
@@ -4950,7 +4965,21 @@ body.lang-hindi .cd-unit-label {
 }
 
 .theme-reception .event-card-media-banner {
+  aspect-ratio: 16 / 10;
+  max-height: 400px;
   border-color: rgba(225, 175, 50, 0.7);
+}
+
+.theme-reception .event-card-img {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+.theme-reception .event-icon-circle {
+  background: radial-gradient(circle, rgba(197, 155, 39, 0.8) 0%, rgba(45, 5, 14, 0.92) 100%);
+  color: #FFF2B2;
+  border-color: #C59B27;
+  box-shadow: 0 0 16px rgba(197, 155, 39, 0.55);
 }
 
 .theme-reception .event-icon-circle {
@@ -5092,27 +5121,31 @@ body.lang-hindi .cd-unit-label {
 /* Card Action Buttons */
 .event-card-actions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   margin-top: auto;
+  width: 100%;
 }
 
 .card-action-btn {
-  flex: 1;
+  flex: 1 1 140px;
+  min-height: 38px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: clamp(6px, 1vh, 9px) 10px;
+  padding: 8px 14px;
   border-radius: 8px;
   font-family: 'Cinzel', serif;
-  font-size: clamp(0.66rem, 1.1vh, 0.74rem);
+  font-size: clamp(0.7rem, 1.1vh, 0.78rem);
   font-weight: 700;
   letter-spacing: 0.6px;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.25s ease;
   box-sizing: border-box;
+  white-space: nowrap;
 }
 
 .card-action-btn.btn-map {
@@ -5207,7 +5240,7 @@ body.lang-hindi .card-action-btn {
    ========================================================================== */
 @media (max-width: 768px) {
   .royal-events-section {
-    padding: clamp(10px, 1.8vh, 18px) clamp(8px, 2vw, 14px) clamp(30px, 4vh, 50px);
+    padding: clamp(10px, 1.8vh, 18px) clamp(8px, 2vw, 14px) 90px;
     justify-content: flex-start;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -5266,37 +5299,48 @@ body.lang-hindi .card-action-btn {
   }
 
   .event-card-media-banner {
-    height: clamp(165px, 25vh, 220px);
+    height: auto;
+    aspect-ratio: 16 / 10;
+    max-height: 280px;
     margin-bottom: 12px;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.75);
+  }
+
+  .theme-haldi .event-card-media-banner {
+    aspect-ratio: 16 / 9;
+    max-height: 260px;
+  }
+
+  .theme-sangeet .event-card-media-banner {
+    aspect-ratio: 16 / 9;
+    max-height: 260px;
   }
 
   .event-card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 22%;
   }
 
   .theme-haldi .event-card-img {
-    object-position: center 20%;
+    object-position: center center;
   }
 
   .theme-mehendi .event-card-img {
-    object-position: center 25%;
+    object-position: center 30%;
   }
 
   .theme-sangeet .event-card-img {
-    object-position: center 15%;
+    object-position: center center;
   }
 
   .theme-barat .event-card-img {
-    object-position: center 22%;
+    object-position: center 35%;
   }
 
   .theme-reception .event-card-img {
-    object-position: center 28%;
+    object-position: center 30%;
   }
 
   .event-card-media-banner .event-card-badge {
