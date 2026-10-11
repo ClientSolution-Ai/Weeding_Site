@@ -710,11 +710,6 @@ function initRoyalDoorsTransition() {
     setTimeout(() => {
       doorsScreen.classList.add("opened");
       doorsScreen.style.display = "none";
-      try {
-        if (window.history && window.history.replaceState) {
-          window.history.replaceState({ screen: "home" }, "", "home.html");
-        }
-      } catch (err) { }
     }, 1300);
   }
 
