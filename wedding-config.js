@@ -14,16 +14,16 @@ const WEDDING_CONFIG = {
     en: {
       btnLabel: "अ",
       btnTitle: "हिंदी में देखें / View in Hindi",
-      scrollHint: "Scroll to Unveil",
+      scrollHint: "SCROLL",
       bride: {
         name: "Muskan",
         kinship: "Daughter of",
-        parents: "Smt. Annu Prasad & Shri Uday Shankar Prasad"
+        parents: "Mrs. Annu Prasad & Mr. Uday Shankar Prasad"
       },
       groom: {
         name: "Krishna",
         kinship: "Son of",
-        parents: "Smt. Kalyani Bid & Shri Sukumar Bid"
+        parents: "Mrs. Kalyani Bid & Mr. Sukumar Bid"
       },
 
       countdown: {
@@ -96,7 +96,7 @@ const WEDDING_CONFIG = {
           ancestorLabel: "With the pious blessings of",
           ancestors: "Late Kamini Devi & Late Sheo Nandan Prasad",
           parentsLabel: "PARENTS",
-          parents: "Smt. Annu Prasad & Shri Uday Shankar Prasad"
+          parents: "Mrs. Annu Prasad & Mr. Uday Shankar Prasad"
         },
         gratitudeLabel: "दर्शनाभिलाषी:",
         gratitudeVal: "Entire Prasad Family"
@@ -107,7 +107,7 @@ const WEDDING_CONFIG = {
     hi: {
       btnLabel: "EN",
       btnTitle: "View in English / अंग्रेजी में देखें",
-      scrollHint: "दर्शन हेतु स्क्रॉल करें",
+      scrollHint: "स्क्रॉल करें",
       bride: {
         name: "कुमारी मुस्कान",
         kinship: "सुपुत्री",
@@ -204,8 +204,8 @@ const WEDDING_CONFIG = {
       lastName: "Kumar",
       fullName: "Krishna Kumar",
       title: " Groom",
-      parents: "Son of Smt. Kalyani Bid & Shri Sukumar Bid",
-      grandparents: "Grandson of Late Smt. Kamala & Late Shri Govind Singhania",
+      parents: "Son of Mrs. Kalyani Bid & Mr. Sukumar Bid",
+      grandparents: "Grandson of Late Mrs. Kamala & Late Mr. Govind Singhania",
       bio: "An architect with a passion for heritage design and classical music, Krishna brings warmth, creativity, and steadfast love to every moment.",
       photo: "assets/images/groom_portrait.jpg",
       instagram: "krishna_singhania"
@@ -215,7 +215,7 @@ const WEDDING_CONFIG = {
       lastName: "Muskan",
       fullName: "Muskan Kapoor",
       title: " Bride",
-      parents: "Daughter of Smt. ANNU PRASAD & Shri UDAY SHANKAR PRASAD ",
+      parents: "Daughter of Mrs. ANNU PRASAD & Mr. UDAY SHANKAR PRASAD ",
       grandparents: "Granddaughter of LATE KAMINI DEVI & Late SHEO NANDAN PRASAD",
       bio: "An artistic soul and classical dancer with a radiant smile, Muskan turns every ordinary day into an extraordinary celebration of joy and grace.",
       photo: "assets/images/bride_portrait.jpg",
@@ -443,16 +443,16 @@ const WEDDING_CONFIG = {
     groomSide: {
       familyName: "The Singhania Family",
       title: "Groom's Family",
-      elders: "With the loving blessings of Late Smt. Kamala & Late Shri Govind Singhania",
-      parents: "Smt. Kalyani Bid & Shri Sukumar Bid",
+      elders: "With the loving blessings of Late Mrs. Kamala & Late Mr. Govind Singhania",
+      parents: "Mrs. Kalyani Bid & Mr. Sukumar Bid",
       siblings: "Rohan & Meera Singhania (Brother & Sister-in-law)",
       relatives: "All near and dear members of the Singhania & Verma families"
     },
     brideSide: {
       familyName: "The Kapoor Family",
       title: "Bride's Family",
-      elders: "With the pious blessings of Smt. Shakuntala & Late Shri Harish Kapoor",
-      parents: "Smt. Vandana & Shri Mahendra Kapoor",
+      elders: "With the pious blessings of Mrs. Shakuntala & Late Mr. Harish Kapoor",
+      parents: "Mrs. Vandana & Mr. Mahendra Kapoor",
       siblings: "Kabir Kapoor (Brother)",
       relatives: "All near and dear members of the Kapoor & Malhotra families"
     },

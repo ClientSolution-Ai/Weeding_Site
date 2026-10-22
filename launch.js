@@ -94,8 +94,8 @@ function initHomeScrollStory() {
 
   if (scrollHint) {
     scrollHint.addEventListener("click", () => {
-      accumulatedScroll = maxScroll;
-      targetProgress = 1;
+      accumulatedScroll = Math.min(maxScroll, accumulatedScroll + 350);
+      targetProgress = accumulatedScroll / maxScroll;
     });
   }
 
@@ -108,6 +108,19 @@ function initHomeScrollStory() {
   function renderFrame() {
     currentProgress += (targetProgress - currentProgress) * 0.12;
     const isMobile = window.innerWidth <= 768;
+
+    // Scroll Hint Fade Out as User Scrolls (visible on entrance, smoothly dissolves)
+    if (scrollHint) {
+      const hintOpacity = currentProgress <= 0.02
+        ? 1
+        : currentProgress >= 0.10
+          ? 0
+          : mapRange(currentProgress, 0.02, 0.10, 1, 0);
+      scrollHint.style.opacity = hintOpacity.toFixed(3);
+      scrollHint.style.pointerEvents = hintOpacity < 0.05 ? "none" : "auto";
+      scrollHint.style.visibility = hintOpacity <= 0 ? "hidden" : "visible";
+      scrollHint.style.transform = `translateX(-50%) translateY(${(mapRange(currentProgress, 0, 0.10, 0, 15)).toFixed(1)}px)`;
+    }
 
     // 1. Background Blur & Vignette (0.04 to 0.25)
     const blurPx = mapRange(currentProgress, 0.04, 0.25, 0, 4.5);
@@ -153,26 +166,26 @@ function initHomeScrollStory() {
         ganpatiSection.style.transform = `translateX(${ganpatiTranslateX.toFixed(1)}px) scale(${ganpatiScale.toFixed(3)})`;
       }
 
-      // Groom Details Reveal (0.18 to 0.38)
-      let groomOpacity = mapRange(currentProgress, 0.18, 0.38, 0, 1) * unionStageOpacity;
-      const groomTranslateY = mapRange(currentProgress, 0.18, 0.38, -25, 0);
-      groomSection.style.opacity = groomOpacity.toFixed(3);
-      groomSection.style.filter = "none";
-      groomSection.style.transform = `translateY(${groomTranslateY.toFixed(1)}px)`;
-
-      // Bride Details Reveal (0.30 to 0.48)
-      let brideOpacity = mapRange(currentProgress, 0.30, 0.48, 0, 1) * unionStageOpacity;
-      const brideTranslateY = mapRange(currentProgress, 0.30, 0.48, 25, 0);
+      // Bride Details Reveal (0.18 to 0.34)
+      let brideOpacity = mapRange(currentProgress, 0.18, 0.34, 0, 1) * unionStageOpacity;
+      const brideTranslateY = mapRange(currentProgress, 0.18, 0.34, -20, 0);
       brideSection.style.opacity = brideOpacity.toFixed(3);
       brideSection.style.filter = "none";
       brideSection.style.transform = `translateY(${brideTranslateY.toFixed(1)}px)`;
 
-      // Sacred Knot home_center.png Bloom (0.42 to 0.60)
-      let knotOpacity = mapRange(currentProgress, 0.42, 0.60, 0, 1) * unionStageOpacity;
-      const knotScale = mapRange(currentProgress, 0.42, 0.60, 0.85, 1.0) * unionStageScale;
+      // Sacred Monogram Crest Bloom (0.28 to 0.44)
+      let knotOpacity = mapRange(currentProgress, 0.28, 0.44, 0, 1) * unionStageOpacity;
+      const knotScale = mapRange(currentProgress, 0.28, 0.44, 0.82, 1.0) * unionStageScale;
       knotWrapper.style.opacity = knotOpacity.toFixed(3);
       knotWrapper.style.filter = "none";
       knotWrapper.style.transform = `scale(${knotScale.toFixed(3)})`;
+
+      // Groom Details Reveal (0.38 to 0.52)
+      let groomOpacity = mapRange(currentProgress, 0.38, 0.52, 0, 1) * unionStageOpacity;
+      const groomTranslateY = mapRange(currentProgress, 0.38, 0.52, 20, 0);
+      groomSection.style.opacity = groomOpacity.toFixed(3);
+      groomSection.style.filter = "none";
+      groomSection.style.transform = `translateY(${groomTranslateY.toFixed(1)}px)`;
 
       if (sacredRight) {
         sacredRight.style.opacity = unionStageOpacity.toFixed(3);
@@ -220,112 +233,160 @@ function initHomeScrollStory() {
 
     } else {
       /* ================================================================
-         MOBILE DEVICE PROGRESSION:
-         0.06 - 0.20: Groom & Bride reveal
-         0.15 - 0.30: Knot bloom & Ganpati reveal
-         0.32 - 0.48: Groom, Bride, Knot fade out gracefully; Ganpati moves to center and glows
-         0.48 - 0.62: Countdown timer reveals below Ganpati
-         0.64 - 0.76: Ganpati & Countdown dissolve gracefully to 0
-         0.76 - 0.92: Royal Events Section unrolls cleanly with ZERO overlap!
+         MOBILE DEVICE STORYTELLING PROGRESSION:
+         1. 0.04 - 0.28: FIRST Ganesh ji animation appears in center
+         2. 0.28 - 0.56: THEN Bride and Groom names come one by one
+            - 0.28 - 0.38: Bride details reveal (Kumari Muskan, Daughter of...)
+            - 0.34 - 0.46: Royal Wedding Monogram Crest blooms in center
+            - 0.42 - 0.54: Groom details reveal (Krishna Kumar, Son of...)
+         3. 0.56 - 0.78: AFTER THAT, the SAME Ganesh ji animation comes to move forward!
+            - 0.56 - 0.70: Ganesh ji steps forward prominently into the center stage
+            - 0.64 - 0.76: Countdown timer appears below Ganesh ji
+         4. 0.76 - 0.94: Ganesh ji & Countdown fade out -> Royal Events unrolls cleanly!
          ================================================================ */
-      // 1. Groom details
-      let groomOpacity = mapRange(currentProgress, 0.06, 0.20, 0, 1);
-      if (currentProgress > 0.32) {
-        groomOpacity = mapRange(currentProgress, 0.32, 0.48, 1, 0);
-      }
-      const groomTranslateY = currentProgress <= 0.32
-        ? mapRange(currentProgress, 0.06, 0.20, -15, 0)
-        : mapRange(currentProgress, 0.32, 0.48, 0, 20);
-      groomSection.style.opacity = groomOpacity.toFixed(3);
-      groomSection.style.filter = "none";
-      groomSection.style.transform = `translateY(${groomTranslateY.toFixed(1)}px)`;
 
-      // 2. Bride details
-      let brideOpacity = mapRange(currentProgress, 0.08, 0.22, 0, 1);
-      if (currentProgress > 0.32) {
-        brideOpacity = mapRange(currentProgress, 0.32, 0.48, 1, 0);
+      // 1. Ganesh ji animation (Stage 1: First appearance, Stage 3: Moves forward)
+      if (ganpatiSection) {
+        let ganpOpacity = 0;
+        let ganpScale = 1.0;
+        let ganpTranslateY = 0;
+        let ganpFilter = "none";
+
+        if (currentProgress < 0.04) {
+          ganpOpacity = 0;
+          ganpScale = 0.88;
+          ganpTranslateY = 20;
+        } else if (currentProgress <= 0.16) {
+          // Fade in and float up gracefully
+          ganpOpacity = mapRange(currentProgress, 0.04, 0.16, 0, 1);
+          ganpScale = mapRange(currentProgress, 0.04, 0.16, 0.88, 1.04);
+          ganpTranslateY = mapRange(currentProgress, 0.04, 0.16, 20, 0);
+          ganpFilter = "drop-shadow(0 14px 35px rgba(0,0,0,0.95)) drop-shadow(0 0 24px rgba(249, 228, 150, 0.4))";
+        } else if (currentProgress <= 0.24) {
+          // Prominent in center, blessing the viewer
+          ganpOpacity = 1;
+          ganpScale = 1.04;
+          ganpTranslateY = 0;
+          ganpFilter = "drop-shadow(0 14px 35px rgba(0,0,0,0.95)) drop-shadow(0 0 28px rgba(249, 228, 150, 0.5))";
+        } else if (currentProgress <= 0.32) {
+          // Gently dissolves to make way for Bride & Groom names
+          ganpOpacity = mapRange(currentProgress, 0.24, 0.32, 1, 0);
+          ganpScale = mapRange(currentProgress, 0.24, 0.32, 1.04, 0.92);
+          ganpTranslateY = mapRange(currentProgress, 0.24, 0.32, 0, -20);
+        } else if (currentProgress < 0.56) {
+          // Hidden while Bride & Groom names are shown
+          ganpOpacity = 0;
+          ganpScale = 0.92;
+        } else if (currentProgress <= 0.68) {
+          // Same Ganesh ji comes forward ("moves forward" - scaling up with mushak & divine aura)
+          ganpOpacity = mapRange(currentProgress, 0.56, 0.65, 0, 1);
+          ganpScale = mapRange(currentProgress, 0.56, 0.70, 0.95, 1.25);
+          ganpTranslateY = mapRange(currentProgress, 0.56, 0.70, 20, -10);
+          const glowIntensity = mapRange(currentProgress, 0.58, 0.68, 0.4, 0.85);
+          ganpFilter = `drop-shadow(0 18px 40px rgba(0,0,0,0.98)) drop-shadow(0 0 35px rgba(249, 228, 150, ${glowIntensity.toFixed(2)}))`;
+        } else if (currentProgress <= 0.76) {
+          // Blesses the countdown timer, then dissolves
+          ganpOpacity = mapRange(currentProgress, 0.70, 0.78, 1, 0);
+          ganpScale = 1.25;
+          ganpTranslateY = -10;
+          ganpFilter = "drop-shadow(0 18px 40px rgba(0,0,0,0.98)) drop-shadow(0 0 30px rgba(249, 228, 150, 0.6))";
+        } else {
+          ganpOpacity = 0;
+        }
+
+        ganpatiSection.style.opacity = ganpOpacity.toFixed(3);
+        ganpatiSection.style.transform = `translateY(${ganpTranslateY.toFixed(1)}px) scale(${ganpScale.toFixed(3)})`;
+        ganpatiSection.style.pointerEvents = ganpOpacity > 0.4 ? "auto" : "none";
+        ganpatiSection.style.filter = ganpFilter;
       }
-      const brideTranslateY = currentProgress <= 0.32
-        ? mapRange(currentProgress, 0.08, 0.22, 15, 0)
-        : mapRange(currentProgress, 0.32, 0.48, 0, 25);
+
+      // Stage 2: Bride and Groom names come one by one (0.26 - 0.58)
+      let namesGroupOpacity = 0;
+      if (currentProgress < 0.26) {
+        namesGroupOpacity = 0;
+      } else if (currentProgress <= 0.52) {
+        namesGroupOpacity = 1;
+      } else if (currentProgress <= 0.60) {
+        namesGroupOpacity = mapRange(currentProgress, 0.52, 0.60, 1, 0);
+      } else {
+        namesGroupOpacity = 0;
+      }
+
+      if (sacredRight) {
+        sacredRight.style.opacity = namesGroupOpacity.toFixed(3);
+        sacredRight.style.pointerEvents = namesGroupOpacity > 0.4 ? "auto" : "none";
+      }
+
+      // 1. Bride details reveal first
+      let brideOpacity = 0;
+      let brideTranslateY = 0;
+      if (currentProgress >= 0.26) {
+        brideOpacity = mapRange(currentProgress, 0.26, 0.36, 0, 1) * namesGroupOpacity;
+        brideTranslateY = mapRange(currentProgress, 0.26, 0.36, -18, 0);
+      }
       brideSection.style.opacity = brideOpacity.toFixed(3);
       brideSection.style.filter = "none";
       brideSection.style.transform = `translateY(${brideTranslateY.toFixed(1)}px)`;
 
-      // 3. Sacred knot
-      let knotOpacity = mapRange(currentProgress, 0.15, 0.30, 0, 1);
-      let knotScale = mapRange(currentProgress, 0.15, 0.30, 0.88, 1.0);
-      if (currentProgress > 0.32) {
-        knotOpacity = mapRange(currentProgress, 0.32, 0.48, 1, 0);
-        knotScale = mapRange(currentProgress, 0.32, 0.48, 1.0, 0.88);
+      // 2. Royal Crest blooms in center
+      let knotOpacity = 0;
+      let knotScale = 0.85;
+      if (currentProgress >= 0.32) {
+        knotOpacity = mapRange(currentProgress, 0.32, 0.44, 0, 1) * namesGroupOpacity;
+        knotScale = mapRange(currentProgress, 0.32, 0.44, 0.82, 1.0);
       }
       knotWrapper.style.opacity = knotOpacity.toFixed(3);
       knotWrapper.style.filter = "none";
       knotWrapper.style.transform = `scale(${knotScale.toFixed(3)})`;
 
-      // 4. Ganpati: Initial fade-in (0.06 - 0.20), expands to majestic center (0.32 - 0.52), fades out (0.64 - 0.76)
-      if (ganpatiSection) {
-        let ganpatiOpacity = mapRange(currentProgress, 0.06, 0.20, 0, 1);
-        let ganpatiScale = mapRange(currentProgress, 0.06, 0.20, 0.92, 1.0);
-        let ganpatiTranslateY = mapRange(currentProgress, 0.06, 0.20, -15, 0);
-
-        if (currentProgress > 0.32 && currentProgress <= 0.64) {
-          const growScale = mapRange(currentProgress, 0.32, 0.52, 1.0, 1.75);
-          const centerShiftY = mapRange(currentProgress, 0.32, 0.52, 0, window.innerHeight * 0.17);
-          ganpatiScale = growScale;
-          ganpatiTranslateY = centerShiftY;
-          ganpatiOpacity = 1;
-        } else if (currentProgress > 0.64) {
-          ganpatiOpacity = mapRange(currentProgress, 0.64, 0.76, 1, 0);
-          ganpatiScale = 1.75;
-          ganpatiTranslateY = window.innerHeight * 0.17;
-        }
-
-        ganpatiSection.style.opacity = ganpatiOpacity.toFixed(3);
-        ganpatiSection.style.transform = `translateY(${ganpatiTranslateY.toFixed(1)}px) scale(${ganpatiScale.toFixed(3)})`;
-        ganpatiSection.style.pointerEvents = ganpatiOpacity < 0.05 ? "none" : "auto";
-        ganpatiSection.style.filter = (currentProgress > 0.36 && currentProgress <= 0.64)
-          ? `drop-shadow(0 15px 35px rgba(0,0,0,0.9)) drop-shadow(0 0 35px rgba(249, 228, 150, ${mapRange(currentProgress, 0.36, 0.52, 0.35, 0.8).toFixed(2)}))`
-          : "none";
+      // 3. Groom details reveal next
+      let groomOpacity = 0;
+      let groomTranslateY = 0;
+      if (currentProgress >= 0.38) {
+        groomOpacity = mapRange(currentProgress, 0.38, 0.48, 0, 1) * namesGroupOpacity;
+        groomTranslateY = mapRange(currentProgress, 0.38, 0.48, 18, 0);
       }
+      groomSection.style.opacity = groomOpacity.toFixed(3);
+      groomSection.style.filter = "none";
+      groomSection.style.transform = `translateY(${groomTranslateY.toFixed(1)}px)`;
 
-      // Container visibility
+      // Mobile Container Overall Visibility
       if (homeContainer) {
-        const mobContainerOpacity = currentProgress <= 0.64
+        const mobContainerOpacity = currentProgress <= 0.74
           ? 1
-          : mapRange(currentProgress, 0.64, 0.76, 1, 0);
+          : mapRange(currentProgress, 0.74, 0.82, 1, 0);
         homeContainer.style.opacity = mobContainerOpacity.toFixed(3);
         homeContainer.style.pointerEvents = mobContainerOpacity < 0.05 ? "none" : "auto";
-        homeContainer.style.visibility = currentProgress >= 0.76 ? "hidden" : "visible";
+        homeContainer.style.visibility = currentProgress >= 0.82 ? "hidden" : "visible";
       }
 
-      // 5. Countdown Timer on Mobile (0.48 - 0.62 prominent, fades out 0.64 - 0.76)
+      // Stage 3 & 4: Countdown Timer on Mobile (0.62 - 0.78, below the forward-moving Ganesh ji)
       if (countdownBanner) {
         let cdOpacity = 0;
-        if (currentProgress < 0.48) {
+        if (currentProgress < 0.60) {
           cdOpacity = 0;
-        } else if (currentProgress <= 0.64) {
-          cdOpacity = mapRange(currentProgress, 0.48, 0.62, 0, 1);
+        } else if (currentProgress <= 0.74) {
+          cdOpacity = mapRange(currentProgress, 0.60, 0.68, 0, 1);
         } else {
-          cdOpacity = mapRange(currentProgress, 0.64, 0.76, 1, 0);
+          cdOpacity = mapRange(currentProgress, 0.74, 0.82, 1, 0);
         }
-        const cdTranslateY = mapRange(currentProgress, 0.48, 0.62, 16, 0);
+        const cdTranslateY = mapRange(currentProgress, 0.60, 0.68, 16, 0);
         countdownBanner.style.opacity = cdOpacity.toFixed(3);
         countdownBanner.style.transform = `translateX(-50%) translateY(${cdTranslateY.toFixed(1)}px)`;
         countdownBanner.style.pointerEvents = cdOpacity > 0.5 ? "auto" : "none";
         countdownBanner.style.visibility = cdOpacity <= 0 ? "hidden" : "visible";
       }
 
-      // 6. ROYAL EVENTS SECTION ON MOBILE (0.76 to 0.94)
+      // Stage 5: ROYAL EVENTS SECTION ON MOBILE (0.78 to 0.94)
       if (eventsSection) {
-        if (currentProgress < 0.74) {
+        if (currentProgress < 0.76) {
           eventsSection.style.opacity = "0";
           eventsSection.style.visibility = "hidden";
           eventsSection.style.pointerEvents = "none";
           eventsSection.classList.remove("visible");
         } else {
-          const evOpacity = mapRange(currentProgress, 0.74, 0.92, 0, 1);
-          const evTranslateY = mapRange(currentProgress, 0.74, 0.92, 35, 0);
+          const evOpacity = mapRange(currentProgress, 0.76, 0.92, 0, 1);
+          const evTranslateY = mapRange(currentProgress, 0.76, 0.92, 35, 0);
           eventsSection.style.opacity = evOpacity.toFixed(3);
           eventsSection.style.transform = `translateY(${evTranslateY.toFixed(1)}px)`;
           eventsSection.style.visibility = "visible";
@@ -722,6 +783,14 @@ function initRoyalDoorsTransition() {
     });
   }
 
+  const tapBtn = document.getElementById("tap-to-open-doors-btn");
+  if (tapBtn) {
+    tapBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      handleOpenDoors(e);
+    });
+  }
+
   doorsScreen.addEventListener("click", (e) => {
     // Prevent triggering if clicked on music or lang button
     if (e.target.closest("#floating-music-btn") || e.target.closest("#floating-lang-btn")) return;
@@ -747,16 +816,16 @@ function initHomeLanguageSystem() {
     return {
       btnLabel: lang === "en" ? "अ" : "EN",
       btnTitle: lang === "en" ? "हिंदी में देखें / View in Hindi" : "View in English / अंग्रेजी में देखें",
-      scrollHint: lang === "en" ? "Scroll to Unveil" : "दर्शन हेतु स्क्रॉल करें",
+      scrollHint: lang === "en" ? "SCROLL" : "स्क्रॉल करें",
       bride: {
         name: lang === "en" ? "Kumari Muskan" : "कुमारी मुस्कान",
         kinship: lang === "en" ? "Daughter of" : "सुपुत्री",
-        parents: lang === "en" ? "Smt. Annu Prasad & Shri Uday Shankar Prasad" : "श्रीमती अन्नू प्रसाद एवं श्री उदय शंकर प्रसाद"
+        parents: lang === "en" ? "Mrs. Annu Prasad & Mr. Uday Shankar Prasad" : "श्रीमती अन्नू प्रसाद एवं श्री उदय शंकर प्रसाद"
       },
       groom: {
         name: lang === "en" ? "Krishna Kumar" : "कृष्ण कुमार",
         kinship: lang === "en" ? "Son of" : "सुपुत्र",
-        parents: lang === "en" ? "Smt. Kalyani Bid & Shri Sukumar Bid" : "श्रीमती सुनीता एवं श्री राजेन्द्र सिंघानिया"
+        parents: lang === "en" ? "Mrs. Kalyani Bid & Mr. Sukumar Bid" : "श्रीमती सुनीता एवं श्री राजेन्द्र सिंघानिया"
       },
 
       countdown: {
@@ -811,6 +880,11 @@ function initHomeLanguageSystem() {
     if (cdHoursEl && t.countdown) cdHoursEl.textContent = t.countdown.hours;
     if (cdMinsEl && t.countdown) cdMinsEl.textContent = t.countdown.mins;
     if (cdSecsEl && t.countdown) cdSecsEl.textContent = t.countdown.secs;
+
+    const tapBtnText = document.getElementById("tap-to-open-text");
+    if (tapBtnText) {
+      tapBtnText.textContent = lang === "hi" ? "द्वार खोलें" : "TAP TO OPEN";
+    }
 
     // Update Royal Events Section Text Dynamically
     if (t.eventsSection) {
