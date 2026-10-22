@@ -34,6 +34,7 @@ function initHomeScrollStory() {
   const brideSection = document.querySelector(".bride-details-bottom");
   const knotWrapper = document.querySelector(".home-center-wrapper");
   const scrollHint = document.getElementById("scroll-unveil-hint");
+  const mobileCoupleStage = document.getElementById("mobile-fullscreen-couple-stage");
   const countdownBanner = document.getElementById("home-countdown-banner");
   const eventsSection = document.getElementById("royal-events-section");
 
@@ -156,6 +157,11 @@ function initHomeScrollStory() {
         homeContainer.style.visibility = currentProgress >= 0.78 ? "hidden" : "visible";
       }
 
+      if (mobileCoupleStage) {
+        mobileCoupleStage.style.opacity = "0";
+        mobileCoupleStage.style.visibility = "hidden";
+      }
+
       // Ganpati Image Reveal (0.06 to 0.25)
       if (ganpatiSection) {
         let ganpatiOpacity = mapRange(currentProgress, 0.06, 0.25, 0, 1) * unionStageOpacity;
@@ -234,51 +240,58 @@ function initHomeScrollStory() {
     } else {
       /* ================================================================
          MOBILE DEVICE STORYTELLING PROGRESSION:
-         1. 0.04 - 0.28: FIRST Ganesh ji animation appears in center
+         1. 0.04 - 0.28: Full Mobile Screen Couple Photo (1000205305.jpg)
+            - 0.04 - 0.16: Fades in to full mobile screen view
+            - 0.16 - 0.25: Stays prominent full screen
+            - 0.25 - 0.35: Dissolves smoothly as Bride & Groom names appear
          2. 0.28 - 0.56: THEN Bride and Groom names come one by one
             - 0.28 - 0.38: Bride details reveal (Kumari Muskan, Daughter of...)
             - 0.34 - 0.46: Royal Wedding Monogram Crest blooms in center
             - 0.42 - 0.54: Groom details reveal (Krishna Kumar, Son of...)
-         3. 0.56 - 0.78: AFTER THAT, the SAME Ganesh ji animation comes to move forward!
+         3. 0.56 - 0.78: AFTER THAT, the SAME Lord Ganesh ji comes forward!
             - 0.56 - 0.70: Ganesh ji steps forward prominently into the center stage
-            - 0.64 - 0.76: Countdown timer appears below Ganesh ji
+            - 0.62 - 0.76: Countdown timer appears below Ganesh ji
          4. 0.76 - 0.94: Ganesh ji & Countdown fade out -> Royal Events unrolls cleanly!
          ================================================================ */
 
-      // 1. Ganesh ji animation (Stage 1: First appearance, Stage 3: Moves forward)
+      // 1. Fullscreen Mobile Couple Photo Stage (Before Bride & Groom names)
+      if (mobileCoupleStage) {
+        let coupleOpacity = 0;
+        let coupleScale = 1.0;
+        if (currentProgress < 0.04) {
+          coupleOpacity = 0;
+          coupleScale = 1.03;
+        } else if (currentProgress <= 0.15) {
+          coupleOpacity = mapRange(currentProgress, 0.04, 0.15, 0, 1);
+          coupleScale = mapRange(currentProgress, 0.04, 0.15, 1.03, 1.0);
+        } else if (currentProgress <= 0.25) {
+          coupleOpacity = 1;
+          coupleScale = 1.0;
+        } else if (currentProgress <= 0.35) {
+          coupleOpacity = mapRange(currentProgress, 0.25, 0.35, 1, 0);
+          coupleScale = mapRange(currentProgress, 0.25, 0.35, 1.0, 0.97);
+        } else {
+          coupleOpacity = 0;
+          coupleScale = 0.97;
+        }
+        mobileCoupleStage.style.opacity = coupleOpacity.toFixed(3);
+        mobileCoupleStage.style.transform = `scale(${coupleScale.toFixed(3)})`;
+        mobileCoupleStage.style.visibility = coupleOpacity <= 0 ? "hidden" : "visible";
+      }
+
+      // 2. Lord Ganesh ji animation on Mobile (AFTER Bride and Groom names: 0.56 - 0.78)
       if (ganpatiSection) {
         let ganpOpacity = 0;
         let ganpScale = 1.0;
         let ganpTranslateY = 0;
         let ganpFilter = "none";
 
-        if (currentProgress < 0.04) {
-          ganpOpacity = 0;
-          ganpScale = 0.88;
-          ganpTranslateY = 20;
-        } else if (currentProgress <= 0.16) {
-          // Fade in and float up gracefully
-          ganpOpacity = mapRange(currentProgress, 0.04, 0.16, 0, 1);
-          ganpScale = mapRange(currentProgress, 0.04, 0.16, 0.88, 1.04);
-          ganpTranslateY = mapRange(currentProgress, 0.04, 0.16, 20, 0);
-          ganpFilter = "drop-shadow(0 14px 35px rgba(0,0,0,0.95)) drop-shadow(0 0 24px rgba(249, 228, 150, 0.4))";
-        } else if (currentProgress <= 0.24) {
-          // Prominent in center, blessing the viewer
-          ganpOpacity = 1;
-          ganpScale = 1.04;
-          ganpTranslateY = 0;
-          ganpFilter = "drop-shadow(0 14px 35px rgba(0,0,0,0.95)) drop-shadow(0 0 28px rgba(249, 228, 150, 0.5))";
-        } else if (currentProgress <= 0.32) {
-          // Gently dissolves to make way for Bride & Groom names
-          ganpOpacity = mapRange(currentProgress, 0.24, 0.32, 1, 0);
-          ganpScale = mapRange(currentProgress, 0.24, 0.32, 1.04, 0.92);
-          ganpTranslateY = mapRange(currentProgress, 0.24, 0.32, 0, -20);
-        } else if (currentProgress < 0.56) {
-          // Hidden while Bride & Groom names are shown
+        if (currentProgress < 0.56) {
+          // Hidden before and during Bride & Groom names
           ganpOpacity = 0;
           ganpScale = 0.92;
         } else if (currentProgress <= 0.68) {
-          // Same Ganesh ji comes forward ("moves forward" - scaling up with mushak & divine aura)
+          // Ganesh ji comes forward ("moves forward" - scaling up with mushak & divine aura)
           ganpOpacity = mapRange(currentProgress, 0.56, 0.65, 0, 1);
           ganpScale = mapRange(currentProgress, 0.56, 0.70, 0.95, 1.25);
           ganpTranslateY = mapRange(currentProgress, 0.56, 0.70, 20, -10);
